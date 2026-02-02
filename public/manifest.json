@@ -1,0 +1,17 @@
+{
+    "name": "NM Solutions Onboarding",
+    "short_name": "NMS Onboarding",
+    "description": "Premium Project Discovery Form by NM Solutions",
+    "start_url": "/onboarding",
+    "display": "standalone",
+    "background_color": "#0e1628",
+    "theme_color": "#c29f52",
+    "icons": [
+        {
+            "src": "/logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ]
+}
