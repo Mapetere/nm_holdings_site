@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import connectDB from '@/lib/mongodb';
+import ClientApplication from '@/models/ClientApplication';
 
 // Configure Nodemailer transporter once outside the handler to reuse the connection pool
 const transporter = nodemailer.createTransport({
@@ -15,17 +17,37 @@ export async function POST(req: NextRequest) {
         const data = await req.json();
         const { fullName, businessName, email, description, problem, timeline, whyFounding } = data;
 
-        // Verify required fields
+        // 1. Verify required fields
         if (!fullName || !businessName || !email || !description || !timeline) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
-        // Basic email validation
+        // 2. Basic email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
         }
 
+        // 3. Save to MongoDB
+        try {
+            await connectDB();
+            await ClientApplication.create({
+                fullName,
+                businessName,
+                email,
+                description,
+                problem,
+                timeline,
+                whyFounding
+            });
+            console.log('Application saved to MongoDB successfully');
+        } catch (dbError) {
+            console.error('Database Error:', dbError);
+            // We'll continue with the email even if DB fails, so we don't block the user
+            // but in a production app you might want to handle this differently.
+        }
+
+        // 4. Send Email Notification
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: 'mapeterenyasha@gmail.com',
@@ -56,13 +78,12 @@ export async function POST(req: NextRequest) {
             `,
         };
 
-        // We use await here, but reusing the transporter object significantly speeds up the process.
-        // In Next.js 15+, you could use after() to run this after the response.
+        // Reuse the transporter object significantly speeds up the process.
         await transporter.sendMail(mailOptions);
 
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error('Email Error:', error);
-        return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+        console.error('General Error:', error);
+        return NextResponse.json({ error: 'Failed to process application' }, { status: 500 });
     }
 }
