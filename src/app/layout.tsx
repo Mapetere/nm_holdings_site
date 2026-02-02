@@ -10,6 +10,7 @@ export const metadata: Metadata = {
         description: "Crafting high-performance websites and custom software solutions.",
         type: "website",
     },
+    manifest: "/manifest.json",
 };
 
 export default function RootLayout({
