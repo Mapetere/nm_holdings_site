@@ -83,7 +83,9 @@ export default function Apply() {
                 gridTemplateColumns: 'minmax(300px, 1fr) 1.5fr',
                 gap: '6rem',
                 alignItems: 'start',
-                paddingTop: '4rem'
+                paddingTop: '4rem',
+                position: 'relative',
+                zIndex: 100
             }}>
                 {/* Left Side: Headline & Explanation */}
                 <div style={{ position: 'sticky', top: '4rem' }}>
@@ -119,14 +121,14 @@ export default function Apply() {
                                 <label style={{ fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                     Full Name <span style={{ color: 'var(--gold)' }}>*</span>
                                 </label>
-                                <input name="fullName" placeholder="John Doe" style={errors.fullName ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, fullName: false })} />
+                                <input required name="fullName" placeholder="John Doe" style={errors.fullName ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, fullName: false })} />
                                 {errors.fullName && <span style={{ fontSize: '0.7rem', color: '#e74c3c', fontWeight: '600' }}>This field is required</span>}
                             </div>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                 <label style={{ fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                     Business / Brand Name <span style={{ color: 'var(--gold)' }}>*</span>
                                 </label>
-                                <input name="businessName" placeholder="Brand Inc." style={errors.businessName ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, businessName: false })} />
+                                <input required name="businessName" placeholder="Brand Inc." style={errors.businessName ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, businessName: false })} />
                                 {errors.businessName && <span style={{ fontSize: '0.7rem', color: '#e74c3c', fontWeight: '600' }}>This field is required</span>}
                             </div>
                         </div>
@@ -136,7 +138,7 @@ export default function Apply() {
                             <label style={{ fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                 Email Address <span style={{ color: 'var(--gold)' }}>*</span>
                             </label>
-                            <input name="email" type="email" placeholder="john@example.com" style={errors.email ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, email: false })} />
+                            <input required name="email" type="email" placeholder="john@example.com" style={errors.email ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, email: false })} />
                             {errors.email && <span style={{ fontSize: '0.7rem', color: '#e74c3c', fontWeight: '600' }}>This field is required</span>}
                         </div>
 
@@ -145,7 +147,7 @@ export default function Apply() {
                             <label style={{ fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                 What does your business do? <span style={{ color: 'var(--gold)' }}>*</span>
                             </label>
-                            <textarea name="description" rows={3} placeholder="Briefly describe your brand and mission..." style={errors.description ? { ...inputStyle, resize: 'none', borderColor: '#e74c3c', background: '#fff9f9' } : { ...inputStyle, resize: 'none' }} onChange={() => setErrors({ ...errors, description: false })} />
+                            <textarea required name="description" rows={3} placeholder="Briefly describe your brand and mission..." style={errors.description ? { ...inputStyle, resize: 'none', borderColor: '#e74c3c', background: '#fff9f9' } : { ...inputStyle, resize: 'none' }} onChange={() => setErrors({ ...errors, description: false })} />
                             {errors.description && <span style={{ fontSize: '0.7rem', color: '#e74c3c', fontWeight: '600' }}>This field is required</span>}
                         </div>
 
@@ -162,7 +164,7 @@ export default function Apply() {
                             <label style={{ fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                 Desired start timeline <span style={{ color: 'var(--gold)' }}>*</span>
                             </label>
-                            <select name="timeline" style={errors.timeline ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, timeline: false })}>
+                            <select required name="timeline" style={errors.timeline ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, timeline: false })}>
                                 <option value="">Select a timeline...</option>
                                 <option value="immediately">Immediately</option>
                                 <option value="within_1_month">Within 1 month</option>
