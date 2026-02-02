@@ -2,8 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-    title: "NM Holdings | NMSolutions",
-    description: "Excellence in Web Engineering and Diversified Holdings",
+    title: "NM Solutions | Professional Web Engineering & Software Solutions",
+    description: "We craft high-performance websites and custom software solutions. Currently seeking 7 Founding Clients for exclusive partnership benefits.",
+    keywords: "web development, software solutions, e-commerce, web engineering, custom software, Zimbabwe",
+    openGraph: {
+        title: "NM Solutions | Professional Web Engineering",
+        description: "Crafting high-performance websites and custom software solutions.",
+        type: "website",
+    },
 };
 
 export default function RootLayout({

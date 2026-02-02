@@ -1,0 +1,53 @@
+<svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="premiumGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fceabb" />
+      <stop offset="25%" style="stop-color:#c29f52" />
+      <stop offset="50%" style="stop-color:#fcf6ba" />
+      <stop offset="75%" style="stop-color:#b38520" />
+      <stop offset="100%" style="stop-color:#d4af37" />
+    </linearGradient>
+    <filter id="logoDepthFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" />
+      <feOffset dx="1" dy="2" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#logoDepthFilter)">
+    <!-- THE OUTER BLACK OUTLINE -->
+    <path 
+      d="M20 75 V40 Q20 18 40 18 Q60 18 60 40 V75 M60 40 Q60 18 80 18 Q100 18 100 40 V75" 
+      stroke="#000" 
+      stroke-width="16" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+      fill="none"
+    />
+    
+    <!-- THE GOLD ARCH BODY -->
+    <path 
+      d="M20 75 V40 Q20 18 40 18 Q60 18 60 40 V75 M60 40 Q60 18 80 18 Q100 18 100 40 V75" 
+      stroke="url(#premiumGoldGrad)" 
+      stroke-width="11" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+      fill="none"
+    />
+    
+    <!-- TOP HIGHLIGHT -->
+    <path 
+      d="M22 75 V42 Q22 22 40 22 Q58 22 58 42 M62 42 Q62 22 80 22 Q98 22 98 42 V75" 
+      stroke="rgba(255,255,255,0.4)" 
+      stroke-width="1.5" 
+      stroke-linecap="round" 
+      fill="none"
+    />
+  </g>
+</svg>
