@@ -23,9 +23,29 @@ export default function DiscoveryForm() {
 
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
+    // Persistence
+    useEffect(() => {
+        const saved = localStorage.getItem('nm_discovery_draft');
+        if (saved) {
+            try {
+                setFormData(prev => ({ ...prev, ...JSON.parse(saved) }));
+            } catch (e) {
+                console.error('Failed to load draft');
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('nm_discovery_draft', JSON.stringify(formData));
+    }, [formData]);
+
+    const nextStep = () => setStep(s => Math.min(s + 1, 5));
+    const prevStep = () => setStep(s => Math.max(s - 1, 1));
+
     return (
-        <div className="discovery-form-loading">
-            Initialising Discovery Interface...
+        <div className="discovery-form-ready">
+            Persistence and Navigation Active. Ready for Form UI.
+            <button onClick={nextStep}>Next Step</button>
         </div>
     );
 }
