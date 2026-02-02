@@ -7,6 +7,7 @@ export default function Apply() {
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<Record<string, boolean>>({});
     const [consent, setConsent] = useState(false);
+    const [statusMessage, setStatusMessage] = useState<{ type: 'error' | 'success', text: string } | null>(null);
 
     useEffect(() => {
         console.log("Apply Page Mounted");
@@ -20,11 +21,13 @@ export default function Apply() {
     const handleSubmit = async (e: React.FormEvent) => {
         console.log('--- HANDLE SUBMIT START ---');
         e.preventDefault();
+        setStatusMessage(null);
 
         try {
             if (!consent) {
                 console.log('Validation Error: Consent missing');
                 setErrors(prev => ({ ...prev, consent: true }));
+                setStatusMessage({ type: 'error', text: 'Please accept the consent checkbox to proceed.' });
                 return;
             }
 
@@ -42,13 +45,27 @@ export default function Apply() {
                 }
             });
 
+            // Email validation
+            const emailValue = formData.get('email') as string;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailValue && !emailRegex.test(emailValue)) {
+                console.log('Validation Error: Invalid email format');
+                newErrors['email'] = true;
+                setStatusMessage({ type: 'error', text: 'Please enter a valid email address (e.g., name@example.com).' });
+                setErrors(newErrors);
+                return;
+            }
+
             if (Object.keys(newErrors).length > 0) {
                 setErrors(newErrors);
+                setStatusMessage({ type: 'error', text: 'Please fill in all required fields.' });
                 return;
             }
 
             console.log('Sending API Request...');
             setLoading(true);
+            setStatusMessage({ type: 'success', text: 'Submitting your application...' });
+
             const response = await fetch('/api/apply', {
                 method: 'POST',
                 body: JSON.stringify(Object.fromEntries(formData)),
@@ -56,16 +73,18 @@ export default function Apply() {
             });
 
             console.log('API Response status:', response.status);
+
             if (response.ok) {
                 setSubmitted(true);
             } else {
                 const errData = await response.json().catch(() => ({}));
                 console.error('API Error details:', errData);
-                alert(`Submission failed (${response.status}). Please try again.`);
+                // Still show confirmation but with a note that there may have been an issue
+                setStatusMessage({ type: 'error', text: 'There was an issue sending your application. Please try again or contact us directly.' });
             }
         } catch (error) {
             console.error('Submission Crash:', error);
-            alert('A critical error occurred. Check browser console.');
+            setStatusMessage({ type: 'error', text: 'Connection error. Please check your internet and try again.' });
         } finally {
             setLoading(false);
             console.log('--- HANDLE SUBMIT END ---');
@@ -133,7 +152,7 @@ export default function Apply() {
 
                 {/* Right Side: Structured Application Form */}
                 <div className="glass-card" style={{ padding: '4rem', background: 'var(--cream)', color: 'var(--navy)', borderRadius: '32px' }}>
-                    <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '2rem' }}>
+                    <form onSubmit={handleSubmit} noValidate style={{ display: 'grid', gap: '2rem' }}>
                         {/* Name & Business */}
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -157,8 +176,14 @@ export default function Apply() {
                             <label style={{ fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                 Email Address <span style={{ color: 'var(--gold)' }}>*</span>
                             </label>
-                            <input required name="email" type="email" placeholder="john@example.com" style={errors.email ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, email: false })} />
-                            {errors.email && <span style={{ fontSize: '0.7rem', color: '#e74c3c', fontWeight: '600' }}>This field is required</span>}
+                            <input required name="email" type="email" placeholder="john@example.com" style={errors.email ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={(e) => {
+                                setErrors({ ...errors, email: false });
+                            }} />
+                            {errors.email && (
+                                <span style={{ fontSize: '0.7rem', color: '#e74c3c', fontWeight: '600' }}>
+                                    Please enter a valid email address
+                                </span>
+                            )}
                         </div>
 
                         {/* Description */}
@@ -220,17 +245,38 @@ export default function Apply() {
                             </div>
                         </div>
 
+                        {/* Status Message */}
+                        {statusMessage && (
+                            <div style={{
+                                padding: '1rem',
+                                borderRadius: '12px',
+                                marginBottom: '1rem',
+                                textAlign: 'center',
+                                fontWeight: '600',
+                                fontSize: '0.9rem',
+                                background: statusMessage.type === 'error' ? '#fff5f5' : '#f0fdf4',
+                                color: statusMessage.type === 'error' ? '#e74c3c' : '#16a34a',
+                                border: `1px solid ${statusMessage.type === 'error' ? '#fecaca' : '#bbf7d0'}`
+                            }}>
+                                {statusMessage.text}
+                            </div>
+                        )}
+
                         {/* Submit */}
                         <div style={{ marginTop: '1rem' }}>
                             <button
                                 type="submit"
                                 className="btn-gold"
                                 disabled={loading}
+                                onClick={(e) => {
+                                    console.log('Button onClick fired!', e.target);
+                                }}
                                 style={{
                                     width: '100%',
                                     justifyContent: 'center',
                                     opacity: loading ? 0.7 : 1,
-                                    cursor: loading ? 'not-allowed' : 'pointer'
+                                    cursor: loading ? 'not-allowed' : 'pointer',
+                                    pointerEvents: 'auto'
                                 }}
                             >
                                 {loading ? 'Processing...' : 'Request a Slot'}
@@ -267,17 +313,80 @@ export default function Apply() {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    background: 'rgba(0,0,0,0.8)',
+                    background: 'rgba(5, 8, 16, 0.95)',
+                    backdropFilter: 'blur(8px)',
                     zIndex: 9999,
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--gold)',
-                    fontSize: '2rem',
-                    fontWeight: 'bold',
+                    gap: '2rem',
                     pointerEvents: 'all'
                 }}>
-                    Processing Your Selection...
+                    {/* Animated Logo Container */}
+                    <div style={{
+                        animation: 'pulse 2s ease-in-out infinite',
+                        filter: 'drop-shadow(0 0 30px rgba(194, 159, 82, 0.4))'
+                    }}>
+                        <img
+                            src="/logo.svg"
+                            alt="Loading"
+                            style={{
+                                height: '80px',
+                                width: 'auto'
+                            }}
+                        />
+                    </div>
+
+                    {/* Loading Text */}
+                    <div style={{ textAlign: 'center' }}>
+                        <p style={{
+                            color: 'var(--cream)',
+                            fontSize: '1.4rem',
+                            fontFamily: 'var(--font-serif)',
+                            marginBottom: '0.5rem',
+                            opacity: 0.9
+                        }}>
+                            Wait a bit...
+                        </p>
+                        <p style={{
+                            color: 'var(--gold)',
+                            fontSize: '0.9rem',
+                            letterSpacing: '2px',
+                            textTransform: 'uppercase',
+                            opacity: 0.7
+                        }}>
+                            I'm processing your request
+                        </p>
+                    </div>
+
+                    {/* Loading Bar */}
+                    <div style={{
+                        width: '200px',
+                        height: '2px',
+                        background: 'rgba(194, 159, 82, 0.2)',
+                        borderRadius: '2px',
+                        overflow: 'hidden'
+                    }}>
+                        <div style={{
+                            width: '60%',
+                            height: '100%',
+                            background: 'linear-gradient(90deg, transparent, var(--gold), transparent)',
+                            animation: 'loadingBar 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite'
+                        }} />
+                    </div>
+
+                    <style dangerouslySetInnerHTML={{
+                        __html: `
+                        @keyframes pulse {
+                            0%, 100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 20px rgba(194, 159, 82, 0.3)); }
+                            50% { transform: scale(1.08); opacity: 0.8; filter: drop-shadow(0 0 40px rgba(194, 159, 82, 0.6)); }
+                        }
+                        @keyframes loadingBar {
+                            0% { transform: translateX(-150%); }
+                            100% { transform: translateX(250%); }
+                        }
+                    `}} />
                 </div>
             )}
         </main>
@@ -287,7 +396,9 @@ export default function Apply() {
 const inputStyle = {
     padding: '1rem',
     borderRadius: '12px',
-    border: '1px solid rgba(16, 26, 45, 0.1)',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: 'rgba(16, 26, 45, 0.1)',
     background: '#fff',
     fontSize: '1rem',
     fontFamily: 'inherit',

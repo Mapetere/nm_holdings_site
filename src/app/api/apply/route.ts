@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// Configure Nodemailer transporter once outside the handler to reuse the connection pool
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
+
 export async function POST(req: NextRequest) {
     try {
         const data = await req.json();
@@ -11,15 +20,11 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
-        // Configure Nodemailer
-        // IMPORTANT: User must set EMAIL_USER and EMAIL_PASS in Railway environment variables
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-        });
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
+        }
 
         const mailOptions = {
             from: process.env.EMAIL_USER,
@@ -51,6 +56,8 @@ export async function POST(req: NextRequest) {
             `,
         };
 
+        // We use await here, but reusing the transporter object significantly speeds up the process.
+        // In Next.js 15+, you could use after() to run this after the response.
         await transporter.sendMail(mailOptions);
 
         return NextResponse.json({ success: true });

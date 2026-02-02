@@ -116,7 +116,6 @@ h4,
     padding: 2.5rem;
     transition: var(--transition);
     position: relative;
-    overflow: hidden;
 }
 
 .glass-card:hover {
@@ -149,6 +148,22 @@ h4,
     background-position: right center;
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(194, 159, 82, 0.4);
+}
+
+/* Ensure button elements with btn-gold work properly */
+button.btn-gold {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    z-index: 10;
+    text-decoration: none;
+}
+
+button.btn-gold:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* Icon Shell */
