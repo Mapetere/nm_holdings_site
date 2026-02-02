@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Apply() {
     const [submitted, setSubmitted] = useState(false);
@@ -8,48 +6,67 @@ export default function Apply() {
     const [errors, setErrors] = useState<Record<string, boolean>>({});
     const [consent, setConsent] = useState(false);
 
+    useEffect(() => {
+        console.log("Apply Page Mounted");
+        const handleGlobalClick = (e: MouseEvent) => {
+            console.log("Global Click Detected at:", e.clientX, e.clientY, "Target:", e.target);
+        };
+        document.addEventListener('click', handleGlobalClick);
+        return () => document.removeEventListener('click', handleGlobalClick);
+    }, []);
+
     const handleSubmit = async (e: React.FormEvent) => {
+        console.log('--- HANDLE SUBMIT START ---');
         e.preventDefault();
 
-        if (!consent) {
-            setErrors(prev => ({ ...prev, consent: true }));
-            return;
-        }
-
-        const form = e.target as HTMLFormElement;
-        const formData = new FormData(form);
-
-        const requiredFields = ['fullName', 'businessName', 'email', 'description', 'timeline'];
-        const newErrors: Record<string, boolean> = {};
-
-        requiredFields.forEach(field => {
-            if (!formData.get(field)) {
-                newErrors[field] = true;
-            }
-        });
-
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-            return;
-        }
-
-        setLoading(true);
         try {
+            if (!consent) {
+                console.log('Validation Error: Consent missing');
+                setErrors(prev => ({ ...prev, consent: true }));
+                return;
+            }
+
+            const form = e.target as HTMLFormElement;
+            const formData = new FormData(form);
+            console.log('Form Data entries:', Array.from(formData.entries()));
+
+            const requiredFields = ['fullName', 'businessName', 'email', 'description', 'timeline'];
+            const newErrors: Record<string, boolean> = {};
+
+            requiredFields.forEach(field => {
+                if (!formData.get(field)) {
+                    console.log(`Validation Error: ${field} missing`);
+                    newErrors[field] = true;
+                }
+            });
+
+            if (Object.keys(newErrors).length > 0) {
+                setErrors(newErrors);
+                return;
+            }
+
+            console.log('Sending API Request...');
+            setLoading(true);
             const response = await fetch('/api/apply', {
                 method: 'POST',
                 body: JSON.stringify(Object.fromEntries(formData)),
                 headers: { 'Content-Type': 'application/json' }
             });
 
+            console.log('API Response status:', response.status);
             if (response.ok) {
                 setSubmitted(true);
             } else {
-                alert('Submission failed. Please try again or contact us directly.');
+                const errData = await response.json().catch(() => ({}));
+                console.error('API Error details:', errData);
+                alert(`Submission failed (${response.status}). Please try again.`);
             }
         } catch (error) {
-            alert('An error occurred. Please check your connection and try again.');
+            console.error('Submission Crash:', error);
+            alert('A critical error occurred. Check browser console.');
         } finally {
             setLoading(false);
+            console.log('--- HANDLE SUBMIT END ---');
         }
     };
 
@@ -226,19 +243,41 @@ export default function Apply() {
                 </div>
             </div>
 
-            {/* Mobile layout adjustments (CSS handled in global usually, but inline for precision here) */}
-            <style jsx>{`
+            {/* Mobile layout adjustments */}
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 @media (max-width: 991px) {
                     .container {
-                        grid-template-columns: 1fr;
-                        gap: 4rem;
-                        padding-top: 2rem;
+                        grid-template-columns: 1fr !important;
+                        gap: 4rem !important;
+                        padding-top: 2rem !important;
                     }
                     .glass-card {
                         padding: 2rem !important;
                     }
                 }
-            `}</style>
+            `}} />
+
+            {loading && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'rgba(0,0,0,0.8)',
+                    zIndex: 9999,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--gold)',
+                    fontSize: '2rem',
+                    fontWeight: 'bold',
+                    pointerEvents: 'all'
+                }}>
+                    Processing Your Selection...
+                </div>
+            )}
         </main>
     );
 }
