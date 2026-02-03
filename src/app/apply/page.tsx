@@ -77,12 +77,20 @@ export default function Apply() {
         return (
             <main className="section-navy" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="container" style={{ textAlign: 'center' }}>
-                    <div style={{ marginBottom: '2rem' }}>
+                    <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.2rem' }}>
                         <img
                             src="/nm-solutions-icon.png"
-                            alt="NM Solutions Arch"
-                            style={{ height: '70px', width: 'auto', marginBottom: '1rem' }}
+                            alt="NM Solutions"
+                            style={{ height: '65px', width: 'auto' }}
                         />
+                        <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                            <span className="serif glow" style={{ fontSize: '2.4rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1' }}>
+                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
+                            </span>
+                            <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--gold)', opacity: 0.8 }}>
+                                Digital Engineering
+                            </span>
+                        </div>
                     </div>
                     <h1 className="serif glow" style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>Application Received</h1>
                     <p style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.2rem', color: 'rgba(244, 241, 231, 0.7)' }}>
