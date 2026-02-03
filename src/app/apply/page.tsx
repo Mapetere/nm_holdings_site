@@ -9,23 +9,14 @@ export default function Apply() {
     const [consent, setConsent] = useState(false);
     const [statusMessage, setStatusMessage] = useState<{ type: 'error' | 'success', text: string } | null>(null);
 
-    useEffect(() => {
-        console.log("Apply Page Mounted");
-        const handleGlobalClick = (e: MouseEvent) => {
-            console.log("Global Click Detected at:", e.clientX, e.clientY, "Target:", e.target);
-        };
-        document.addEventListener('click', handleGlobalClick);
-        return () => document.removeEventListener('click', handleGlobalClick);
-    }, []);
+
 
     const handleSubmit = async (e: React.FormEvent) => {
-        console.log('--- HANDLE SUBMIT START ---');
         e.preventDefault();
         setStatusMessage(null);
 
         try {
             if (!consent) {
-                console.log('Validation Error: Consent missing');
                 setErrors(prev => ({ ...prev, consent: true }));
                 setStatusMessage({ type: 'error', text: 'Please accept the consent checkbox to proceed.' });
                 return;
@@ -33,14 +24,12 @@ export default function Apply() {
 
             const form = e.target as HTMLFormElement;
             const formData = new FormData(form);
-            console.log('Form Data entries:', Array.from(formData.entries()));
 
             const requiredFields = ['fullName', 'businessName', 'email', 'description', 'timeline'];
             const newErrors: Record<string, boolean> = {};
 
             requiredFields.forEach(field => {
                 if (!formData.get(field)) {
-                    console.log(`Validation Error: ${field} missing`);
                     newErrors[field] = true;
                 }
             });
@@ -49,7 +38,6 @@ export default function Apply() {
             const emailValue = formData.get('email') as string;
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (emailValue && !emailRegex.test(emailValue)) {
-                console.log('Validation Error: Invalid email format');
                 newErrors['email'] = true;
                 setStatusMessage({ type: 'error', text: 'Please enter a valid email address (e.g., name@example.com).' });
                 setErrors(newErrors);
@@ -62,7 +50,6 @@ export default function Apply() {
                 return;
             }
 
-            console.log('Sending API Request...');
             setLoading(true);
             setStatusMessage({ type: 'success', text: 'Submitting your application...' });
 
@@ -72,22 +59,17 @@ export default function Apply() {
                 headers: { 'Content-Type': 'application/json' }
             });
 
-            console.log('API Response status:', response.status);
-
             if (response.ok) {
                 setSubmitted(true);
             } else {
                 const errData = await response.json().catch(() => ({}));
-                console.error('API Error details:', errData);
                 // Still show confirmation but with a note that there may have been an issue
                 setStatusMessage({ type: 'error', text: 'There was an issue sending your application. Please try again or contact us directly.' });
             }
         } catch (error) {
-            console.error('Submission Crash:', error);
             setStatusMessage({ type: 'error', text: 'Connection error. Please check your internet and try again.' });
         } finally {
             setLoading(false);
-            console.log('--- HANDLE SUBMIT END ---');
         }
     };
 
@@ -97,7 +79,7 @@ export default function Apply() {
                 <div className="container" style={{ textAlign: 'center' }}>
                     <div style={{ marginBottom: '2rem' }}>
                         <img
-                            src="/logo.svg"
+                            src="/nm-solutions-icon.png"
                             alt="NM Solutions Arch"
                             style={{ height: '70px', width: 'auto', marginBottom: '1rem' }}
                         />
@@ -130,7 +112,7 @@ export default function Apply() {
                     <div style={{ marginBottom: '3rem' }}>
                         <a href="/">
                             <img
-                                src="/logo.svg"
+                                src="/nm-solutions-icon.png"
                                 alt="NM Solutions Arch"
                                 style={{ height: '50px', width: 'auto' }}
                             />
@@ -166,7 +148,7 @@ export default function Apply() {
                                 <label style={{ fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
                                     Business / Brand Name <span style={{ color: 'var(--gold)' }}>*</span>
                                 </label>
-                                <input required name="businessName" placeholder="Brand Inc." style={errors.businessName ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, businessName: false })} />
+                                <input required name="businessName" placeholder="Your Business Name" style={errors.businessName ? { ...inputStyle, borderColor: '#e74c3c', background: '#fff9f9' } : inputStyle} onChange={() => setErrors({ ...errors, businessName: false })} />
                                 {errors.businessName && <span style={{ fontSize: '0.7rem', color: '#e74c3c', fontWeight: '600' }}>This field is required</span>}
                             </div>
                         </div>
@@ -268,9 +250,6 @@ export default function Apply() {
                                 type="submit"
                                 className="btn-gold"
                                 disabled={loading}
-                                onClick={(e) => {
-                                    console.log('Button onClick fired!', e.target);
-                                }}
                                 style={{
                                     width: '100%',
                                     justifyContent: 'center',
@@ -329,7 +308,7 @@ export default function Apply() {
                         filter: 'drop-shadow(0 0 30px rgba(194, 159, 82, 0.4))'
                     }}>
                         <img
-                            src="/logo.svg"
+                            src="/nm-solutions-icon.png"
                             alt="Loading"
                             style={{
                                 height: '80px',
