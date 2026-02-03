@@ -1,0 +1,12 @@
+<?xml version="1.2" baseProfile="tiny" encoding="utf-8"?>
+<svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
+  <rect width="1000" height="1000" fill="#FFFFFF"/>
+  <g transform="translate(125, 150)">
+    <!-- Gold Chevron -->
+    <path d="M0,103.5 L375,193.5 L750,103.5 L750,157.5 L375,247.5 L0,157.5 Z" fill="#c29f52"/>
+    <!-- Navy Columns -->
+    <path d="M0,207 L172.5,207 L172.5,700 L0,700 Z" fill="#050810"/>
+    <path d="M288.75,276 L461.25,276 L461.25,700 L288.75,700 Z" fill="#050810"/>
+    <path d="M577.5,207 L750,207 L750,700 L577.5,700 Z" fill="#050810"/>
+  </g>
+</svg>

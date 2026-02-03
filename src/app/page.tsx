@@ -65,6 +65,12 @@ const MailIcon = () => (
     </svg>
 );
 
+const FacebookIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '20px', height: '20px' }}>
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+);
+
 export default function Home() {
     return (
         <main>
@@ -271,7 +277,7 @@ export default function Home() {
                 borderTop: '1px solid rgba(194, 159, 82, 0.1)'
             }}>
                 <div className="container" style={{ textAlign: 'center' }}>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginBottom: '2.5rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
                         <a href="tel:0774694160" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                             <div style={{ color: 'var(--gold)' }}><PhoneIcon /></div>
                             0774694160
@@ -279,6 +285,10 @@ export default function Home() {
                         <a href="mailto:mapeterenyasha@gmail.com" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                             <div style={{ color: 'var(--gold)' }}><MailIcon /></div>
                             mapeterenyasha@gmail.com
+                        </a>
+                        <a href="https://facebook.com/nmsolutions.zw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                            <div style={{ color: 'var(--gold)' }}><FacebookIcon /></div>
+                            nmsolutions.zw
                         </a>
                     </div>
                     <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.4, fontWeight: '500' }}>
