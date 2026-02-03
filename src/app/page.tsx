@@ -78,17 +78,17 @@ export default function Home() {
                     justifyContent: 'space-between',
                     alignItems: 'center'
                 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                         <img
                             src="/nm-solutions-icon.png"
                             alt="NM Solutions icon"
-                            style={{ height: '40px', width: 'auto' }}
+                            style={{ height: '55px', width: 'auto' }}
                         />
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <span className="serif" style={{ fontSize: '1.25rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1.1' }}>
+                            <span className="serif" style={{ fontSize: '1.5rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1.1' }}>
                                 NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
                             </span>
-                            <span style={{ fontSize: '0.45rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
+                            <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
                                 Digital Engineering
                             </span>
                         </div>
