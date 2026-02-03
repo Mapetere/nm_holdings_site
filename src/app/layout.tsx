@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     },
     manifest: "/manifest.json",
     icons: {
-        icon: "/nm-solutions-icon.png",
-        apple: "/nm-solutions-icon.png",
+        icon: "/favicon.png",
+        apple: "/favicon.png",
     },
 };
 
