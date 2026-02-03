@@ -8,7 +8,7 @@
     "theme_color": "#c29f52",
     "icons": [
         {
-            "src": "/nm-solutions-icon.png",
+            "src": "/favicon.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any"
