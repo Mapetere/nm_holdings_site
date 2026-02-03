@@ -80,18 +80,11 @@ export default function Home() {
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                         <img
-                            src="/logo.svg"
+                            src="/nm-solutions-icon.png"
                             alt="NM Solutions Logo"
-                            style={{ height: '55px', width: 'auto' }}
+                            style={{ height: '65px', width: 'auto' }}
                         />
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <span className="serif" style={{ fontSize: '1.5rem', letterSpacing: '1px', fontWeight: '500' }}>
-                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
-                            </span>
-                            <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--gold)', opacity: 0.8 }}>
-                                Digital Engineering
-                            </span>
-                        </div>
+                        {/* Logo text removed to match 'logo-only' request */}
                     </div>
                     <nav style={{ display: 'flex', gap: '2.5rem', fontSize: '0.8rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px' }}>
                         <a href="#vision" className="nav-link">Vision</a>
@@ -281,8 +274,8 @@ export default function Home() {
                             mapeterenyasha@gmail.com
                         </a>
                     </div>
-                    <p style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.3 }}>
-                        © {new Date().getFullYear()} NM Solutions — Precision Built.
+                    <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.4, fontWeight: '500' }}>
+                        © {new Date().getFullYear()} NM SOLUTIONS — DIGITAL ENGINEERING PRECISION.
                     </p>
                 </div>
             </footer>
