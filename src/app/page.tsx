@@ -78,13 +78,20 @@ export default function Home() {
                     justifyContent: 'space-between',
                     alignItems: 'center'
                 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                         <img
                             src="/nm-solutions-icon.png"
-                            alt="NM Solutions Logo"
-                            style={{ height: '65px', width: 'auto' }}
+                            alt="NM Solutions icon"
+                            style={{ height: '40px', width: 'auto' }}
                         />
-                        {/* Logo text removed to match 'logo-only' request */}
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <span className="serif" style={{ fontSize: '1.25rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1.1' }}>
+                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
+                            </span>
+                            <span style={{ fontSize: '0.45rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
+                                Digital Engineering
+                            </span>
+                        </div>
                     </div>
                     <nav style={{ display: 'flex', gap: '2.5rem', fontSize: '0.8rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px' }}>
                         <a href="#vision" className="nav-link">Vision</a>

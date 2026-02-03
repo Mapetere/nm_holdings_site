@@ -109,14 +109,22 @@ export default function Apply() {
             }}>
                 {/* Left Side: Headline & Explanation */}
                 <div style={{ position: 'sticky', top: '4rem' }}>
-                    <div style={{ marginBottom: '3rem' }}>
+                    <div style={{ marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                         <a href="/">
                             <img
                                 src="/nm-solutions-icon.png"
-                                alt="NM Solutions Arch"
+                                alt="NM Solutions"
                                 style={{ height: '50px', width: 'auto' }}
                             />
                         </a>
+                        <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                            <span className="serif" style={{ fontSize: '1.4rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1', color: 'var(--cream)' }}>
+                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
+                            </span>
+                            <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
+                                Digital Engineering
+                            </span>
+                        </div>
                     </div>
                     <h1 className="serif" style={{ fontSize: '3.5rem', lineHeight: '1.1', marginBottom: '2rem' }}>
                         Founding Client <br />

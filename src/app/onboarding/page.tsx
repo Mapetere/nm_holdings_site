@@ -7,8 +7,15 @@ export default function OnboardingPage() {
             <div className="container">
                 <header style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-                        <img src="/nm-solutions-icon.png" alt="Logo" style={{ height: '50px' }} />
-                        {/* Logo text removed to match 'logo-only' request */}
+                        <img src="/nm-solutions-icon.png" alt="Logo" style={{ height: '45px' }} />
+                        <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                            <span className="serif" style={{ fontSize: '1.3rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1.1' }}>
+                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
+                            </span>
+                            <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
+                                Digital Engineering
+                            </span>
+                        </div>
                     </div>
                     <h1 className="serif" style={{ fontSize: '3rem', marginBottom: '1rem' }}>Project Discovery</h1>
                     <p style={{ color: 'rgba(244, 241, 231, 0.6)', maxWidth: '600px', margin: '0 auto' }}>
