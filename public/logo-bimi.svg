@@ -1,5 +1,6 @@
-<?xml version="1.2" baseProfile="tiny" encoding="utf-8"?>
-<svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve">
+<?xml version="1.2" baseProfile="tiny-ps" encoding="utf-8"?>
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <title>NM Solutions Logo</title>
   <rect width="1000" height="1000" fill="#FFFFFF"/>
   <g transform="translate(125, 150)">
     <!-- Gold Chevron -->
