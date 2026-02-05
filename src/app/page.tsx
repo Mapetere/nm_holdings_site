@@ -71,6 +71,7 @@ const FacebookIcon = () => (
     </svg>
 );
 
+
 export default function Home() {
     return (
         <main>
@@ -85,11 +86,14 @@ export default function Home() {
                     alignItems: 'center'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                        <img
-                            src="/nm-solutions-icon.png"
-                            alt="NM Solutions icon"
-                            style={{ height: '55px', width: 'auto' }}
-                        />
+                        <div className="header-glow">
+                            <img
+                                src="/nm-solutions-icon.png"
+                                alt="NM Solutions icon"
+                                className="logo-enhance"
+                                style={{ height: '55px', width: 'auto' }}
+                            />
+                        </div>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <span className="serif" style={{ fontSize: '1.5rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1.1' }}>
                                 NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
