@@ -181,6 +181,33 @@ button.btn-gold:disabled {
     transition: var(--transition);
 }
 
+/* Logo Enhancements */
+.logo-enhance {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+    transition: var(--transition);
+}
+
+.logo-enhance:hover {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+}
+
+.header-glow {
+    position: relative;
+}
+
+.header-glow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 .glass-card:hover .icon-shell {
     background: rgba(194, 159, 82, 0.2);
     border-color: var(--gold);
