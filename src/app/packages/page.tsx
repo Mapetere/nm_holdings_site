@@ -31,6 +31,13 @@ const CheckIcon = () => (
     </svg>
 );
 
+const XIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '14px', height: '14px' }}>
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+);
+
 const ArrowIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '16px', height: '16px' }}>
         <line x1="5" y1="12" x2="19" y2="12" />
@@ -38,61 +45,88 @@ const ArrowIcon = () => (
     </svg>
 );
 
-type PackageCategory = 'website' | 'mobile' | 'desktop';
+type PackageCategory = 'ecommerce' | 'mobile' | 'desktop';
 
 const packages = {
-    website: {
-        title: 'Website Development',
-        subtitle: 'E-Commerce & Business Websites',
+    ecommerce: {
+        title: 'E-commerce Development',
+        subtitle: 'Online Stores & Sales Platforms',
         icon: GlobeIcon,
         tiers: [
             {
-                name: 'Basic',
-                price: '$650',
-                bestFor: 'Getting started with a simple online presence',
+                name: 'Small / Basic',
+                price: '$150',
+                bestFor: 'Simple product catalog with basic functionality',
                 features: [
-                    'Static landing page with call-to-action',
-                    'Up to 50 product listings with images & descriptions',
-                    'Simple user registration/login',
-                    'Shopping cart and basic checkout (no online payment)',
-                    'Contact form for inquiries',
-                    'Mobile-responsive design',
-                    '1 month of bug fixes after launch',
+                    { text: 'Up to 20 product listings', included: true },
+                    { text: 'Simple product categories', included: true },
+                    { text: 'Contact form for inquiries', included: true },
+                    { text: 'Mobile-responsive design', included: true },
+                    { text: 'Basic SEO setup', included: true },
+                    { text: 'Social media links', included: true },
+                    { text: '1 week of bug fixes', included: true },
+                    { text: 'Shopping cart functionality', included: false },
+                    { text: 'Payment gateway integration', included: false },
+                    { text: 'Customer accounts', included: false },
+                    { text: 'Admin dashboard', included: false },
+                    { text: 'Inventory management', included: false },
+                    { text: 'Analytics dashboard', included: false },
                 ],
             },
             {
                 name: 'Standard',
-                price: '$1 000',
-                bestFor: 'Small-to-medium businesses ready for online sales',
+                price: '$700',
+                bestFor: 'Growing businesses ready for online sales',
                 popular: true,
                 features: [
-                    'Everything in Basic, plus:',
-                    'Payment Gateway Integration (Visa/Mastercard via Stripe or PayGate)',
-                    'Customer can choose: Shop Online or Order for Physical Pickup',
-                    'Chatbot with automated 24-hour response promise + WhatsApp redirect',
-                    'Role-Based Access: Admin and Staff roles',
-                    'Product categories and search functionality',
-                    'Order tracking for customers',
-                    'Advanced admin dashboard with order management',
-                    '3 months of support and updates',
+                    { text: 'Up to 100 product listings', included: true },
+                    { text: 'Product categories & search', included: true },
+                    { text: 'Contact form for inquiries', included: true },
+                    { text: 'Mobile-responsive design', included: true },
+                    { text: 'SEO optimization', included: true },
+                    { text: 'Social media links', included: true },
+                    { text: '1 month of support', included: true },
+                    { text: 'Shopping cart functionality', included: true },
+                    { text: 'Payment gateway (Visa/Mastercard)', included: true },
+                    { text: 'Customer accounts & order history', included: true },
+                    { text: 'Admin dashboard', included: true },
+                    { text: 'Inventory management', included: false },
+                    { text: 'Analytics dashboard', included: false },
                 ],
             },
             {
-                name: 'Premium',
-                price: '$2 600 ',
-                bestFor: 'Established businesses wanting a complete e-commerce solution',
+                name: 'Complex / Custom',
+                price: '$1,000',
+                bestFor: 'Established businesses needing advanced features',
                 features: [
-                    'Everything in Standard, plus:',
-                    'Unlimited products with bulk upload capability',
-                    'Unlimited custom roles (Admin, Manager, Staff, Accountant, etc.)',
-                    'Inventory Management System with low-stock alerts',
-                    'Sales Reports & Analytics Dashboard',
-                    'Customer Reviews & Ratings system',
-                    'Promotional Tools: Discount codes, flash sales, featured products',
-                    'Email Marketing Integration (Mailchimp/SendGrid)',
-                    'Advanced SEO with blog/content management',
-                    '6 months of priority support',
-                    'Future-proof architecture (built to last 20+ years)',
+                    { text: 'Unlimited product listings', included: true },
+                    { text: 'Advanced categories & filtering', included: true },
+                    { text: 'Contact form for inquiries', included: true },
+                    { text: 'Mobile-responsive design', included: true },
+                    { text: 'Advanced SEO & analytics', included: true },
+                    { text: 'Social media integration', included: true },
+                    { text: '3 months priority support', included: true },
+                    { text: 'Shopping cart functionality', included: true },
+                    { text: 'Multiple payment options', included: true },
+                    { text: 'Customer accounts & reviews', included: true },
+                    { text: 'Admin dashboard with roles', included: true },
+                    { text: 'Inventory management', included: true },
+                    { text: 'Sales analytics dashboard', included: true },
+                ],
+            },
+            {
+                name: 'Maintenance',
+                price: 'Custom',
+                bestFor: 'Keep your store secure and updated',
+                features: [
+                    { text: 'Regular security updates', included: true },
+                    { text: 'Performance optimization', included: true },
+                    { text: 'Content updates', included: true },
+                    { text: 'Backup management', included: true },
+                    { text: 'Uptime monitoring', included: true },
+                    { text: 'Technical support', included: true },
+                    { text: 'Bug fixes & troubleshooting', included: true },
+                    { text: 'Pricing based on scope', included: true },
                 ],
             },
         ],
@@ -212,7 +246,7 @@ const packages = {
 };
 
 export default function PackagesPage() {
-    const [activeCategory, setActiveCategory] = useState<PackageCategory>('website');
+    const [activeCategory, setActiveCategory] = useState<PackageCategory>('ecommerce');
     const currentPackage = packages[activeCategory];
     const IconComponent = currentPackage.icon;
 
@@ -328,7 +362,11 @@ export default function PackagesPage() {
                     </div>
 
                     {/* Pricing Cards */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: `repeat(${currentPackage.tiers.length}, 1fr)`,
+                        gap: '1.5rem'
+                    }}>
                         {currentPackage.tiers.map((tier, i) => (
                             <div
                                 key={i}
@@ -368,19 +406,31 @@ export default function PackagesPage() {
                                     {tier.bestFor}
                                 </p>
                                 <div style={{ borderTop: '1px solid rgba(194, 159, 82, 0.2)', paddingTop: '1.5rem' }}>
-                                    {tier.features.map((feature, j) => (
-                                        <div key={j} style={{
-                                            display: 'flex',
-                                            alignItems: 'flex-start',
-                                            gap: '0.75rem',
-                                            marginBottom: '0.75rem',
-                                            fontSize: '0.85rem',
-                                            color: feature.startsWith('Everything') ? 'var(--gold)' : 'rgba(244, 241, 231, 0.7)'
-                                        }}>
-                                            <div style={{ color: 'var(--gold)', marginTop: '2px' }}><CheckIcon /></div>
-                                            <span>{feature}</span>
-                                        </div>
-                                    ))}
+                                    {tier.features.map((feature: { text: string; included: boolean } | string, j: number) => {
+                                        const isObject = typeof feature === 'object';
+                                        const text = isObject ? feature.text : feature;
+                                        const included = isObject ? feature.included : true;
+                                        return (
+                                            <div key={j} style={{
+                                                display: 'flex',
+                                                alignItems: 'flex-start',
+                                                gap: '0.75rem',
+                                                marginBottom: '0.75rem',
+                                                fontSize: '0.8rem',
+                                                color: included ? 'rgba(244, 241, 231, 0.7)' : 'rgba(244, 241, 231, 0.35)',
+                                                textDecoration: included ? 'none' : 'line-through',
+                                            }}>
+                                                <div style={{
+                                                    color: included ? '#4ade80' : '#ef4444',
+                                                    marginTop: '2px',
+                                                    flexShrink: 0
+                                                }}>
+                                                    {included ? <CheckIcon /> : <XIcon />}
+                                                </div>
+                                                <span>{text}</span>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                                 <a href="/apply" className="btn-gold" style={{
                                     width: '100%',
