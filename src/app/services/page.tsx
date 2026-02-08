@@ -411,6 +411,103 @@ export default function ServicesPage() {
                 </div>
             </section>
 
+            {/* Contact Us Section */}
+            <section id="contact" className="section-cream" style={{ padding: '5rem 0' }}>
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--navy)' }}>
+                            Contact Us
+                        </h2>
+                        <p style={{ maxWidth: '500px', margin: '0 auto', color: 'rgba(5, 8, 16, 0.6)' }}>
+                            Ready to start your project? Reach out through any of these channels.
+                        </p>
+                    </div>
+
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: '2rem',
+                        maxWidth: '900px',
+                        margin: '0 auto'
+                    }}>
+                        {/* WhatsApp */}
+                        <a href="https://wa.me/263774694160?text=Hi%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            padding: '2.5rem 2rem',
+                            background: 'var(--navy)',
+                            borderRadius: '16px',
+                            textDecoration: 'none',
+                            transition: 'transform 0.3s ease',
+                            border: '1px solid rgba(194, 159, 82, 0.2)'
+                        }}>
+                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>💬</div>
+                            <h4 style={{ color: 'var(--gold)', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600' }}>WhatsApp</h4>
+                            <span style={{ color: 'var(--cream)', opacity: 0.7, fontSize: '0.9rem' }}>0774 694 160</span>
+                        </a>
+
+                        {/* Email */}
+                        <a href="mailto:support@nmsolutions.co.zw?subject=Project%20Inquiry" style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            padding: '2.5rem 2rem',
+                            background: 'var(--navy)',
+                            borderRadius: '16px',
+                            textDecoration: 'none',
+                            transition: 'transform 0.3s ease',
+                            border: '1px solid rgba(194, 159, 82, 0.2)'
+                        }}>
+                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>✉️</div>
+                            <h4 style={{ color: 'var(--gold)', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600' }}>Email</h4>
+                            <span style={{ color: 'var(--cream)', opacity: 0.7, fontSize: '0.9rem' }}>support@nmsolutions.co.zw</span>
+                        </a>
+
+                        {/* Facebook */}
+                        <a href="https://facebook.com/nmsolutions.zw" target="_blank" rel="noopener noreferrer" style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            padding: '2.5rem 2rem',
+                            background: 'var(--navy)',
+                            borderRadius: '16px',
+                            textDecoration: 'none',
+                            transition: 'transform 0.3s ease',
+                            border: '1px solid rgba(194, 159, 82, 0.2)'
+                        }}>
+                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📘</div>
+                            <h4 style={{ color: 'var(--gold)', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600' }}>Facebook</h4>
+                            <span style={{ color: 'var(--cream)', opacity: 0.7, fontSize: '0.9rem' }}>nmsolutions.zw</span>
+                        </a>
+                    </div>
+
+                    {/* Leave a Message Link */}
+                    <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                        <p style={{ color: 'rgba(5, 8, 16, 0.6)', marginBottom: '1rem' }}>
+                            Have a comment or want to leave feedback?
+                        </p>
+                        <a href="/apply" style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            padding: '1rem 2rem',
+                            background: 'var(--navy)',
+                            border: '1px solid var(--gold)',
+                            borderRadius: '8px',
+                            color: 'var(--gold)',
+                            fontWeight: '600',
+                            textDecoration: 'none',
+                            fontSize: '0.85rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '1.5px'
+                        }}>
+                            Leave a Message <ArrowIcon />
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             {/* Footer */}
             <footer className="section-navy" style={{
                 padding: '3rem 0',

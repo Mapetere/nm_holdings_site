@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
         // 4. Send Email Notification
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: 'mapeterenyasha@gmail.com',
+            to: 'support@nmsolutions.co.zw',
             subject: `New Founding Client Request: ${businessName}`,
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">

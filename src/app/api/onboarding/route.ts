@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
         // 2. Send Notification Email
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: 'mapeterenyasha@gmail.com',
+            to: 'support@nmsolutions.co.zw',
             subject: `PROJECT DISCOVERY: ${data.companyName}`,
             html: `
                 <div style="font-family: 'Inter', sans-serif; line-height: 1.6; color: #0e1628; max-width: 700px; margin: 0 auto; border: 1px solid #c29f52; padding: 40px; border-radius: 12px; background-color: #f4f1e7;">
