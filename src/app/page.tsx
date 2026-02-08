@@ -205,7 +205,7 @@ export default function Home() {
                                 <span style={{ color: 'var(--gold)' }}>Lead the Industry.</span>
                             </h2>
                             <p style={{ fontSize: '1.1rem', marginBottom: '2.5rem', opacity: 0.8, lineHeight: '1.8' }}>
-                                Launching this month, NM Solutions is opening its vault to all small-medium-medium large and large enterprises. This is a head start for 2026 bringing elite infrastructure to visionary local businesses.
+                                Launching this month, NM Solutions is opening its vault to all Small,Medium, Medium-Large and Large Enterprises. This is a head start for 2026 bringing elite infrastructure to visionary local businesses.
                             </p>
 
                             <div style={{ display: 'grid', gap: '1.25rem' }}>
@@ -286,9 +286,9 @@ export default function Home() {
                             <div style={{ color: 'var(--gold)' }}><PhoneIcon /></div>
                             0774694160
                         </a>
-                        <a href="mailto:mapeterenyasha@gmail.com" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <a href="mailto:support@nmsolutions.co.zw" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                             <div style={{ color: 'var(--gold)' }}><MailIcon /></div>
-                            mapeterenyasha@gmail.com
+                            support@nmsolutions.co.zw
                         </a>
                         <a href="https://facebook.com/nmsolutions.zw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                             <div style={{ color: 'var(--gold)' }}><FacebookIcon /></div>

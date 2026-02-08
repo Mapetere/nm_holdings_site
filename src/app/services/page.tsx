@@ -59,31 +59,31 @@ const services = [
         icon: GlobeIcon,
         title: 'Web Design',
         description: 'Clean, modern, user focused designs that convert visitors into customers.',
-        link: '/packages',
+        link: '/packages?category=ecommerce',
     },
     {
         icon: GlobeIcon,
         title: 'Web Development',
         description: 'Fast, scalable, and secure websites built with modern technologies.',
-        link: '/packages',
+        link: '/packages?category=ecommerce',
     },
     {
         icon: DesktopIcon,
         title: 'E-Commerce',
         description: 'Powerful online stores designed to grow your sales and brand.',
-        link: '/packages',
+        link: '/packages?category=ecommerce',
     },
     {
         icon: PhoneIcon,
         title: 'Mobile Apps',
         description: 'Native and cross platform apps for iOS and Android that users love.',
-        link: '/packages',
+        link: '/packages?category=mobile',
     },
     {
         icon: DesktopIcon,
         title: 'Desktop Apps',
         description: 'Custom desktop applications tailored to your business processes.',
-        link: '/packages',
+        link: '/packages?category=desktop',
     },
     {
         icon: SocialIcon,
@@ -388,7 +388,7 @@ export default function ServicesPage() {
                                 <a href="https://wa.me/263774694160?text=Hi%2C%20I%27m%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" className="btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
                                     WhatsApp Us <ArrowIcon />
                                 </a>
-                                <a href="mailto:hello@nmsolutions.co.zw?subject=Project%20Inquiry" style={{
+                                <a href="mailto:support@nmsolutions.co.zw?subject=Project%20Inquiry" style={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',

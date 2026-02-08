@@ -1,5 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 // Icons
 const GlobeIcon = () => (
@@ -55,7 +56,7 @@ const packages = {
         tiers: [
             {
                 name: 'Small / Basic',
-                price: '$150',
+                price: '$400',
                 bestFor: 'Simple product catalog with basic functionality',
                 features: [
                     { text: 'Up to 20 product listings', included: true },
@@ -75,7 +76,7 @@ const packages = {
             },
             {
                 name: 'Standard',
-                price: '$700',
+                price: '$850',
                 bestFor: 'Growing businesses ready for online sales',
                 popular: true,
                 features: [
@@ -96,7 +97,7 @@ const packages = {
             },
             {
                 name: 'Complex / Custom',
-                price: '$1,000',
+                price: '$1 200+',
                 bestFor: 'Established businesses needing advanced features',
                 features: [
                     { text: 'Unlimited product listings', included: true },
@@ -138,7 +139,7 @@ const packages = {
         tiers: [
             {
                 name: 'Basic',
-                price: '$5,000',
+                price: '$500',
                 bestFor: 'Startups testing their mobile presence',
                 features: [
                     'Single platform (iOS or Android)',
@@ -152,7 +153,7 @@ const packages = {
             },
             {
                 name: 'Standard',
-                price: '$12,000',
+                price: '$900',
                 bestFor: 'Growing businesses needing cross-platform reach',
                 popular: true,
                 features: [
@@ -169,7 +170,7 @@ const packages = {
             },
             {
                 name: 'Premium',
-                price: '$25,000',
+                price: '$1 500+',
                 bestFor: 'Enterprises requiring feature-rich mobile solutions',
                 features: [
                     'Everything in Standard, plus:',
@@ -237,7 +238,7 @@ const packages = {
                     'Offline-first architecture',
                     'Custom plugin/extension system',
                     'Enterprise security features',
-                    '6 months of priority support',
+                    '12 months of priority support',
                     'Dedicated account manager',
                 ],
             },
@@ -246,8 +247,17 @@ const packages = {
 };
 
 export default function PackagesPage() {
+    const searchParams = useSearchParams();
     const [activeCategory, setActiveCategory] = useState<PackageCategory>('ecommerce');
     const currentPackage = packages[activeCategory];
+
+    // Read category from URL on mount
+    useEffect(() => {
+        const category = searchParams.get('category');
+        if (category && (category === 'ecommerce' || category === 'mobile' || category === 'desktop')) {
+            setActiveCategory(category);
+        }
+    }, [searchParams]);
     const IconComponent = currentPackage.icon;
 
     return (
