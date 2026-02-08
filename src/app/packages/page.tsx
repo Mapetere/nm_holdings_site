@@ -75,6 +75,7 @@ const packages = {
                     { text: 'Admin dashboard', included: false },
                     { text: 'Inventory management', included: false },
                     { text: 'Analytics dashboard', included: false },
+                    { text: 'Copywriting available ($10/page)', included: true },
                 ],
             },
             {
@@ -99,11 +100,12 @@ const packages = {
                     { text: 'Admin dashboard', included: true },
                     { text: 'Inventory management', included: false },
                     { text: 'Analytics dashboard', included: false },
+                    { text: 'Basic copywriting (5 pages)', included: true },
                 ],
             },
             {
                 name: 'Complex / Custom',
-                price: '$1 200+',
+                price: '$1 500+',
                 bestFor: 'Established businesses needing advanced features',
                 features: [
                     { text: 'Unlimited product listings', included: true },
@@ -122,6 +124,7 @@ const packages = {
                     { text: 'Admin dashboard with roles', included: true },
                     { text: 'Inventory management', included: true },
                     { text: 'Sales analytics dashboard', included: true },
+                    { text: 'Premium professional copywriting', included: true },
                 ],
             },
             {
@@ -158,6 +161,7 @@ const packages = {
                     'Push notification setup',
                     'App store submission assistance',
                     '1 month of bug fixes after launch',
+                    'Copywriting available (extra cost)',
                 ],
             },
             {
@@ -175,6 +179,7 @@ const packages = {
                     'Admin panel for content management',
                     'Analytics integration (Firebase/Mixpanel)',
                     '3 months of support and updates',
+                    'Basic UI copy & ASO copywriting',
                 ],
             },
             {
@@ -193,6 +198,7 @@ const packages = {
                     'Comprehensive analytics dashboard',
                     '6 months of priority support',
                     'Performance optimization for scale',
+                    'Premium UI/UX copywriting & ASO',
                 ],
             },
         ],
@@ -214,6 +220,7 @@ const packages = {
                     'Simple reporting capabilities',
                     'Installation package creation',
                     '1 month of bug fixes after launch',
+                    'Copywriting available (extra cost)',
                 ],
             },
             {
@@ -231,6 +238,7 @@ const packages = {
                     'Auto-update mechanism',
                     'Basic cloud sync capability',
                     '3 months of support and updates',
+                    'Onboarding & basic UI copywriting',
                 ],
             },
             {
@@ -248,6 +256,7 @@ const packages = {
                     'Custom plugin/extension system',
                     'Enterprise security features',
                     '12 months of priority support',
+                    'Full tech docs & premium UI copy',
                     'Dedicated account manager',
                 ],
             },
