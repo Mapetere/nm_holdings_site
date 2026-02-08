@@ -25,6 +25,26 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "NM Solutions",
+                            "url": "https://nmsolutions.co.zw",
+                            "logo": "https://nmsolutions.co.zw/favicon.png",
+                            "description": "Professional Web Engineering & Software Solutions",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Harare",
+                                "addressCountry": "ZW"
+                            }
+                        })
+                    }}
+                />
+            </head>
             <body>
                 {children}
             </body>
