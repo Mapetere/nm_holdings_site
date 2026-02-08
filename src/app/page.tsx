@@ -104,8 +104,8 @@ export default function Home() {
                         </div>
                     </div>
                     <nav style={{ display: 'flex', gap: '2.5rem', fontSize: '0.8rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                        <a href="#vision" className="nav-link">Vision</a>
-                        <a href="#capabilities" className="nav-link">Capabilities</a>
+                        <a href="/services" className="nav-link">Services</a>
+                        <a href="/packages" className="nav-link">Packages</a>
                         <a href="#partnership" className="nav-link">Partnership</a>
                     </nav>
                 </div>

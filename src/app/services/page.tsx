@@ -1,0 +1,409 @@
+'use client';
+import React from 'react';
+
+// Icons
+const GlobeIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '100%', height: '100%' }}>
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+);
+
+const PhoneIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '100%', height: '100%' }}>
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+        <line x1="12" y1="18" x2="12.01" y2="18" />
+    </svg>
+);
+
+const DesktopIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '100%', height: '100%' }}>
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
+);
+
+const SocialIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '100%', height: '100%' }}>
+        <circle cx="18" cy="5" r="3" />
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="19" r="3" />
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+    </svg>
+);
+
+const PaletteIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '100%', height: '100%' }}>
+        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+    </svg>
+);
+
+const CloudIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '100%', height: '100%' }}>
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+    </svg>
+);
+
+const ArrowIcon = () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: '16px', height: '16px' }}>
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+    </svg>
+);
+
+const services = [
+    {
+        icon: GlobeIcon,
+        title: 'Web Design',
+        description: 'Clean, modern, user-focused designs that convert visitors into customers.',
+        link: '/packages',
+    },
+    {
+        icon: GlobeIcon,
+        title: 'Web Development',
+        description: 'Fast, scalable, and secure websites built with modern technologies.',
+        link: '/packages',
+    },
+    {
+        icon: DesktopIcon,
+        title: 'E-Commerce',
+        description: 'Powerful online stores designed to grow your sales and brand.',
+        link: '/packages',
+    },
+    {
+        icon: PhoneIcon,
+        title: 'Mobile Apps',
+        description: 'Native and cross-platform apps for iOS and Android that users love.',
+        link: '/packages',
+    },
+    {
+        icon: DesktopIcon,
+        title: 'Desktop Apps',
+        description: 'Custom desktop applications tailored to your business processes.',
+        link: '/packages',
+    },
+    {
+        icon: SocialIcon,
+        title: 'Social Media',
+        description: 'Boost your brand's online presence with targeted campaigns and strategies.',
+        link: '/social-media',
+    },
+];
+
+const processSteps = [
+    {
+        step: '01',
+        title: 'Deep Dive',
+        description: 'In-depth exploration of your business and product requirements.'
+    },
+    {
+        step: '02',
+        title: 'Pre-Production',
+        description: 'Identification of core problems, pain points, and art direction.'
+    },
+    {
+        step: '03',
+        title: 'Design Proposition',
+        description: 'Presenting concept solutions aligned with your vision.'
+    },
+    {
+        step: '04',
+        title: 'Development',
+        description: 'Building robust, scalable solutions with precision.'
+    },
+    {
+        step: '05',
+        title: 'Delivery & Testing',
+        description: 'Design finalization, testing, delivery and handover.'
+    },
+];
+
+export default function ServicesPage() {
+    return (
+        <main>
+            {/* Header */}
+            <header className="section-navy" style={{
+                padding: '1.5rem 0',
+                borderBottom: '1px solid rgba(194, 159, 82, 0.1)'
+            }}>
+                <div className="container" style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}>
+                    <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', color: 'inherit' }}>
+                        <div className="header-glow">
+                            <img
+                                src="/nm-solutions-icon.png"
+                                alt="NM Solutions icon"
+                                className="logo-enhance"
+                                style={{ height: '55px', width: 'auto' }}
+                            />
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <span className="serif" style={{ fontSize: '1.5rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1.1' }}>
+                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
+                            </span>
+                            <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
+                                Digital Engineering
+                            </span>
+                        </div>
+                    </a>
+                    <nav style={{ display: 'flex', gap: '2.5rem', fontSize: '0.8rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                        <a href="/services" className="nav-link" style={{ color: 'var(--gold)' }}>Services</a>
+                        <a href="/packages" className="nav-link">Packages</a>
+                        <a href="/apply" className="nav-link">Contact</a>
+                    </nav>
+                </div>
+            </header>
+
+            {/* Hero Section - ApexFinish Style */}
+            <section className="section-navy" style={{ padding: '6rem 0 4rem' }}>
+                <div className="container" style={{ textAlign: 'center' }}>
+                    <h1 className="serif" style={{
+                        fontSize: '4rem',
+                        lineHeight: '1.1',
+                        marginBottom: '1.5rem',
+                        maxWidth: '800px',
+                        margin: '0 auto 1.5rem'
+                    }}>
+                        Building <span className="gold-metallic">Stunning</span> Digital Products
+                    </h1>
+                    <p style={{
+                        maxWidth: '650px',
+                        margin: '0 auto 2.5rem',
+                        fontSize: '1.2rem',
+                        color: 'rgba(244, 241, 231, 0.6)',
+                        lineHeight: '1.8'
+                    }}>
+                        We help businesses grow with stunning websites — from high-converting
+                        landing pages to powerful full-scale web applications.
+                    </p>
+                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                        <a href="/packages" className="btn-gold">View Packages</a>
+                        <a href="/apply" style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            padding: '1.1rem 2.5rem',
+                            border: '1px solid var(--gold)',
+                            borderRadius: '8px',
+                            color: 'var(--gold)',
+                            fontWeight: '600',
+                            textDecoration: 'none',
+                            fontSize: '0.85rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '1.5px',
+                            transition: 'var(--transition)'
+                        }}>
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            {/* Services Grid - Clean ApexFinish Style */}
+            <section id="services" className="section-navy" style={{ padding: '4rem 0' }}>
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Our Services</h2>
+                        <div style={{ width: '60px', height: '3px', background: 'var(--gold)', margin: '0 auto' }} />
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+                        {services.map((service, i) => (
+                            <div
+                                key={i}
+                                className="glass-card"
+                                style={{
+                                    textAlign: 'center',
+                                    cursor: 'pointer',
+                                    transition: 'var(--transition)'
+                                }}
+                            >
+                                <div style={{
+                                    width: '60px',
+                                    height: '60px',
+                                    margin: '0 auto 1.5rem',
+                                    padding: '15px',
+                                    background: 'rgba(194, 159, 82, 0.1)',
+                                    border: '1px solid rgba(194, 159, 82, 0.2)',
+                                    borderRadius: '16px',
+                                    color: 'var(--gold)'
+                                }}>
+                                    <service.icon />
+                                </div>
+                                <h3 className="serif" style={{ fontSize: '1.4rem', color: 'var(--gold)', marginBottom: '0.75rem' }}>
+                                    {service.title}
+                                </h3>
+                                <p style={{ fontSize: '0.95rem', color: 'rgba(244, 241, 231, 0.6)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                                    {service.description}
+                                </p>
+                                <a href={service.link} style={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem',
+                                    color: 'var(--gold)',
+                                    fontWeight: '600',
+                                    textDecoration: 'none',
+                                    fontSize: '0.85rem',
+                                    transition: 'var(--transition)'
+                                }}>
+                                    Learn More <ArrowIcon />
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Development Process Flow - ApexFinish Inspired */}
+            <section className="section-cream" style={{ padding: '6rem 0' }}>
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--navy)' }}>
+                            Product Development Flow
+                        </h2>
+                        <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(5, 8, 16, 0.6)' }}>
+                            Our proven process ensures every project is delivered with precision and creativity.
+                        </p>
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
+                        {/* Connection Line */}
+                        <div style={{
+                            position: 'absolute',
+                            top: '35px',
+                            left: '10%',
+                            right: '10%',
+                            height: '2px',
+                            background: 'linear-gradient(90deg, var(--gold) 0%, rgba(194, 159, 82, 0.3) 50%, var(--gold) 100%)',
+                            zIndex: 0
+                        }} />
+
+                        {processSteps.map((step, i) => (
+                            <div key={i} style={{
+                                flex: 1,
+                                textAlign: 'center',
+                                position: 'relative',
+                                zIndex: 1
+                            }}>
+                                <div style={{
+                                    width: '70px',
+                                    height: '70px',
+                                    margin: '0 auto 1.5rem',
+                                    background: 'var(--navy)',
+                                    borderRadius: '50%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    border: '3px solid var(--gold)',
+                                    boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+                                }}>
+                                    <span className="gold-metallic" style={{
+                                        fontSize: '1.5rem',
+                                        fontWeight: '700'
+                                    }}>
+                                        {step.step}
+                                    </span>
+                                </div>
+                                <h4 style={{
+                                    fontSize: '1.1rem',
+                                    fontWeight: '600',
+                                    marginBottom: '0.5rem',
+                                    color: 'var(--navy)'
+                                }}>
+                                    {step.title}
+                                </h4>
+                                <p style={{
+                                    fontSize: '0.85rem',
+                                    color: 'rgba(5, 8, 16, 0.6)',
+                                    lineHeight: '1.6',
+                                    maxWidth: '160px',
+                                    margin: '0 auto'
+                                }}>
+                                    {step.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* About / Value Proposition Section */}
+            <section className="section-navy" style={{ padding: '6rem 0' }}>
+                <div className="container">
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr',
+                        gap: '4rem',
+                        alignItems: 'center'
+                    }}>
+                        <div>
+                            <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>
+                                About Us
+                            </span>
+                            <h2 className="serif" style={{ fontSize: '2.5rem', margin: '1rem 0 1.5rem', lineHeight: '1.2' }}>
+                                Elevating Brands Through <span className="gold-metallic">Strategic</span> Online Marketing
+                            </h2>
+                            <p style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.7, lineHeight: '1.8' }}>
+                                We help brands grow through clean design, modern technology, and
+                                performance-driven digital solutions. Our focus is building products
+                                that look premium and convert.
+                            </p>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                                {[
+                                    { num: '50+', label: 'Projects Completed' },
+                                    { num: '98%', label: 'Client Satisfaction' },
+                                    { num: '24/7', label: 'Support Available' },
+                                    { num: '5+', label: 'Years Experience' },
+                                ].map((stat, i) => (
+                                    <div key={i}>
+                                        <div className="gold-metallic" style={{ fontSize: '2.5rem', fontWeight: '700' }}>
+                                            {stat.num}
+                                        </div>
+                                        <div style={{ fontSize: '0.85rem', opacity: 0.5, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                                            {stat.label}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="float-anim" style={{
+                            background: 'rgba(194, 159, 82, 0.05)',
+                            border: '1px solid rgba(194, 159, 82, 0.15)',
+                            borderRadius: '24px',
+                            padding: '3rem',
+                            textAlign: 'center'
+                        }}>
+                            <h3 className="serif" style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>
+                                Ready to Start?
+                            </h3>
+                            <p style={{ fontSize: '0.95rem', opacity: 0.6, marginBottom: '2rem' }}>
+                                Let's discuss how we can help transform your business with our digital solutions.
+                            </p>
+                            <a href="/apply" className="btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
+                                Get in Touch <ArrowIcon />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="section-navy" style={{
+                padding: '3rem 0',
+                borderTop: '1px solid rgba(194, 159, 82, 0.1)'
+            }}>
+                <div className="container" style={{ textAlign: 'center' }}>
+                    <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.4, fontWeight: '500' }}>
+                        © {new Date().getFullYear()} NM SOLUTIONS — DIGITAL ENGINEERING PRECISION.
+                    </p>
+                </div>
+            </footer>
+        </main>
+    );
+}
