@@ -96,28 +96,28 @@ const services = [
 const processSteps = [
     {
         step: '01',
-        title: 'Deep Dive',
-        description: 'In-depth exploration of your business and product requirements.'
+        title: 'Research',
+        description: 'We study your business, understand your goals, and research examples you provide.'
     },
     {
         step: '02',
-        title: 'Pre-Production',
-        description: 'Identification of core problems, pain points, and art direction.'
+        title: 'Setup',
+        description: 'We gather necessary tools: server hosting, domain registration, and development environment.'
     },
     {
         step: '03',
-        title: 'Design Proposition',
-        description: 'Presenting concept solutions aligned with your vision.'
+        title: 'Development',
+        description: 'Building your solution in phases for complex projects, or as a single deliverable for simpler ones.'
     },
     {
         step: '04',
-        title: 'Development',
-        description: 'Building robust, scalable solutions with precision.'
+        title: 'Testing',
+        description: 'Rigorous testing to ensure your product works flawlessly across all scenarios.'
     },
     {
         step: '05',
-        title: 'Delivery & Testing',
-        description: 'Design finalization, testing, delivery and handover.'
+        title: 'Delivery',
+        description: 'We present the final product and hand over everything you need to succeed.'
     },
 ];
 
@@ -268,7 +268,7 @@ export default function ServicesPage() {
                             Product Development Flow
                         </h2>
                         <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(5, 8, 16, 0.6)' }}>
-                            Our proven process ensures every project is delivered with precision and creativity.
+                            From initial research to final delivery, here is how we bring your project to life.
                         </p>
                     </div>
 
@@ -344,25 +344,24 @@ export default function ServicesPage() {
                     }}>
                         <div>
                             <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>
-                                About Us
+                                How We Work
                             </span>
                             <h2 className="serif" style={{ fontSize: '2.5rem', margin: '1rem 0 1.5rem', lineHeight: '1.2' }}>
-                                Elevating Brands Through <span className="gold-metallic">Strategic</span> Online Marketing
+                                Building Products Through <span className="gold-metallic">Research</span> and Precision
                             </h2>
                             <p style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.7, lineHeight: '1.8' }}>
-                                We help brands grow through clean design, modern technology, and
-                                performance driven digital solutions. Our focus is building products
-                                that look premium and convert.
+                                We take time to understand your business before writing a single line of code.
+                                Every project starts with research, planning, and clear communication.
                             </p>
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                                 {[
-                                    { num: '50+', label: 'Projects Completed' },
-                                    { num: '98%', label: 'Client Satisfaction' },
-                                    { num: '24/7', label: 'Support Available' },
-                                    { num: '5+', label: 'Years Experience' },
+                                    { num: '✓', label: 'Research-First Approach' },
+                                    { num: '✓', label: 'Phase-Based Delivery' },
+                                    { num: '✓', label: 'Rigorous Testing' },
+                                    { num: '✓', label: 'Transparent Process' },
                                 ].map((stat, i) => (
                                     <div key={i}>
-                                        <div className="gold-metallic" style={{ fontSize: '2.5rem', fontWeight: '700' }}>
+                                        <div className="gold-metallic" style={{ fontSize: '2rem', fontWeight: '700' }}>
                                             {stat.num}
                                         </div>
                                         <div style={{ fontSize: '0.85rem', opacity: 0.5, textTransform: 'uppercase', letterSpacing: '1px' }}>
@@ -383,11 +382,30 @@ export default function ServicesPage() {
                                 Ready to Start?
                             </h3>
                             <p style={{ fontSize: '0.95rem', opacity: 0.6, marginBottom: '2rem' }}>
-                                Let's discuss how we can help transform your business with our digital solutions.
+                                Let us discuss how we can help build your digital solution.
                             </p>
-                            <a href="/apply" className="btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
-                                Get in Touch <ArrowIcon />
-                            </a>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                <a href="https://wa.me/263774694160?text=Hi%2C%20I%27m%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" className="btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
+                                    WhatsApp Us <ArrowIcon />
+                                </a>
+                                <a href="mailto:hello@nmsolutions.co.zw?subject=Project%20Inquiry" style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '0.5rem',
+                                    padding: '1rem',
+                                    border: '1px solid var(--gold)',
+                                    borderRadius: '8px',
+                                    color: 'var(--gold)',
+                                    fontWeight: '600',
+                                    textDecoration: 'none',
+                                    fontSize: '0.85rem',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1.5px'
+                                }}>
+                                    Send Email
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
