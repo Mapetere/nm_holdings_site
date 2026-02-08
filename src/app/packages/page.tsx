@@ -48,7 +48,7 @@ const packages = {
         tiers: [
             {
                 name: 'Basic',
-                price: '$1,500',
+                price: '$650',
                 bestFor: 'Getting started with a simple online presence',
                 features: [
                     'Static landing page with call-to-action',
@@ -62,7 +62,7 @@ const packages = {
             },
             {
                 name: 'Standard',
-                price: '$3,500',
+                price: '$1 000',
                 bestFor: 'Small-to-medium businesses ready for online sales',
                 popular: true,
                 features: [
@@ -79,7 +79,7 @@ const packages = {
             },
             {
                 name: 'Premium',
-                price: '$8,000',
+                price: '$2 600 ',
                 bestFor: 'Established businesses wanting a complete e-commerce solution',
                 features: [
                     'Everything in Standard, plus:',
