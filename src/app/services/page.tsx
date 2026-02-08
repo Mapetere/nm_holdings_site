@@ -58,7 +58,7 @@ const services = [
     {
         icon: GlobeIcon,
         title: 'Web Design',
-        description: 'Clean, modern, user-focused designs that convert visitors into customers.',
+        description: 'Clean, modern, user focused designs that convert visitors into customers.',
         link: '/packages',
     },
     {
@@ -76,7 +76,7 @@ const services = [
     {
         icon: PhoneIcon,
         title: 'Mobile Apps',
-        description: 'Native and cross-platform apps for iOS and Android that users love.',
+        description: 'Native and cross platform apps for iOS and Android that users love.',
         link: '/packages',
     },
     {
@@ -179,7 +179,7 @@ export default function ServicesPage() {
                         color: 'rgba(244, 241, 231, 0.6)',
                         lineHeight: '1.8'
                     }}>
-                        We help businesses grow with stunning websites — from high-converting
+                        We help businesses grow with stunning websites from high converting
                         landing pages to powerful full-scale web applications.
                     </p>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
@@ -351,7 +351,7 @@ export default function ServicesPage() {
                             </h2>
                             <p style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.7, lineHeight: '1.8' }}>
                                 We help brands grow through clean design, modern technology, and
-                                performance-driven digital solutions. Our focus is building products
+                                performance driven digital solutions. Our focus is building products
                                 that look premium and convert.
                             </p>
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>

@@ -150,7 +150,7 @@ export default function Home() {
                         color: 'rgba(244, 241, 231, 0.6)',
                         lineHeight: '1.8'
                     }}>
-                        Where elite level code meets unparalleled creative artistry. We don't just build websites; we engineer high-performance ecosystems for visionary brands.
+                        Where elite level code meets unparalleled creative artistry. We don't just build websites; we engineer high performance ecosystems for visionary brands.
                     </p>
 
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
@@ -205,7 +205,7 @@ export default function Home() {
                                 <span style={{ color: 'var(--gold)' }}>Lead the Industry.</span>
                             </h2>
                             <p style={{ fontSize: '1.1rem', marginBottom: '2.5rem', opacity: 0.8, lineHeight: '1.8' }}>
-                                Launching this month, NM Solutions is opening its vault to 7 Founding Clients. This is a head start for 2026 bringing elite infrastructure to visionary local businesses.
+                                Launching this month, NM Solutions is opening its vault to all small-medium-medium large and large enterprises. This is a head start for 2026 bringing elite infrastructure to visionary local businesses.
                             </p>
 
                             <div style={{ display: 'grid', gap: '1.25rem' }}>
