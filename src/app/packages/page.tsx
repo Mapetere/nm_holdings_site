@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 // Icons
@@ -56,7 +56,7 @@ const packages = {
         tiers: [
             {
                 name: 'Small / Basic',
-                price: '$400',
+                price: '$600',
                 bestFor: 'Simple product catalog with basic functionality',
                 features: [
                     { text: 'Up to 20 product listings', included: true },
@@ -64,6 +64,9 @@ const packages = {
                     { text: 'Contact form for inquiries', included: true },
                     { text: 'Mobile-responsive design', included: true },
                     { text: 'Basic SEO setup', included: true },
+                    { text: 'Free domain registration (1 Yr)', included: true },
+                    { text: 'Free SSL/TLS certificate', included: true },
+                    { text: 'DNS management included', included: true },
                     { text: 'Social media links', included: true },
                     { text: '1 week of bug fixes', included: true },
                     { text: 'Shopping cart functionality', included: false },
@@ -85,6 +88,9 @@ const packages = {
                     { text: 'Contact form for inquiries', included: true },
                     { text: 'Mobile-responsive design', included: true },
                     { text: 'SEO optimization', included: true },
+                    { text: 'Free domain registration (1 Yr)', included: true },
+                    { text: 'Free SSL/TLS certificate', included: true },
+                    { text: 'DNS management included', included: true },
                     { text: 'Social media links', included: true },
                     { text: '1 month of support', included: true },
                     { text: 'Shopping cart functionality', included: true },
@@ -105,6 +111,9 @@ const packages = {
                     { text: 'Contact form for inquiries', included: true },
                     { text: 'Mobile-responsive design', included: true },
                     { text: 'Advanced SEO & analytics', included: true },
+                    { text: 'Free domain registration (1 Yr)', included: true },
+                    { text: 'Free SSL/TLS certificate', included: true },
+                    { text: 'DNS management included', included: true },
                     { text: 'Social media integration', included: true },
                     { text: '3 months priority support', included: true },
                     { text: 'Shopping cart functionality', included: true },
@@ -246,7 +255,7 @@ const packages = {
     },
 };
 
-export default function PackagesPage() {
+function PackagesContent() {
     const searchParams = useSearchParams();
     const [activeCategory, setActiveCategory] = useState<PackageCategory>('ecommerce');
     const currentPackage = packages[activeCategory];
@@ -488,5 +497,17 @@ export default function PackagesPage() {
                 </div>
             </footer>
         </main>
+    );
+}
+
+export default function PackagesPage() {
+    return (
+        <Suspense fallback={
+            <main className="section-navy" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="serif gold-metallic" style={{ fontSize: '1.5rem' }}>Loading Packages...</div>
+            </main>
+        }>
+            <PackagesContent />
+        </Suspense>
     );
 }
