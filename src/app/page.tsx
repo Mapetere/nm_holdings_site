@@ -154,7 +154,7 @@ export default function Home() {
                     </p>
 
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
-                        <a href="/apply" className="btn-gold">Initiate Inquiry</a>
+                        <a href="/apply" className="btn-gold">Get in Touch</a>
                     </div>
                 </div>
             </section>
