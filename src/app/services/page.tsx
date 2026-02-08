@@ -88,7 +88,7 @@ const services = [
     {
         icon: SocialIcon,
         title: 'Social Media',
-        description: 'Boost your brand's online presence with targeted campaigns and strategies.',
+        description: 'Boost your brand\'s online presence with targeted campaigns and strategies.',
         link: '/social-media',
     },
 ];
