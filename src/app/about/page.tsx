@@ -1,10 +1,12 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Header from '@/components/Header';
 
 export default function About() {
     return (
-        <main className="section-navy" style={{ minHeight: '100vh', padding: '8rem 0' }}>
+        <main className="section-navy" style={{ minHeight: '100vh', padding: '0 0 8rem' }}>
+            <Header />
             <div className="container">
                 {/* Hero Section */}
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
@@ -54,23 +56,27 @@ export default function About() {
                 {/* Founder Section */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: '1fr 1.5fr',
+                    gridTemplateColumns: 'minmax(250px, 1fr) 2fr',
                     gap: '4rem',
                     alignItems: 'center',
                     background: 'rgba(194, 159, 82, 0.05)',
-                    padding: '4rem',
+                    padding: '3rem',
                     borderRadius: '32px',
-                    border: '1px solid rgba(194, 159, 82, 0.1)'
+                    border: '1px solid rgba(194, 159, 82, 0.1)',
+                    marginBottom: '4rem'
                 }}>
-                    <div style={{ position: 'relative', aspectRatio: '1', borderRadius: '20px', overflow: 'hidden', border: '2px solid var(--gold)' }}>
-                        {/* Placeholder for founder image */}
-                        <div style={{ width: '100%', height: '100%', background: 'linear-gradient(45deg, var(--navy), var(--gold))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <span className="serif" style={{ color: 'var(--gold)', fontSize: '4rem' }}>NM</span>
-                        </div>
+                    <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--gold)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+                        <Image
+                            src="/lead-engineer.jpg"
+                            alt="Nyasha Mapetere - Lead Engineer"
+                            width={400}
+                            height={500}
+                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                        />
                     </div>
                     <div>
                         <span style={{ textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', fontWeight: '700', fontSize: '0.8rem' }}>Founder & Lead Engineer</span>
-                        <h2 className="serif" style={{ fontSize: '2.5rem', margin: '0.5rem 0 1.5rem' }}>Nyasha Mapetere</h2>
+                        <h2 className="serif" style={{ fontSize: '2.5rem', margin: '0.5rem 0 1.5rem', color: 'var(--cream)' }}>Nyasha Mapetere</h2>
                         <p style={{ color: 'rgba(244, 241, 231, 0.7)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem' }}>
                             With a passion for architecting complex digital systems and a commitment to aesthetic precision, Nyasha leads the NM Solutions team in delivering elite-level software products.
                         </p>
@@ -81,3 +87,4 @@ export default function About() {
         </main>
     );
 }
+

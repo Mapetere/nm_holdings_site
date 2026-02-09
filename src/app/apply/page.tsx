@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Header from '@/components/Header';
 
 const projectTypes = [
     { id: 'ecommerce', label: 'E-Commerce / Hardware Shop' },
@@ -132,26 +133,8 @@ export default function Apply() {
             }}>
                 {/* Left Side: Content */}
                 <div style={{ position: 'sticky', top: '6rem' }}>
-                    <div style={{ marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                        <a href="/" style={{ textDecoration: 'none' }}>
-                            <Image
-                                src="/nm-solutions-icon.png"
-                                alt="NM Solutions"
-                                width={50}
-                                height={50}
-                                priority
-                                className="logo-enhance"
-                                style={{ height: '50px', width: 'auto' }}
-                            />
-                        </a>
-                        <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                            <span className="serif" style={{ fontSize: '1.6rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1', color: 'var(--cream)' }}>
-                                NMS<span className="gold-metallic" style={{ fontSize: '1.3rem', fontWeight: '700' }}>olutions</span>
-                            </span>
-                            <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
-                                Digital Engineering
-                            </span>
-                        </div>
+                    <div style={{ marginBottom: '3rem' }}>
+                        <Header />
                     </div>
 
                     <span style={{ textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--gold)', fontWeight: '700', fontSize: '0.75rem' }}>

@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import PortfolioShowcase from '@/components/PortfolioShowcase';
+import Header from '@/components/Header';
 
 // Icons
 const GlobeIcon = () => (
@@ -126,44 +127,7 @@ const processSteps = [
 export default function ServicesPage() {
     return (
         <main>
-            {/* Header */}
-            <header className="section-navy" style={{
-                padding: '1.5rem 0',
-                borderBottom: '1px solid rgba(194, 159, 82, 0.1)'
-            }}>
-                <div className="container" style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                }}>
-                    <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', color: 'inherit' }}>
-                        <div className="header-glow">
-                            <Image
-                                src="/nm-solutions-icon.png"
-                                alt="NM Solutions icon"
-                                className="logo-enhance"
-                                width={55}
-                                height={55}
-                                priority
-                                style={{ height: '55px', width: 'auto' }}
-                            />
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <span className="serif" style={{ fontSize: '1.6rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1.1', color: 'var(--cream)' }}>
-                                NMS<span className="gold-metallic" style={{ fontSize: '1.3rem', fontWeight: '700' }}>olutions</span>
-                            </span>
-                            <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
-                                Digital Engineering
-                            </span>
-                        </div>
-                    </a>
-                    <nav style={{ display: 'flex', gap: '2.5rem', fontSize: '0.8rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                        <a href="/services" className="nav-link" style={{ color: 'var(--gold)' }}>Services</a>
-                        <a href="/packages" className="nav-link">Packages</a>
-                        <a href="/apply" className="nav-link">Contact</a>
-                    </nav>
-                </div>
-            </header>
+            <Header />
 
             {/* Hero Section - ApexFinish Style */}
             <section className="section-navy" style={{ padding: '6rem 0 4rem' }}>
