@@ -3,8 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
+    const pathname = usePathname();
     const [activeSection, setActiveSection] = useState('');
     const [isScrolled, setIsScrolled] = useState(false);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -132,7 +134,11 @@ const Header = () => {
                                 color: 'var(--cream)',
                                 transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                             }}>
-                                {activeSection === 'capabilities' ? (
+                                {pathname !== '/' ? (
+                                    <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem', textTransform: 'capitalize' }}>
+                                        {pathname.replace('/', '').replace('-', ' ')}
+                                    </span>
+                                ) : activeSection === 'capabilities' ? (
                                     <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem' }}>Capabilities</span>
                                 ) : activeSection === 'examples' ? (
                                     <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem' }}>Portfolio</span>

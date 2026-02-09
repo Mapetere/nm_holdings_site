@@ -92,6 +92,8 @@ export default function About() {
                     </div>
                 </div>
             </div>
+            <BackToHome />
+            <Footer />
         </main>
     );
 }
