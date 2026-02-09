@@ -59,6 +59,7 @@ const Header = () => {
     const dropdownLinks = [
         { name: 'About', href: '/about' },
         { name: 'Services', href: '/services' },
+        { name: 'Product Development Flow', href: '/process' },
         { name: 'Packages', href: '/packages' },
         { name: 'Tech Stack', href: '/tech-stack' },
         { name: 'Onboarding', href: '/onboarding' },
