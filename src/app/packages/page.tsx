@@ -304,7 +304,12 @@ function PackagesContent() {
                         }}>
                             Development Packages
                         </div>
-                        <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--cream)' }}>
+                        <h1 className="serif" style={{
+                            fontSize: '3.5rem',
+                            lineHeight: '1.2',
+                            marginBottom: '1.5rem',
+                            color: 'var(--cream)'
+                        }}>
                             Let's Build <br /> Together
                         </h1>
                         <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.1rem' }}>

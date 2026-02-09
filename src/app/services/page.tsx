@@ -138,10 +138,10 @@ export default function ServicesPage() {
                     <div className="container" style={{ textAlign: 'center' }}>
                         <h1 className="serif" style={{
                             fontSize: '4rem',
-                            lineHeight: '1.1',
-                            marginBottom: '1.5rem',
+                            lineHeight: '1.2',
+                            marginBottom: '2rem',
                             maxWidth: '800px',
-                            margin: '0 auto 1.5rem',
+                            margin: '0 auto 2rem',
                             color: 'var(--cream)'
                         }}>
                             Let's Build <br /> Together

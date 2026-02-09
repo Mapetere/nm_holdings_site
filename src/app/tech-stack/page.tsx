@@ -26,7 +26,13 @@ export default function TechStack() {
                 <FadeInUp>
                     <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                         <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Arsenal</span>
-                        <h1 className="serif" style={{ fontSize: '4rem', margin: '1rem 0' }}>The <span className="gold-metallic">Tech Stack</span></h1>
+                        <h1 className="serif" style={{
+                            fontSize: '4rem',
+                            lineHeight: '1.2',
+                            margin: '1rem 0 1.5rem'
+                        }}>
+                            The <span className="gold-metallic">Tech Stack</span>
+                        </h1>
                         <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.2rem' }}>
                             We use only proven, industry standard technologies and service providers to ensure your digital ecosystem is built for longevity and scale.
                         </p>

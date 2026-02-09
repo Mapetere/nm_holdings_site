@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackToHome from '@/components/BackToHome';
 import FadeInUp from '@/components/FadeInUp';
 
 export default function About() {
@@ -14,7 +15,13 @@ export default function About() {
                 <FadeInUp>
                     <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
                         <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Story</span>
-                        <h1 className="serif" style={{ fontSize: '4.5rem', margin: '1rem 0' }}>Engineering <span className="gold-metallic">Excellence</span></h1>
+                        <h1 className="serif" style={{
+                            fontSize: '4.5rem',
+                            lineHeight: '1.2',
+                            margin: '1rem 0 1.5rem'
+                        }}>
+                            Engineering <span className="gold-metallic">Excellence</span>
+                        </h1>
                         <p style={{ maxWidth: '700px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.25rem', lineHeight: '1.8' }}>
                             NM Solutions was founded on the principle that digital presence should be an asset, not just an expense. We combine elite level code with visionary design.
                         </p>
