@@ -147,10 +147,11 @@ export default function Home() {
                         lineHeight: '1.1',
                         marginBottom: '1.5rem',
                         maxWidth: '900px',
-                        margin: '0 auto 1.5rem'
+                        margin: '0 auto 1.5rem',
+                        color: 'var(--cream)'
                     }}>
-                        Architecting the Future of <br />
-                        <span className="gold-metallic">Digital Commerce</span>
+                        Let's Build <br />
+                        Together
                     </h1>
 
                     <p style={{

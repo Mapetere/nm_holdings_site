@@ -532,10 +532,10 @@ export default function ServicesPage() {
                         </a>
                     </div>
                 </div>
-            </section >
+            </section>
 
             {/* Footer */}
-            < footer className="section-navy" style={{
+            <footer className="section-navy" style={{
                 padding: '3rem 0',
                 borderTop: '1px solid rgba(194, 159, 82, 0.1)'
             }}>
@@ -544,7 +544,7 @@ export default function ServicesPage() {
                         © {new Date().getFullYear()} NM SOLUTIONS | DIGITAL ENGINEERING PRECISION.
                     </p>
                 </div>
-            </footer >
-        </main >
+            </footer>
+        </main>
     );
 }
