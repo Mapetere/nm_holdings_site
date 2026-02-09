@@ -124,6 +124,7 @@ export default function Apply() {
 
     return (
         <main className="section-navy" style={{ minHeight: '100vh', padding: '6rem 0' }}>
+            <Header />
             <div className="container" style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1.2fr',
@@ -133,9 +134,7 @@ export default function Apply() {
             }}>
                 {/* Left Side: Content */}
                 <div style={{ position: 'sticky', top: '6rem' }}>
-                    <div style={{ marginBottom: '3rem' }}>
-                        <Header />
-                    </div>
+
 
                     <span style={{ textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--gold)', fontWeight: '700', fontSize: '0.75rem' }}>
                         Project Discovery
