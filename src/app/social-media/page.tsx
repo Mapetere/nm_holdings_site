@@ -123,7 +123,7 @@ export default function SocialMediaPage() {
             <Header />
 
             {/* Hero Section */}
-            <section className="section-navy" style={{ padding: '5rem 0 3rem' }}>
+            <section className="section-navy" style={{ padding: '10rem 0 4rem' }}>
                 <FadeInUp>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <div style={{

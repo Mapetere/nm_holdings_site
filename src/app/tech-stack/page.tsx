@@ -19,7 +19,7 @@ export default function TechStack() {
     ];
 
     return (
-        <main className="section-navy" style={{ minHeight: '100vh', padding: '8rem 0' }}>
+        <main className="section-navy" style={{ minHeight: '100vh', padding: '10rem 0 8rem' }}>
             <Header />
             <div className="container">
                 {/* Header */}

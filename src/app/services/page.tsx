@@ -133,7 +133,7 @@ export default function ServicesPage() {
             <Header />
 
             {/* Hero Section - ApexFinish Style */}
-            <section className="section-navy" style={{ padding: '6rem 0 4rem' }}>
+            <section className="section-navy" style={{ padding: '10rem 0 4rem' }}>
                 <FadeInUp>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <h1 className="serif" style={{

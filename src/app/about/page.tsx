@@ -8,7 +8,7 @@ import FadeInUp from '@/components/FadeInUp';
 
 export default function About() {
     return (
-        <main className="section-navy" style={{ minHeight: '100vh', padding: '8rem 0 8rem' }}>
+        <main className="section-navy" style={{ minHeight: '100vh', padding: '10rem 0 8rem' }}>
             <Header />
             <div className="container">
                 {/* Hero Section */}

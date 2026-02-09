@@ -288,7 +288,7 @@ function PackagesContent() {
             <Header />
 
             {/* Hero Section */}
-            <section className="section-navy" style={{ padding: '5rem 0 3rem' }}>
+            <section className="section-navy" style={{ padding: '10rem 0 4rem' }}>
                 <FadeInUp>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <div style={{
@@ -381,9 +381,10 @@ function PackagesContent() {
                                     style={{
                                         position: 'relative',
                                         border: tier.popular ? '2px solid var(--gold)' : undefined,
-                                        transform: tier.popular ? 'scale(1.02)' : undefined,
-                                        paddingTop: tier.popular ? '3.5rem' : undefined,
-                                        height: '100%'
+                                        transform: tier.popular ? 'scale(1.05)' : undefined,
+                                        paddingTop: tier.popular ? '4rem' : '3rem',
+                                        height: '100%',
+                                        zIndex: tier.popular ? 2 : 1
                                     }}
                                 >
                                     {tier.popular && (
@@ -395,9 +396,9 @@ function PackagesContent() {
                                             background: 'var(--gold)',
                                             color: '#000',
                                             padding: '0.5rem 1.5rem',
-                                            borderRadius: '0 0 8px 8px',
-                                            fontSize: '0.7rem',
-                                            fontWeight: '700',
+                                            borderRadius: '8px',
+                                            fontSize: '0.65rem',
+                                            fontWeight: '800',
                                             textTransform: 'uppercase',
                                             letterSpacing: '1px'
                                         }}>

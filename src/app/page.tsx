@@ -208,14 +208,16 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="float-anim" style={{
-                            background: 'var(--navy)',
+                        <div className="float-anim glass-card" style={{
                             color: 'var(--cream)',
                             padding: '4rem 3rem',
-                            borderRadius: '24px',
                             textAlign: 'center',
                             border: '1px solid var(--gold)',
-                            boxShadow: '0 30px 60px rgba(0,0,0,0.5)'
+                            boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center'
                         }}>
                             <div className="gold-metallic big-num" style={{ fontSize: '5rem', fontWeight: '800', marginBottom: '1rem' }}>2026</div>
                             <h3 className="serif" style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>Digital Future</h3>
