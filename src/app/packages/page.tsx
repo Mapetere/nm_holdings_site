@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 // Icons
 const GlobeIcon = () => (
@@ -68,7 +69,7 @@ const packages = {
                     { text: 'Free SSL/TLS certificate', included: true },
                     { text: 'DNS management included', included: true },
                     { text: 'Social media links', included: true },
-                    { text: '1 week of bug fixes', included: true },
+                    { text: '1 revision', included: true },
                     { text: 'Shopping cart functionality', included: false },
                     { text: 'Payment gateway integration', included: false },
                     { text: 'Customer accounts', included: false },
@@ -292,10 +293,13 @@ function PackagesContent() {
                 }}>
                     <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', color: 'inherit' }}>
                         <div className="header-glow">
-                            <img
+                            <Image
                                 src="/nm-solutions-icon.png"
                                 alt="NM Solutions icon"
                                 className="logo-enhance"
+                                width={55}
+                                height={55}
+                                priority
                                 style={{ height: '55px', width: 'auto' }}
                             />
                         </div>

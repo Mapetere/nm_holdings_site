@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Apply() {
     const [submitted, setSubmitted] = useState(false);
@@ -78,9 +79,13 @@ export default function Apply() {
             <main className="section-navy" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div className="container" style={{ textAlign: 'center' }}>
                     <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1.2rem' }}>
-                        <img
+                        <Image
                             src="/nm-solutions-icon.png"
                             alt="NM Solutions"
+                            width={65}
+                            height={65}
+                            priority
+                            className="logo-enhance"
                             style={{ height: '65px', width: 'auto' }}
                         />
                         <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
@@ -119,9 +124,13 @@ export default function Apply() {
                 <div style={{ position: 'sticky', top: '4rem' }}>
                     <div style={{ marginBottom: '3rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                         <a href="/">
-                            <img
+                            <Image
                                 src="/nm-solutions-icon.png"
                                 alt="NM Solutions"
+                                width={50}
+                                height={50}
+                                priority
+                                className="logo-enhance"
                                 style={{ height: '50px', width: 'auto' }}
                             />
                         </a>
@@ -323,9 +332,12 @@ export default function Apply() {
                         animation: 'pulse 2s ease-in-out infinite',
                         filter: 'drop-shadow(0 0 30px rgba(194, 159, 82, 0.4))'
                     }}>
-                        <img
+                        <Image
                             src="/nm-solutions-icon.png"
                             alt="Loading"
+                            width={80}
+                            height={80}
+                            priority
                             style={{
                                 height: '80px',
                                 width: 'auto'

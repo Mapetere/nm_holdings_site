@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 
 // Icons
 const CheckIcon = () => (
@@ -127,10 +128,13 @@ export default function SocialMediaPage() {
                 }}>
                     <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', color: 'inherit' }}>
                         <div className="header-glow">
-                            <img
+                            <Image
                                 src="/nm-solutions-icon.png"
                                 alt="NM Solutions icon"
                                 className="logo-enhance"
+                                width={55}
+                                height={55}
+                                priority
                                 style={{ height: '55px', width: 'auto' }}
                             />
                         </div>

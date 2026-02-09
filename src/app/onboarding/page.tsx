@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import DiscoveryForm from '@/components/DiscoveryForm';
 
 export default function OnboardingPage() {
@@ -7,7 +8,7 @@ export default function OnboardingPage() {
             <div className="container">
                 <header style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-                        <img src="/nm-solutions-icon.png" alt="Logo" style={{ height: '45px' }} />
+                        <Image src="/nm-solutions-icon.png" alt="Logo" className="logo-enhance" width={45} height={45} priority style={{ height: '45px' }} />
                         <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
                             <span className="serif" style={{ fontSize: '1.3rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1.1' }}>
                                 NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
