@@ -102,7 +102,7 @@ export default function Home() {
                         color: 'var(--gold)',
                         marginBottom: '2.5rem'
                     }}>
-                        Bespoke Web Engineering
+                        Digital Engineering
                     </div>
 
                     <h1 className="serif" style={{

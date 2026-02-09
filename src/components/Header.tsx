@@ -86,18 +86,7 @@ const Header = () => {
                                 transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                             }}>olutions</span>
                         </span>
-                        {!isScrolled && (
-                            <span style={{
-                                fontSize: '0.55rem',
-                                textTransform: 'uppercase',
-                                letterSpacing: '2px',
-                                color: 'var(--gold)',
-                                opacity: 0.8,
-                                transition: 'all 0.6s ease'
-                            }}>
-                                Digital Engineering
-                            </span>
-                        )}
+                        
                     </div>
                 </Link>
 
