@@ -3,6 +3,7 @@ import Image from 'next/image';
 import PortfolioShowcase from '@/components/PortfolioShowcase';
 import HeroArt from '@/components/HeroArt';
 import Header from '@/components/Header';
+import FadeInUp from '@/components/FadeInUp';
 
 // --- Professional Icon Components ---
 const GlobeIcon = () => (
@@ -91,45 +92,47 @@ export default function Home() {
                 <HeroArt />
 
                 <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-                    <div style={{
-                        display: 'inline-block',
-                        padding: '0.5rem 1.5rem',
-                        border: '1px solid var(--gold)',
-                        borderRadius: '50px',
-                        fontSize: '0.75rem',
-                        textTransform: 'uppercase',
-                        letterSpacing: '3px',
-                        color: 'var(--gold)',
-                        marginBottom: '2.5rem'
-                    }}>
-                        Digital Engineering
-                    </div>
+                    <FadeInUp>
+                        <div style={{
+                            display: 'inline-block',
+                            padding: '0.5rem 1.5rem',
+                            border: '1px solid var(--gold)',
+                            borderRadius: '50px',
+                            fontSize: '0.75rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '3px',
+                            color: 'var(--gold)',
+                            marginBottom: '2.5rem'
+                        }}>
+                            Digital Engineering
+                        </div>
 
-                    <h1 className="serif" style={{
-                        fontSize: '4.5rem',
-                        lineHeight: '1.1',
-                        marginBottom: '1.5rem',
-                        maxWidth: '900px',
-                        margin: '0 auto 1.5rem',
-                        color: 'var(--cream)'
-                    }}>
-                        Let's Build <br />
-                        Together
-                    </h1>
+                        <h1 className="serif" style={{
+                            fontSize: '4.5rem',
+                            lineHeight: '1.1',
+                            marginBottom: '1.5rem',
+                            maxWidth: '900px',
+                            margin: '0 auto 1.5rem',
+                            color: 'var(--cream)'
+                        }}>
+                            Let's Build <br />
+                            Together
+                        </h1>
 
-                    <p style={{
-                        maxWidth: '600px',
-                        margin: '0 auto 3rem',
-                        fontSize: '1.2rem',
-                        color: 'rgba(244, 241, 231, 0.6)',
-                        lineHeight: '1.8'
-                    }}>
-                        Where elite level code meets unparalleled creative artistry. We don't just build websites; we engineer high performance ecosystems for visionary brands.
-                    </p>
+                        <p style={{
+                            maxWidth: '600px',
+                            margin: '0 auto 3rem',
+                            fontSize: '1.2rem',
+                            color: 'rgba(244, 241, 231, 0.6)',
+                            lineHeight: '1.8'
+                        }}>
+                            Where elite level code meets unparalleled creative artistry. We don't just build websites; we engineer high performance ecosystems for visionary brands.
+                        </p>
 
-                    <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
-                        <a href="/apply" className="btn-gold">Get in Touch</a>
-                    </div>
+                        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+                            <a href="/apply" className="btn-gold">Get in Touch</a>
+                        </div>
+                    </FadeInUp>
                 </div>
             </section>
 
@@ -142,16 +145,19 @@ export default function Home() {
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+                        {/* Core Capabilities */}
                         {[
                             { Icon: GlobeIcon, title: 'Internet Recognition', text: 'We engineer digital footprints that command attention. Your domain becomes a landmark of authority.' },
                             { Icon: MegaphoneIcon, title: 'Strategic Presence', text: 'Beyond social media. We craft a unified digital voice that resonates across all touchpoints.' },
                             { Icon: TargetIcon, title: 'Client Discovery', text: 'Optimizing for the human experience. We ensure your partners find you effortlessly.' }
                         ].map((cap, i) => (
-                            <div key={i} className="glass-card">
-                                <div className="icon-shell"><cap.Icon /></div>
-                                <h3 className="serif" style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--gold)' }}>{cap.title}</h3>
-                                <p style={{ fontSize: '0.95rem', color: 'rgba(244, 241, 231, 0.5)', lineHeight: '1.7' }}>{cap.text}</p>
-                            </div>
+                            <FadeInUp key={i} delay={i * 0.2}>
+                                <div className="glass-card">
+                                    <div className="icon-shell"><cap.Icon /></div>
+                                    <h3 className="serif" style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--gold)' }}>{cap.title}</h3>
+                                    <p style={{ fontSize: '0.95rem', color: 'rgba(244, 241, 231, 0.5)', lineHeight: '1.7' }}>{cap.text}</p>
+                                </div>
+                            </FadeInUp>
                         ))}
                     </div>
                 </div>
