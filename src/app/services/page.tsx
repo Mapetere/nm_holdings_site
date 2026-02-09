@@ -5,6 +5,7 @@ import PortfolioShowcase from '@/components/PortfolioShowcase';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BackToHome from '@/components/BackToHome';
+import FadeInUp from '@/components/FadeInUp';
 
 // Icons
 const GlobeIcon = () => (
@@ -133,48 +134,50 @@ export default function ServicesPage() {
 
             {/* Hero Section - ApexFinish Style */}
             <section className="section-navy" style={{ padding: '6rem 0 4rem' }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <h1 className="serif" style={{
-                        fontSize: '4rem',
-                        lineHeight: '1.1',
-                        marginBottom: '1.5rem',
-                        maxWidth: '800px',
-                        margin: '0 auto 1.5rem',
-                        color: 'var(--cream)'
-                    }}>
-                        Let's Build <br /> Together
-                    </h1>
-                    <p style={{
-                        maxWidth: '650px',
-                        margin: '0 auto 2.5rem',
-                        fontSize: '1.2rem',
-                        color: 'rgba(244, 241, 231, 0.6)',
-                        lineHeight: '1.8'
-                    }}>
-                        We help businesses grow with stunning websites from high converting
-                        landing pages to powerful full-scale web applications.
-                    </p>
-                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                        <a href="/packages" className="btn-gold">View Packages</a>
-                        <a href="/apply" style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            padding: '1.1rem 2.5rem',
-                            border: '1px solid var(--gold)',
-                            borderRadius: '8px',
-                            color: 'var(--gold)',
-                            fontWeight: '600',
-                            textDecoration: 'none',
-                            fontSize: '0.85rem',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1.5px',
-                            transition: 'var(--transition)'
+                <FadeInUp>
+                    <div className="container" style={{ textAlign: 'center' }}>
+                        <h1 className="serif" style={{
+                            fontSize: '4rem',
+                            lineHeight: '1.1',
+                            marginBottom: '1.5rem',
+                            maxWidth: '800px',
+                            margin: '0 auto 1.5rem',
+                            color: 'var(--cream)'
                         }}>
-                            Get in Touch
-                        </a>
+                            Let's Build <br /> Together
+                        </h1>
+                        <p style={{
+                            maxWidth: '650px',
+                            margin: '0 auto 2.5rem',
+                            fontSize: '1.2rem',
+                            color: 'rgba(244, 241, 231, 0.6)',
+                            lineHeight: '1.8'
+                        }}>
+                            We help businesses grow with stunning websites from high converting
+                            landing pages to powerful full-scale web applications.
+                        </p>
+                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                            <a href="/packages" className="btn-gold">View Packages</a>
+                            <a href="/apply" style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '1.1rem 2.5rem',
+                                border: '1px solid var(--gold)',
+                                borderRadius: '8px',
+                                color: 'var(--gold)',
+                                fontWeight: '600',
+                                textDecoration: 'none',
+                                fontSize: '0.85rem',
+                                textTransform: 'uppercase',
+                                letterSpacing: '1.5px',
+                                transition: 'var(--transition)'
+                            }}>
+                                Get in Touch
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </FadeInUp>
             </section>
 
             {/* Services Grid - Clean ApexFinish Style */}
@@ -187,46 +190,48 @@ export default function ServicesPage() {
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
                         {services.map((service, i) => (
-                            <div
-                                key={i}
-                                className="glass-card"
-                                style={{
-                                    textAlign: 'center',
-                                    cursor: 'pointer',
-                                    transition: 'var(--transition)'
-                                }}
-                            >
-                                <div style={{
-                                    width: '60px',
-                                    height: '60px',
-                                    margin: '0 auto 1.5rem',
-                                    padding: '15px',
-                                    background: 'rgba(194, 159, 82, 0.1)',
-                                    border: '1px solid rgba(194, 159, 82, 0.2)',
-                                    borderRadius: '16px',
-                                    color: 'var(--gold)'
-                                }}>
-                                    <service.icon />
+                            <FadeInUp key={i} delay={0.1 * i}>
+                                <div
+                                    className="glass-card"
+                                    style={{
+                                        textAlign: 'center',
+                                        cursor: 'pointer',
+                                        transition: 'var(--transition)',
+                                        height: '100%'
+                                    }}
+                                >
+                                    <div style={{
+                                        width: '60px',
+                                        height: '60px',
+                                        margin: '0 auto 1.5rem',
+                                        padding: '15px',
+                                        background: 'rgba(194, 159, 82, 0.1)',
+                                        border: '1px solid rgba(194, 159, 82, 0.2)',
+                                        borderRadius: '16px',
+                                        color: 'var(--gold)'
+                                    }}>
+                                        <service.icon />
+                                    </div>
+                                    <h3 className="serif" style={{ fontSize: '1.4rem', color: 'var(--gold)', marginBottom: '0.75rem' }}>
+                                        {service.title}
+                                    </h3>
+                                    <p style={{ fontSize: '0.95rem', color: 'rgba(244, 241, 231, 0.6)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                                        {service.description}
+                                    </p>
+                                    <a href={service.link} style={{
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        gap: '0.5rem',
+                                        color: 'var(--gold)',
+                                        fontWeight: '600',
+                                        textDecoration: 'none',
+                                        fontSize: '0.85rem',
+                                        transition: 'var(--transition)'
+                                    }}>
+                                        Learn More <ArrowIcon />
+                                    </a>
                                 </div>
-                                <h3 className="serif" style={{ fontSize: '1.4rem', color: 'var(--gold)', marginBottom: '0.75rem' }}>
-                                    {service.title}
-                                </h3>
-                                <p style={{ fontSize: '0.95rem', color: 'rgba(244, 241, 231, 0.6)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
-                                    {service.description}
-                                </p>
-                                <a href={service.link} style={{
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: '0.5rem',
-                                    color: 'var(--gold)',
-                                    fontWeight: '600',
-                                    textDecoration: 'none',
-                                    fontSize: '0.85rem',
-                                    transition: 'var(--transition)'
-                                }}>
-                                    Learn More <ArrowIcon />
-                                </a>
-                            </div>
+                            </FadeInUp>
                         ))}
                     </div>
                 </div>

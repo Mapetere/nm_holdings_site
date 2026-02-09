@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import BackToHome from '@/components/BackToHome';
+import FadeInUp from '@/components/FadeInUp';
 
 export default function About() {
     return (
@@ -11,28 +11,34 @@ export default function About() {
             <Header />
             <div className="container">
                 {/* Hero Section */}
-                <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                    <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Story</span>
-                    <h1 className="serif" style={{ fontSize: '4.5rem', margin: '1rem 0' }}>Engineering <span className="gold-metallic">Excellence</span></h1>
-                    <p style={{ maxWidth: '700px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.25rem', lineHeight: '1.8' }}>
-                        NM Solutions was founded on the principle that digital presence should be an asset, not just an expense. We combine elite level code with visionary design.
-                    </p>
-                </div>
+                <FadeInUp>
+                    <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
+                        <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Story</span>
+                        <h1 className="serif" style={{ fontSize: '4.5rem', margin: '1rem 0' }}>Engineering <span className="gold-metallic">Excellence</span></h1>
+                        <p style={{ maxWidth: '700px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.25rem', lineHeight: '1.8' }}>
+                            NM Solutions was founded on the principle that digital presence should be an asset, not just an expense. We combine elite level code with visionary design.
+                        </p>
+                    </div>
+                </FadeInUp>
 
                 {/* Mission & Vision Grid */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '4rem', marginBottom: '8rem' }}>
-                    <div className="glass-card" style={{ padding: '3rem' }}>
-                        <h2 className="serif" style={{ color: 'var(--gold)', fontSize: '2rem', marginBottom: '1.5rem' }}>Our Mission</h2>
-                        <p style={{ color: 'rgba(244, 241, 231, 0.7)', lineHeight: '1.8', fontSize: '1.1rem' }}>
-                            To empower brands with bespoke digital ecosystems that drive growth, enhance user experience, and set new industry standards for performance and reliability.
-                        </p>
-                    </div>
-                    <div className="glass-card" style={{ padding: '3rem' }}>
-                        <h2 className="serif" style={{ color: 'var(--gold)', fontSize: '2rem', marginBottom: '1.5rem' }}>Our Vision</h2>
-                        <p style={{ color: 'rgba(244, 241, 231, 0.7)', lineHeight: '1.8', fontSize: '1.1rem' }}>
-                            To be the premier digital engineering partner for visionary companies, known for our commitment to quality, innovation, and technological mastery.
-                        </p>
-                    </div>
+                    <FadeInUp delay={0.2}>
+                        <div className="glass-card" style={{ padding: '3rem', height: '100%' }}>
+                            <h2 className="serif" style={{ color: 'var(--gold)', fontSize: '2rem', marginBottom: '1.5rem' }}>Our Mission</h2>
+                            <p style={{ color: 'rgba(244, 241, 231, 0.7)', lineHeight: '1.8', fontSize: '1.1rem' }}>
+                                To empower brands with bespoke digital ecosystems that drive growth, enhance user experience, and set new industry standards for performance and reliability.
+                            </p>
+                        </div>
+                    </FadeInUp>
+                    <FadeInUp delay={0.4}>
+                        <div className="glass-card" style={{ padding: '3rem', height: '100%' }}>
+                            <h2 className="serif" style={{ color: 'var(--gold)', fontSize: '2rem', marginBottom: '1.5rem' }}>Our Vision</h2>
+                            <p style={{ color: 'rgba(244, 241, 231, 0.7)', lineHeight: '1.8', fontSize: '1.1rem' }}>
+                                To be the premier digital engineering partner for visionary companies, known for our commitment to quality, innovation, and technological mastery.
+                            </p>
+                        </div>
+                    </FadeInUp>
                 </div>
 
                 {/* Core Values Section */}

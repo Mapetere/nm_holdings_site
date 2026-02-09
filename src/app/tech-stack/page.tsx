@@ -4,6 +4,7 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BackToHome from '@/components/BackToHome';
+import FadeInUp from '@/components/FadeInUp';
 
 export default function TechStack() {
     const techItems = [
@@ -22,13 +23,15 @@ export default function TechStack() {
             <Header />
             <div className="container">
                 {/* Header */}
-                <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-                    <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Arsenal</span>
-                    <h1 className="serif" style={{ fontSize: '4rem', margin: '1rem 0' }}>The <span className="gold-metallic">Tech Stack</span></h1>
-                    <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.2rem' }}>
-                        We use only proven, industry standard technologies and service providers to ensure your digital ecosystem is built for longevity and scale.
-                    </p>
-                </div>
+                <FadeInUp>
+                    <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                        <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Arsenal</span>
+                        <h1 className="serif" style={{ fontSize: '4rem', margin: '1rem 0' }}>The <span className="gold-metallic">Tech Stack</span></h1>
+                        <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.2rem' }}>
+                            We use only proven, industry standard technologies and service providers to ensure your digital ecosystem is built for longevity and scale.
+                        </p>
+                    </div>
+                </FadeInUp>
 
                 {/* Tech Grid */}
                 <div style={{
@@ -37,29 +40,30 @@ export default function TechStack() {
                     gap: '2rem'
                 }}>
                     {techItems.map((tech, index) => (
-                        <div key={tech.name} className="glass-card" style={{
-                            padding: '2.5rem',
-                            animation: `fadeSlideIn 0.5s ease forwards ${index * 0.1}s`,
-                            opacity: 0
-                        }}>
-                            <span style={{
-                                fontSize: '0.7rem',
-                                textTransform: 'uppercase',
-                                letterSpacing: '2px',
-                                color: 'var(--gold)',
-                                opacity: 0.8,
-                                display: 'block',
-                                marginBottom: '0.5rem'
+                        <FadeInUp key={tech.name} delay={0.1 * index}>
+                            <div className="glass-card" style={{
+                                padding: '2.5rem',
+                                height: '100%'
                             }}>
-                                {tech.category}
-                            </span>
-                            <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--cream)', marginBottom: '1rem' }}>
-                                {tech.name}
-                            </h3>
-                            <p style={{ color: 'rgba(244, 241, 231, 0.5)', lineHeight: '1.6' }}>
-                                {tech.description}
-                            </p>
-                        </div>
+                                <span style={{
+                                    fontSize: '0.7rem',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '2px',
+                                    color: 'var(--gold)',
+                                    opacity: 0.8,
+                                    display: 'block',
+                                    marginBottom: '0.5rem'
+                                }}>
+                                    {tech.category}
+                                </span>
+                                <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--cream)', marginBottom: '1rem' }}>
+                                    {tech.name}
+                                </h3>
+                                <p style={{ color: 'rgba(244, 241, 231, 0.5)', lineHeight: '1.6' }}>
+                                    {tech.description}
+                                </p>
+                            </div>
+                        </FadeInUp>
                     ))}
                 </div>
 
@@ -79,13 +83,6 @@ export default function TechStack() {
                 </div>
             </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                @keyframes fadeSlideIn {
-                    from { transform: translateY(20px); opacity: 0; }
-                    to { transform: translateY(0); opacity: 1; }
-                }
-            `}} />
             <BackToHome />
             <Footer />
         </main>

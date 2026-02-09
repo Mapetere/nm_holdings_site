@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BackToHome from '@/components/BackToHome';
+import FadeInUp from '@/components/FadeInUp';
 
 // Icons
 const GlobeIcon = () => (
@@ -214,7 +215,7 @@ const packages = {
         tiers: [
             {
                 name: 'Basic',
-                price: '$4,000',
+                price: '$800',
                 bestFor: 'Simple internal tools and utilities',
                 features: [
                     'Single OS (Windows or macOS)',
@@ -229,7 +230,7 @@ const packages = {
             },
             {
                 name: 'Standard',
-                price: '$10,000',
+                price: '$1 000',
                 bestFor: 'Business applications with data management',
                 popular: true,
                 features: [
@@ -247,16 +248,16 @@ const packages = {
             },
             {
                 name: 'Premium',
-                price: '$22,000',
+                price: '$2 200+',
                 bestFor: 'Enterprise grade desktop solutions',
                 features: [
                     'Everything in Standard, plus:',
-                    'Multi-OS including Linux',
-                    'Real-time cloud synchronization',
+                    'MultiOS including Linux',
+                    'Real time cloud synchronization',
                     'Advanced reporting & analytics',
                     'Integration with external APIs/services',
-                    'Multi-user collaboration features',
-                    'Offline-first architecture',
+                    'Multi user collaboration features',
+                    'Offline first architecture',
                     'Custom plugin/extension system',
                     'Enterprise security features',
                     '12 months of priority support',
@@ -288,28 +289,30 @@ function PackagesContent() {
 
             {/* Hero Section */}
             <section className="section-navy" style={{ padding: '5rem 0 3rem' }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <div style={{
-                        display: 'inline-block',
-                        padding: '0.5rem 1.5rem',
-                        border: '1px solid var(--gold)',
-                        borderRadius: '50px',
-                        fontSize: '0.75rem',
-                        textTransform: 'uppercase',
-                        letterSpacing: '3px',
-                        color: 'var(--gold)',
-                        marginBottom: '2rem'
-                    }}>
-                        Development Packages
+                <FadeInUp>
+                    <div className="container" style={{ textAlign: 'center' }}>
+                        <div style={{
+                            display: 'inline-block',
+                            padding: '0.5rem 1.5rem',
+                            border: '1px solid var(--gold)',
+                            borderRadius: '50px',
+                            fontSize: '0.75rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '3px',
+                            color: 'var(--gold)',
+                            marginBottom: '2rem'
+                        }}>
+                            Development Packages
+                        </div>
+                        <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--cream)' }}>
+                            Let's Build <br /> Together
+                        </h1>
+                        <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.1rem' }}>
+                            Quality development packages designed for small to medium enterprises.
+                            Built to scale with your business.
+                        </p>
                     </div>
-                    <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--cream)' }}>
-                        Let's Build <br /> Together
-                    </h1>
-                    <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.1rem' }}>
-                        Quality development packages designed for small to medium enterprises.
-                        Built to scale with your business.
-                    </p>
-                </div>
+                </FadeInUp>
             </section>
 
             {/* Category Tabs */}
@@ -366,79 +369,81 @@ function PackagesContent() {
                         gap: '1.5rem'
                     }}>
                         {currentPackage.tiers.map((tier, i) => (
-                            <div
-                                key={i}
-                                className="glass-card"
-                                style={{
-                                    position: 'relative',
-                                    border: tier.popular ? '2px solid var(--gold)' : undefined,
-                                    transform: tier.popular ? 'scale(1.02)' : undefined,
-                                    paddingTop: tier.popular ? '3.5rem' : undefined
-                                }}
-                            >
-                                {tier.popular && (
-                                    <div style={{
-                                        position: 'absolute',
-                                        top: '-1px',
-                                        left: '50%',
-                                        transform: 'translateX(-50%)',
-                                        background: 'var(--gold)',
-                                        color: '#000',
-                                        padding: '0.5rem 1.5rem',
-                                        borderRadius: '0 0 8px 8px',
-                                        fontSize: '0.7rem',
-                                        fontWeight: '700',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '1px'
-                                    }}>
-                                        Most Popular
+                            <FadeInUp key={i} delay={0.1 * i}>
+                                <div
+                                    className="glass-card"
+                                    style={{
+                                        position: 'relative',
+                                        border: tier.popular ? '2px solid var(--gold)' : undefined,
+                                        transform: tier.popular ? 'scale(1.02)' : undefined,
+                                        paddingTop: tier.popular ? '3.5rem' : undefined,
+                                        height: '100%'
+                                    }}
+                                >
+                                    {tier.popular && (
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '-1px',
+                                            left: '50%',
+                                            transform: 'translateX(-50%)',
+                                            background: 'var(--gold)',
+                                            color: '#000',
+                                            padding: '0.5rem 1.5rem',
+                                            borderRadius: '0 0 8px 8px',
+                                            fontSize: '0.7rem',
+                                            fontWeight: '700',
+                                            textTransform: 'uppercase',
+                                            letterSpacing: '1px'
+                                        }}>
+                                            Most Popular
+                                        </div>
+                                    )}
+                                    <h3 className="serif" style={{ fontSize: '1.5rem', color: 'var(--gold)', marginBottom: '0.5rem' }}>
+                                        {tier.name}
+                                    </h3>
+                                    <div className="gold-metallic" style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '0.5rem' }}>
+                                        {tier.price}
                                     </div>
-                                )}
-                                <h3 className="serif" style={{ fontSize: '1.5rem', color: 'var(--gold)', marginBottom: '0.5rem' }}>
-                                    {tier.name}
-                                </h3>
-                                <div className="gold-metallic" style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '0.5rem' }}>
-                                    {tier.price}
-                                </div>
-                                <p style={{ fontSize: '0.85rem', color: 'rgba(244, 241, 231, 0.5)', marginBottom: '2rem' }}>
-                                    {tier.bestFor}
-                                </p>
-                                <div style={{ borderTop: '1px solid rgba(194, 159, 82, 0.2)', paddingTop: '1.5rem' }}>
-                                    {tier.features.map((feature: { text: string; included: boolean } | string, j: number) => {
-                                        const isObject = typeof feature === 'object';
-                                        const text = isObject ? feature.text : feature;
-                                        const included = isObject ? feature.included : true;
-                                        return (
-                                            <div key={j} style={{
-                                                display: 'flex',
-                                                alignItems: 'flex-start',
-                                                gap: '0.75rem',
-                                                marginBottom: '0.75rem',
-                                                fontSize: '0.8rem',
-                                                color: included ? 'rgba(244, 241, 231, 0.7)' : 'rgba(244, 241, 231, 0.35)',
-                                                textDecoration: included ? 'none' : 'line-through',
-                                            }}>
-                                                <div style={{
-                                                    color: included ? '#4ade80' : '#ef4444',
-                                                    marginTop: '2px',
-                                                    flexShrink: 0
+                                    <p style={{ fontSize: '0.85rem', color: 'rgba(244, 241, 231, 0.5)', marginBottom: '2rem' }}>
+                                        {tier.bestFor}
+                                    </p>
+                                    <div style={{ borderTop: '1px solid rgba(194, 159, 82, 0.2)', paddingTop: '1.5rem' }}>
+                                        {tier.features.map((feature: { text: string; included: boolean } | string, j: number) => {
+                                            const isObject = typeof feature === 'object';
+                                            const text = isObject ? feature.text : feature;
+                                            const included = isObject ? feature.included : true;
+                                            return (
+                                                <div key={j} style={{
+                                                    display: 'flex',
+                                                    alignItems: 'flex-start',
+                                                    gap: '0.75rem',
+                                                    marginBottom: '0.75rem',
+                                                    fontSize: '0.8rem',
+                                                    color: included ? 'rgba(244, 241, 231, 0.7)' : 'rgba(244, 241, 231, 0.35)',
+                                                    textDecoration: included ? 'none' : 'line-through',
                                                 }}>
-                                                    {included ? <CheckIcon /> : <XIcon />}
+                                                    <div style={{
+                                                        color: included ? '#4ade80' : '#ef4444',
+                                                        marginTop: '2px',
+                                                        flexShrink: 0
+                                                    }}>
+                                                        {included ? <CheckIcon /> : <XIcon />}
+                                                    </div>
+                                                    <span>{text}</span>
                                                 </div>
-                                                <span>{text}</span>
-                                            </div>
-                                        );
-                                    })}
+                                            );
+                                        })}
+                                    </div>
+                                    <a href="/apply" className="btn-gold" style={{
+                                        width: '100%',
+                                        justifyContent: 'center',
+                                        marginTop: '2rem',
+                                        textDecoration: 'none'
+                                    }}>
+                                        Get Started <ArrowIcon />
+                                    </a>
                                 </div>
-                                <a href="/apply" className="btn-gold" style={{
-                                    width: '100%',
-                                    justifyContent: 'center',
-                                    marginTop: '2rem',
-                                    textDecoration: 'none'
-                                }}>
-                                    Get Started <ArrowIcon />
-                                </a>
-                            </div>
+                            </FadeInUp>
                         ))}
                     </div>
 

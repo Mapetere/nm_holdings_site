@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BackToHome from '@/components/BackToHome';
+import FadeInUp from '@/components/FadeInUp';
 
 // Icons
 const CheckIcon = () => (
@@ -123,48 +124,54 @@ export default function SocialMediaPage() {
 
             {/* Hero Section */}
             <section className="section-navy" style={{ padding: '5rem 0 3rem' }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <div style={{
-                        display: 'inline-block',
-                        padding: '0.5rem 1.5rem',
-                        border: '1px solid var(--gold)',
-                        borderRadius: '50px',
-                        fontSize: '0.75rem',
-                        textTransform: 'uppercase',
-                        letterSpacing: '3px',
-                        color: 'var(--gold)',
-                        marginBottom: '2rem'
-                    }}>
-                        Social Media Services
+                <FadeInUp>
+                    <div className="container" style={{ textAlign: 'center' }}>
+                        <div style={{
+                            display: 'inline-block',
+                            padding: '0.5rem 1.5rem',
+                            border: '1px solid var(--gold)',
+                            borderRadius: '50px',
+                            fontSize: '0.75rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '3px',
+                            color: 'var(--gold)',
+                            marginBottom: '2rem'
+                        }}>
+                            Social Media Services
+                        </div>
+                        <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--cream)' }}>
+                            Let's Build <br /> Together
+                        </h1>
+                        <p style={{ maxWidth: '600px', margin: '0 auto 3rem', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.1rem' }}>
+                            Complete social media platform creation, content strategy, and ongoing management
+                            to build your brand's digital presence.
+                        </p>
                     </div>
-                    <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--cream)' }}>
-                        Let's Build <br /> Together
-                    </h1>
-                    <p style={{ maxWidth: '600px', margin: '0 auto 3rem', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.1rem' }}>
-                        Complete social media platform creation, content strategy, and ongoing management
-                        to build your brand's digital presence.
-                    </p>
+                </FadeInUp>
 
-                    {/* Platform Icons */}
+                {/* Platform Icons */}
+                <div className="container">
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '2rem' }}>
                         {platforms.map((platform, i) => (
-                            <div key={i} style={{ textAlign: 'center' }}>
-                                <div style={{
-                                    width: '50px',
-                                    height: '50px',
-                                    padding: '12px',
-                                    background: 'rgba(194, 159, 82, 0.1)',
-                                    border: '1px solid rgba(194, 159, 82, 0.2)',
-                                    borderRadius: '12px',
-                                    color: 'var(--gold)',
-                                    margin: '0 auto 0.5rem'
-                                }}>
-                                    <platform.icon />
+                            <FadeInUp key={i} delay={0.2 + (i * 0.1)}>
+                                <div style={{ textAlign: 'center' }}>
+                                    <div style={{
+                                        width: '50px',
+                                        height: '50px',
+                                        padding: '12px',
+                                        background: 'rgba(194, 159, 82, 0.1)',
+                                        border: '1px solid rgba(194, 159, 82, 0.2)',
+                                        borderRadius: '12px',
+                                        color: 'var(--gold)',
+                                        margin: '0 auto 0.5rem'
+                                    }}>
+                                        <platform.icon />
+                                    </div>
+                                    <span style={{ fontSize: '0.7rem', color: 'rgba(244, 241, 231, 0.5)' }}>
+                                        {platform.name}
+                                    </span>
                                 </div>
-                                <span style={{ fontSize: '0.7rem', color: 'rgba(244, 241, 231, 0.5)' }}>
-                                    {platform.name}
-                                </span>
-                            </div>
+                            </FadeInUp>
                         ))}
                     </div>
                 </div>
@@ -175,72 +182,74 @@ export default function SocialMediaPage() {
                 <div className="container">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
                         {packages.map((pkg, i) => (
-                            <div
-                                key={i}
-                                className="glass-card"
-                                style={{
-                                    position: 'relative',
-                                    border: pkg.popular ? '2px solid var(--gold)' : undefined,
-                                    transform: pkg.popular ? 'scale(1.02)' : undefined,
-                                    paddingTop: pkg.popular ? '3.5rem' : undefined
-                                }}
-                            >
-                                {pkg.popular && (
-                                    <div style={{
-                                        position: 'absolute',
-                                        top: '-1px',
-                                        left: '50%',
-                                        transform: 'translateX(-50%)',
-                                        background: 'var(--gold)',
-                                        color: '#000',
-                                        padding: '0.5rem 1.5rem',
-                                        borderRadius: '0 0 8px 8px',
-                                        fontSize: '0.7rem',
-                                        fontWeight: '700',
-                                        textTransform: 'uppercase',
-                                        letterSpacing: '1px'
-                                    }}>
-                                        Most Popular
-                                    </div>
-                                )}
-                                <h3 className="serif" style={{ fontSize: '1.5rem', color: 'var(--gold)', marginBottom: '0.5rem' }}>
-                                    {pkg.name}
-                                </h3>
-                                <div style={{ marginBottom: '0.5rem' }}>
-                                    <span className="gold-metallic" style={{ fontSize: '3rem', fontWeight: '700' }}>
-                                        {pkg.price}
-                                    </span>
-                                    <span style={{ color: 'rgba(244, 241, 231, 0.5)', fontSize: '1rem' }}>
-                                        {pkg.period}
-                                    </span>
-                                </div>
-                                <p style={{ fontSize: '0.85rem', color: 'rgba(244, 241, 231, 0.5)', marginBottom: '2rem' }}>
-                                    {pkg.bestFor}
-                                </p>
-                                <div style={{ borderTop: '1px solid rgba(194, 159, 82, 0.2)', paddingTop: '1.5rem' }}>
-                                    {pkg.features.map((feature, j) => (
-                                        <div key={j} style={{
-                                            display: 'flex',
-                                            alignItems: 'flex-start',
-                                            gap: '0.75rem',
-                                            marginBottom: '0.75rem',
-                                            fontSize: '0.85rem',
-                                            color: feature.startsWith('Everything') ? 'var(--gold)' : 'rgba(244, 241, 231, 0.7)'
+                            <FadeInUp key={i} delay={0.1 * i}>
+                                <div
+                                    className="glass-card"
+                                    style={{
+                                        position: 'relative',
+                                        border: pkg.popular ? '2px solid var(--gold)' : undefined,
+                                        transform: pkg.popular ? 'scale(1.02)' : undefined,
+                                        paddingTop: pkg.popular ? '3.5rem' : undefined,
+                                        height: '100%'
+                                    }}
+                                >
+                                    {pkg.popular && (
+                                        <div style={{
+                                            position: 'absolute',
+                                            top: '-1px',
+                                            left: '50%',
+                                            transform: 'translateX(-50%)',
+                                            background: 'var(--gold)',
+                                            color: '#000',
+                                            padding: '0.5rem 1.5rem',
+                                            borderRadius: '0 0 8px 8px',
+                                            fontSize: '0.7rem',
+                                            fontWeight: '700',
+                                            textTransform: 'uppercase',
+                                            letterSpacing: '1px'
                                         }}>
-                                            <div style={{ color: 'var(--gold)', marginTop: '2px' }}><CheckIcon /></div>
-                                            <span>{feature}</span>
+                                            Most Popular
                                         </div>
-                                    ))}
+                                    )}
+                                    <h3 className="serif" style={{ fontSize: '1.5rem', color: 'var(--gold)', marginBottom: '0.5rem' }}>
+                                        {pkg.name}
+                                    </h3>
+                                    <div style={{ marginBottom: '0.5rem' }}>
+                                        <span className="gold-metallic" style={{ fontSize: '3rem', fontWeight: '700' }}>
+                                            {pkg.price}
+                                        </span>
+                                        <span style={{ color: 'rgba(244, 241, 231, 0.5)', fontSize: '1rem' }}>
+                                            {pkg.period}
+                                        </span>
+                                    </div>
+                                    <p style={{ fontSize: '0.85rem', color: 'rgba(244, 241, 231, 0.5)', marginBottom: '2rem' }}>
+                                        {pkg.bestFor}
+                                    </p>
+                                    <div style={{ borderTop: '1px solid rgba(194, 159, 82, 0.2)', paddingTop: '1.5rem' }}>
+                                        {pkg.features.map((feature, j) => (
+                                            <div key={j} style={{
+                                                display: 'flex',
+                                                alignItems: 'flex-start',
+                                                gap: '0.75rem',
+                                                marginBottom: '0.75rem',
+                                                fontSize: '0.85rem',
+                                                color: feature.startsWith('Everything') ? 'var(--gold)' : 'rgba(244, 241, 231, 0.7)'
+                                            }}>
+                                                <div style={{ color: 'var(--gold)', marginTop: '2px' }}><CheckIcon /></div>
+                                                <span>{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <a href="/apply" className="btn-gold" style={{
+                                        width: '100%',
+                                        justifyContent: 'center',
+                                        marginTop: '2rem',
+                                        textDecoration: 'none'
+                                    }}>
+                                        Get Started <ArrowIcon />
+                                    </a>
                                 </div>
-                                <a href="/apply" className="btn-gold" style={{
-                                    width: '100%',
-                                    justifyContent: 'center',
-                                    marginTop: '2rem',
-                                    textDecoration: 'none'
-                                }}>
-                                    Get Started <ArrowIcon />
-                                </a>
-                            </div>
+                            </FadeInUp>
                         ))}
                     </div>
 
