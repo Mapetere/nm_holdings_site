@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
                     <section style={{ marginBottom: '3rem' }}>
                         <h2 className="serif" style={{ color: 'var(--cream)', fontSize: '1.8rem', marginBottom: '1.5rem' }}>4. Data Security</h2>
                         <p>
-                            We implement industry-standard security measures to protect your data. We use proven, secure service providers for hosting and data storage. We do not sell or share your personal information with third parties for marketing purposes.
+                            We implement industry standard security measures to protect your data. We use proven, secure service providers for hosting and data storage. We do not sell or share your personal information with third parties for marketing purposes.
                         </p>
                     </section>
 

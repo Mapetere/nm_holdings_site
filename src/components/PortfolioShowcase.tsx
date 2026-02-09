@@ -156,12 +156,17 @@ export default function IndustryExamples() {
                     ))}
                 </div>
 
-                {/* Examples Grid */}
+                {/* Netflix-style Scroll Container */}
                 <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                    gap: '2rem'
-                }}>
+                    display: 'flex',
+                    gap: '1.5rem',
+                    overflowX: 'auto',
+                    padding: '1rem 0 3rem',
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
+                    scrollSnapType: 'x mandatory',
+                    WebkitOverflowScrolling: 'touch'
+                }} className="netflix-scroll">
                     {filteredItems.map((item, index) => (
                         <div
                             key={item.id}
@@ -170,8 +175,11 @@ export default function IndustryExamples() {
                             className="glass-card"
                             style={{
                                 padding: 0,
+                                minWidth: '350px',
+                                flex: '0 0 auto',
                                 overflow: 'hidden',
                                 opacity: 0,
+                                scrollSnapAlign: 'start',
                                 animation: `fadeSlideIn 0.5s ease forwards ${index * 0.1}s`
                             }}
                         >
@@ -196,26 +204,8 @@ export default function IndustryExamples() {
                                 <div style={{
                                     position: 'absolute',
                                     inset: 0,
-                                    background: 'linear-gradient(to top, rgba(5, 8, 16, 0.95) 0%, rgba(5, 8, 16, 0.3) 50%, transparent 100%)',
+                                    background: 'linear-gradient(to top, rgba(5, 8, 16, 0.9) 0%, rgba(5, 8, 16, 0.1) 100%)',
                                 }} />
-
-                                {/* Example Badge */}
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '1rem',
-                                    left: '1rem',
-                                    padding: '0.4rem 0.8rem',
-                                    background: 'rgba(0,0,0,0.6)',
-                                    backdropFilter: 'blur(4px)',
-                                    borderRadius: '4px',
-                                    fontSize: '0.65rem',
-                                    fontWeight: '600',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '1px',
-                                    color: 'var(--gold)'
-                                }}>
-                                    Example
-                                </div>
                             </div>
 
                             {/* Content */}
@@ -266,23 +256,6 @@ export default function IndustryExamples() {
                                         </span>
                                     ))}
                                 </div>
-
-                                {/* CTA */}
-                                <a
-                                    href="/apply"
-                                    style={{
-                                        display: 'inline-flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        color: 'var(--gold)',
-                                        fontWeight: '600',
-                                        fontSize: '0.85rem',
-                                        textDecoration: 'none',
-                                        transition: 'gap 0.3s ease'
-                                    }}
-                                >
-                                    I want something like this →
-                                </a>
                             </div>
                         </div>
                     ))}
@@ -327,6 +300,13 @@ export default function IndustryExamples() {
                         opacity: 1;
                         transform: translateY(0);
                     }
+                }
+                .netflix-scroll::-webkit-scrollbar {
+                    display: none;
+                }
+                .netflix-scroll {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
                 }
                 @media (max-width: 768px) {
                     #examples h2 {

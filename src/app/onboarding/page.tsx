@@ -21,7 +21,7 @@ export default function OnboardingPage() {
                     <h1 className="serif" style={{ fontSize: '3rem', marginBottom: '1rem' }}>Project Discovery</h1>
                     <p style={{ color: 'rgba(244, 241, 231, 0.6)', maxWidth: '600px', margin: '0 auto' }}>
                         Let's architect your digital future. Fill out this form to give us a clear view of your vision.
-                        Works offline—your progress is saved automatically.
+                        Works offline your progress is saved automatically.
                     </p>
                 </header>
 
