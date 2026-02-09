@@ -175,6 +175,41 @@ const Header = () => {
                             </>
                         )}
 
+                        {pathname !== '/' && (
+                            <Link
+                                href="/"
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.5rem',
+                                    fontSize: '0.7rem',
+                                    fontWeight: '700',
+                                    letterSpacing: '1px',
+                                    color: 'var(--gold)',
+                                    border: '1px solid var(--gold)',
+                                    padding: '0.4rem 1rem',
+                                    borderRadius: '50px',
+                                    textDecoration: 'none',
+                                    transition: 'all 0.3s ease',
+                                    marginRight: '-0.5rem' // Adjust spacing to Menu
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'var(--gold)';
+                                    e.currentTarget.style.color = 'var(--navy)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'transparent';
+                                    e.currentTarget.style.color = 'var(--gold)';
+                                }}
+                            >
+                                <span>HOME</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                            </Link>
+                        )}
+
                         {/* Menu Button */}
                         <button
                             onClick={() => setIsDrawerOpen(true)}
