@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import BackToHome from '@/components/BackToHome';
 import FadeInUp from '@/components/FadeInUp';
 
 const projectTypes = [
@@ -285,6 +287,8 @@ export default function Apply() {
                     </div>
                 </FadeInUp>
             </div>
+            <BackToHome />
+            <Footer />
 
             <style dangerouslySetInnerHTML={{
                 __html: `
