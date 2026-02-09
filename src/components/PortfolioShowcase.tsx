@@ -267,20 +267,32 @@ export default function IndustryExamples() {
                                     padding: '1.5rem',
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    justifyContent: 'flex-end',
-                                    background: 'linear-gradient(transparent, rgba(5, 8, 16, 0.9))',
-                                    opacity: hoveredItem === item.id ? 1 : 0.8,
-                                    transition: 'opacity 0.4s ease'
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    textAlign: 'center',
+                                    background: 'rgba(5, 8, 16, 0.85)',
+                                    backdropFilter: 'blur(8px)',
+                                    opacity: hoveredItem === item.id ? 1 : 0,
+                                    transition: 'all 0.4s ease',
+                                    zIndex: 5
                                 }}>
-                                    <h3 className="serif" style={{ fontSize: '1.4rem', color: 'var(--cream)', marginBottom: '0.25rem' }}>
+                                    <h3 className="serif" style={{
+                                        fontSize: '1.4rem',
+                                        color: 'var(--cream)',
+                                        marginBottom: '0.5rem',
+                                        transform: hoveredItem === item.id ? 'translateY(0)' : 'translateY(-10px)',
+                                        transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)'
+                                    }}>
                                         {item.title}
                                     </h3>
                                     <p style={{
-                                        fontSize: '0.8rem',
-                                        color: 'rgba(244, 241, 231, 0.6)',
+                                        fontSize: '0.85rem',
+                                        color: 'rgba(244, 241, 231, 0.8)',
                                         margin: 0,
+                                        maxWidth: '240px',
+                                        lineHeight: '1.6',
                                         transform: hoveredItem === item.id ? 'translateY(0)' : 'translateY(10px)',
-                                        transition: 'all 0.4s ease',
+                                        transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0.1s',
                                         opacity: hoveredItem === item.id ? 1 : 0
                                     }}>
                                         {item.description}
