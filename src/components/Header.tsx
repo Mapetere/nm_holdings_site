@@ -136,7 +136,7 @@ const Header = () => {
                             }}>
                                 {pathname !== '/' ? (
                                     <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem', textTransform: 'capitalize' }}>
-                                        {pathname.replace('/', '').replace('-', ' ')}
+                                        {pathname.replace('/', '').replace(/\//g, ' ').replace('-', ' ')}
                                     </span>
                                 ) : activeSection === 'capabilities' ? (
                                     <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem' }}>Capabilities</span>
@@ -145,11 +145,7 @@ const Header = () => {
                                 ) : activeSection === 'partnership' ? (
                                     <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem' }}>Partnership</span>
                                 ) : (
-                                    <>NMS<span className="gold-metallic" style={{
-                                        fontSize: isScrolled ? '1rem' : '1.3rem',
-                                        fontWeight: '700',
-                                        transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
-                                    }}>olutions</span></>
+                                    <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem' }}>Home</span>
                                 )}
                             </span>
 

@@ -1,6 +1,10 @@
 'use client';
 import React from 'react';
 
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import BackToHome from '@/components/BackToHome';
+
 export default function TechStack() {
     const techItems = [
         { name: 'Next.js 16', description: 'The power of modern React for high-performance, SEO-optimized web applications.', category: 'Framework' },
@@ -15,6 +19,7 @@ export default function TechStack() {
 
     return (
         <main className="section-navy" style={{ minHeight: '100vh', padding: '8rem 0' }}>
+            <Header />
             <div className="container">
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
@@ -81,6 +86,8 @@ export default function TechStack() {
                     to { transform: translateY(0); opacity: 1; }
                 }
             `}} />
+            <BackToHome />
+            <Footer />
         </main>
     );
 }

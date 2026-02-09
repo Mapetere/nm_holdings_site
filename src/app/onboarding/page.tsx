@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import BackToHome from '@/components/BackToHome';
 import DiscoveryForm from '@/components/DiscoveryForm';
 
 export default function OnboardingPage() {
@@ -22,12 +24,9 @@ export default function OnboardingPage() {
                     <DiscoveryForm />
                 </div>
 
-                <footer style={{ marginTop: '4rem', textAlign: 'center' }}>
-                    <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.3 }}>
-                        Precision Built for Visionary Brands.
-                    </p>
-                </footer>
+                <BackToHome />
             </div>
+            <Footer />
         </main>
     );
 }

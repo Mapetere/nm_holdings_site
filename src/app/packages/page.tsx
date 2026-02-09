@@ -3,6 +3,8 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import BackToHome from '@/components/BackToHome';
 
 // Icons
 const GlobeIcon = () => (
@@ -462,17 +464,8 @@ function PackagesContent() {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="section-navy" style={{
-                padding: '3rem 0',
-                borderTop: '1px solid rgba(194, 159, 82, 0.1)'
-            }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.4, fontWeight: '500' }}>
-                        © {new Date().getFullYear()} NM SOLUTIONS — DIGITAL ENGINEERING PRECISION.
-                    </p>
-                </div>
-            </footer>
+            <BackToHome />
+            <Footer />
         </main>
     );
 }
