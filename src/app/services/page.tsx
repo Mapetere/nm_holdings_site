@@ -99,33 +99,7 @@ const services = [
     },
 ];
 
-const processSteps = [
-    {
-        step: '01',
-        title: 'Research',
-        description: 'We study your business, understand your goals, and research examples you provide.'
-    },
-    {
-        step: '02',
-        title: 'Setup',
-        description: 'We gather necessary tools: server hosting, domain registration, and development environment.'
-    },
-    {
-        step: '03',
-        title: 'Development',
-        description: 'Building your solution in phases for complex projects, or as a single deliverable for simpler ones.'
-    },
-    {
-        step: '04',
-        title: 'Testing',
-        description: 'Rigorous testing to ensure your product works flawlessly across all scenarios.'
-    },
-    {
-        step: '05',
-        title: 'Delivery',
-        description: 'We present the final product and hand over everything you need to succeed.'
-    },
-];
+
 
 export default function ServicesPage() {
     return (
@@ -265,95 +239,7 @@ export default function ServicesPage() {
             <PortfolioShowcase />
 
             {/* Development Process Flow - Enhanced Visual */}
-            <section id="flow" className="section-cream" style={{ padding: '8rem 0', background: '#f9f7f0' }}>
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                        <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Method</span>
-                        <h2 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--navy)' }}>
-                            Product Development <span className="gold-metallic">Flow</span>
-                        </h2>
-                        <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(5, 8, 16, 0.6)', fontSize: '1.1rem' }}>
-                            A precision engineered lifecycle designed to deliver elite level digital products.
-                        </p>
-                    </div>
 
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                        gap: '2rem',
-                        position: 'relative'
-                    }}>
-                        {/* Connecting Line (Desktop) */}
-                        <div style={{
-                            position: 'absolute',
-                            top: '40px',
-                            left: '50px',
-                            right: '50px',
-                            height: '1px',
-                            background: 'rgba(194, 159, 82, 0.3)',
-                            zIndex: 0
-                        }} className="hide-mobile" />
-
-                        {processSteps.map((step, i) => (
-                            <div key={i} style={{
-                                textAlign: 'center',
-                                position: 'relative',
-                                zIndex: 1
-                            }}>
-                                <div style={{
-                                    width: '80px',
-                                    height: '80px',
-                                    margin: '0 auto 2rem',
-                                    background: 'var(--navy)',
-                                    borderRadius: '50%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    border: '2px solid var(--gold)',
-                                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                                    transition: 'transform 0.3s ease'
-                                }} className="step-circle">
-                                    <span style={{
-                                        fontSize: '1.5rem',
-                                        fontWeight: '700',
-                                        color: 'var(--gold)'
-                                    }}>
-                                        {step.step}
-                                    </span>
-                                </div>
-                                <h4 className="serif" style={{
-                                    fontSize: '1.25rem',
-                                    fontWeight: '600',
-                                    marginBottom: '1rem',
-                                    color: 'var(--navy)'
-                                }}>
-                                    {step.title}
-                                </h4>
-                                <div style={{ width: '30px', height: '2px', background: 'var(--gold)', margin: '0 auto 1.5rem', opacity: 0.5 }} />
-                                <p style={{
-                                    fontSize: '0.9rem',
-                                    color: 'rgba(5, 8, 16, 0.7)',
-                                    lineHeight: '1.7',
-                                    margin: '0 auto'
-                                }}>
-                                    {step.description}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <style dangerouslySetInnerHTML={{
-                    __html: `
-                    @media (max-width: 991px) {
-                        .hide-mobile { display: none !important; }
-                    }
-                    .step-circle:hover {
-                        transform: translateY(-5px) scale(1.05);
-                        border-color: var(--gold);
-                        box-shadow: 0 15px 40px rgba(194, 159, 82, 0.2);
-                    }
-                `}} />
-            </section>
 
             {/* About / Value Proposition Section */}
             <section className="section-navy" style={{ padding: '6rem 0' }}>
@@ -433,102 +319,7 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            {/* Contact Us Section */}
-            <section id="contact" className="section-cream" style={{ padding: '5rem 0' }}>
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--navy)' }}>
-                            Contact Us
-                        </h2>
-                        <p style={{ maxWidth: '500px', margin: '0 auto', color: 'rgba(5, 8, 16, 0.6)' }}>
-                            Ready to start your project? Reach out through any of these channels.
-                        </p>
-                    </div>
 
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(3, 1fr)',
-                        gap: '2rem',
-                        maxWidth: '900px',
-                        margin: '0 auto'
-                    }}>
-                        {/* WhatsApp */}
-                        <a href="https://wa.me/263774694160?text=Hi%2C%20I%27m%20interested%20in%20your%20services." target="_blank" rel="noopener noreferrer" style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            padding: '2.5rem 2rem',
-                            background: 'var(--navy)',
-                            borderRadius: '16px',
-                            textDecoration: 'none',
-                            transition: 'transform 0.3s ease',
-                            border: '1px solid rgba(194, 159, 82, 0.2)'
-                        }}>
-                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>💬</div>
-                            <h4 style={{ color: 'var(--gold)', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600' }}>WhatsApp</h4>
-                            <span style={{ color: 'var(--cream)', opacity: 0.7, fontSize: '0.9rem' }}>0774 694 160</span>
-                        </a>
-
-                        {/* Email */}
-                        <a href="mailto:support@nmsolutions.co.zw?subject=Project%20Inquiry" style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            padding: '2.5rem 2rem',
-                            background: 'var(--navy)',
-                            borderRadius: '16px',
-                            textDecoration: 'none',
-                            transition: 'transform 0.3s ease',
-                            border: '1px solid rgba(194, 159, 82, 0.2)'
-                        }}>
-                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>✉️</div>
-                            <h4 style={{ color: 'var(--gold)', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600' }}>Email</h4>
-                            <span style={{ color: 'var(--cream)', opacity: 0.7, fontSize: '0.9rem' }}>support@nmsolutions.co.zw</span>
-                        </a>
-
-                        {/* Facebook */}
-                        <a href="https://facebook.com/nmsolutions.zw" target="_blank" rel="noopener noreferrer" style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            padding: '2.5rem 2rem',
-                            background: 'var(--navy)',
-                            borderRadius: '16px',
-                            textDecoration: 'none',
-                            transition: 'transform 0.3s ease',
-                            border: '1px solid rgba(194, 159, 82, 0.2)'
-                        }}>
-                            <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>📘</div>
-                            <h4 style={{ color: 'var(--gold)', fontSize: '1.1rem', marginBottom: '0.5rem', fontWeight: '600' }}>Facebook</h4>
-                            <span style={{ color: 'var(--cream)', opacity: 0.7, fontSize: '0.9rem' }}>nmsolutions.zw</span>
-                        </a>
-                    </div>
-
-                    {/* Leave a Message Link */}
-                    <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                        <p style={{ color: 'rgba(5, 8, 16, 0.6)', marginBottom: '1rem' }}>
-                            Have a comment or want to leave feedback?
-                        </p>
-                        <a href="/apply" style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '0.5rem',
-                            padding: '1rem 2rem',
-                            background: 'var(--navy)',
-                            border: '1px solid var(--gold)',
-                            borderRadius: '8px',
-                            color: 'var(--gold)',
-                            fontWeight: '600',
-                            textDecoration: 'none',
-                            fontSize: '0.85rem',
-                            textTransform: 'uppercase',
-                            letterSpacing: '1.5px'
-                        }}>
-                            Leave a Message <ArrowIcon />
-                        </a>
-                    </div>
-                </div>
-            </section>
 
             <BackToHome />
             <Footer />

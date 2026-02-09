@@ -74,7 +74,8 @@ export default function Footer() {
                     <h4 style={{ color: 'var(--gold)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem', fontWeight: '700' }}>Company</h4>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                         <li><Link href="/about" style={linkStyle}>About Us</Link></li>
-                        <li><Link href="/apply" style={linkStyle}>Project Discovery / Contact</Link></li>
+                        <li><Link href="/apply" style={linkStyle}>Project Discovery</Link></li>
+                        <li><Link href="/contact" style={linkStyle}>Contact Us</Link></li>
                         <li><Link href="/social-media" style={linkStyle}>Social Media</Link></li>
                         <li><Link href="/privacy" style={linkStyle}>Privacy & Terms</Link></li>
                     </ul>

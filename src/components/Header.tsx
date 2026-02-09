@@ -64,6 +64,7 @@ const Header = () => {
         { name: 'Tech Stack', href: '/tech-stack' },
         { name: 'Onboarding', href: '/onboarding' },
         { name: 'Project Discovery', href: '/apply' },
+        { name: 'Contact Us', href: '/contact' },
         { name: 'Compliance', href: '/compliance' },
         { name: 'Social Media', href: '/social-media' }
     ];
@@ -165,10 +166,14 @@ const Header = () => {
                         letterSpacing: '1px',
                         transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                     }}>
-                        <Link href="/#vision" className="nav-link" style={{ color: activeSection === 'vision' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'vision')}>Vision</Link>
-                        <Link href="/#capabilities" className="nav-link" style={{ color: activeSection === 'capabilities' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'capabilities')}>Capabilities</Link>
-                        <Link href="/#examples" className="nav-link" style={{ color: activeSection === 'examples' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'examples')}>Portfolio</Link>
-                        <Link href="/#partnership" className="nav-link" style={{ color: activeSection === 'partnership' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'partnership')}>Partnership</Link>
+                        {!isScrolled && (
+                            <>
+                                <Link href="/#vision" className="nav-link" style={{ color: activeSection === 'vision' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'vision')}>Vision</Link>
+                                <Link href="/#capabilities" className="nav-link" style={{ color: activeSection === 'capabilities' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'capabilities')}>Capabilities</Link>
+                                <Link href="/#examples" className="nav-link" style={{ color: activeSection === 'examples' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'examples')}>Portfolio</Link>
+                                <Link href="/#partnership" className="nav-link" style={{ color: activeSection === 'partnership' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'partnership')}>Partnership</Link>
+                            </>
+                        )}
 
                         {/* Menu Button */}
                         <button
