@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -98,6 +98,28 @@ export default function IndustryExamples() {
         ? exampleItems
         : exampleItems.filter(item => item.industry === activeIndustry);
 
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
+
+    const checkScroll = () => {
+        if (scrollRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+            setCanScrollLeft(scrollLeft > 10);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+        }
+    };
+
+    useEffect(() => {
+        checkScroll();
+        // Check after a bit to account for rendering
+        const timer = setTimeout(checkScroll, 100);
+        window.addEventListener('resize', checkScroll);
+        return () => {
+            window.removeEventListener('resize', checkScroll);
+            clearTimeout(timer);
+        };
+    }, [filteredItems]);
+
     const scroll = (direction: 'left' | 'right') => {
         if (scrollRef.current) {
             const { scrollLeft, clientWidth } = scrollRef.current;
@@ -106,6 +128,8 @@ export default function IndustryExamples() {
                 left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
                 behavior: 'smooth'
             });
+            // After scroll finishes
+            setTimeout(checkScroll, 500);
         }
     };
 
@@ -172,23 +196,28 @@ export default function IndustryExamples() {
                 {/* Netflix-style Slider Area */}
                 <div style={{ position: 'relative', width: '100%' }}>
                     {/* Navigation Arrows */}
-                    <button
-                        onClick={() => scroll('left')}
-                        className="netflix-nav left"
-                        aria-label="Previous"
-                    >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 18l-6-6 6-6" /></svg>
-                    </button>
-                    <button
-                        onClick={() => scroll('right')}
-                        className="netflix-nav right"
-                        aria-label="Next"
-                    >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
-                    </button>
+                    {canScrollLeft && (
+                        <button
+                            onClick={() => scroll('left')}
+                            className="netflix-nav left"
+                            aria-label="Previous"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 18l-6-6 6-6" /></svg>
+                        </button>
+                    )}
+                    {canScrollRight && (
+                        <button
+                            onClick={() => scroll('right')}
+                            className="netflix-nav right"
+                            aria-label="Next"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
+                        </button>
+                    )}
 
                     <div
                         ref={scrollRef}
+                        onScroll={checkScroll}
                         className="netflix-scroll"
                         style={{
                             display: 'flex',
@@ -208,7 +237,7 @@ export default function IndustryExamples() {
                                 className="netflix-card"
                                 style={{
                                     position: 'relative',
-                                    minWidth: '280px',
+                                    minWidth: '350px',
                                     flex: '0 0 auto',
                                     aspectRatio: '16/9',
                                     borderRadius: '8px',
