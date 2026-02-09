@@ -266,7 +266,7 @@ const Header = () => {
                         <div style={{ width: '40px', height: '2px', background: 'var(--gold)', marginTop: '0.5rem' }} />
                     </div>
 
-                    <nav style={{ display: 'grid', gap: '1.5rem' }}>
+                    <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                         {dropdownLinks.map((link, idx) => (
                             <Link
                                 key={link.href}
@@ -275,13 +275,18 @@ const Header = () => {
                                 style={{
                                     color: 'var(--cream)',
                                     textDecoration: 'none',
-                                    fontSize: '1.8rem',
+                                    fontSize: '1.2rem',
                                     fontWeight: '600',
-                                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                                    transform: isDrawerOpen ? 'translateY(0)' : 'translateY(20px)',
+                                    padding: '0.75rem 1.5rem',
+                                    borderRadius: '8px',
+                                    background: 'transparent',
+                                    borderLeft: '3px solid transparent',
+                                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                                    transform: isDrawerOpen ? 'translateY(0)' : 'translateY(15px)',
                                     opacity: isDrawerOpen ? 1 : 0,
-                                    transitionDelay: `${0.1 + idx * 0.05}s`,
-                                    display: 'inline-block'
+                                    transitionDelay: `${0.1 + idx * 0.03}s`,
+                                    display: 'block',
+                                    width: '100%'
                                 }}
                                 className="drawer-link"
                             >
@@ -306,8 +311,10 @@ const Header = () => {
 
             <style jsx>{`
                 .drawer-link:hover {
+                    background: rgba(194, 159, 82, 0.15) !important;
+                    border-left-color: var(--gold) !important;
                     color: var(--gold) !important;
-                    transform: translateX(10px) !important;
+                    padding-left: 2rem !important;
                 }
                 .footer-link-small {
                     color: rgba(244, 241, 231, 0.4);

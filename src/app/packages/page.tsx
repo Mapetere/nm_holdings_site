@@ -3,6 +3,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import Link from 'next/link';
 import Footer from '@/components/Footer';
 import BackToHome from '@/components/BackToHome';
 import FadeInUp from '@/components/FadeInUp';
@@ -441,14 +442,18 @@ function PackagesContent() {
                                             );
                                         })}
                                     </div>
-                                    <a href="/apply" className="btn-gold" style={{
-                                        width: '100%',
-                                        justifyContent: 'center',
-                                        marginTop: '2rem',
-                                        textDecoration: 'none'
-                                    }}>
+                                    <Link
+                                        href={`/apply?package=${encodeURIComponent(tier.name)}&category=${activeCategory}&price=${encodeURIComponent(tier.price)}`}
+                                        className="btn-gold"
+                                        style={{
+                                            width: '100%',
+                                            justifyContent: 'center',
+                                            marginTop: '2rem',
+                                            textDecoration: 'none'
+                                        }}
+                                    >
                                         Get Started <ArrowIcon />
-                                    </a>
+                                    </Link>
                                 </div>
                             </FadeInUp>
                         ))}

@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import React, { useState, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -18,13 +19,35 @@ const projectTypes = [
     { id: 'custom', label: 'Custom Engineering' },
 ];
 
-export default function Apply() {
+function ApplyContent() {
+    const searchParams = useSearchParams();
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<Record<string, boolean>>({});
     const [consent, setConsent] = useState(false);
     const [projectType, setProjectType] = useState('');
     const [statusMessage, setStatusMessage] = useState<{ type: 'error' | 'success', text: string } | null>(null);
+
+    // Selected Package State
+    const [selectedPackage, setSelectedPackage] = useState<{ name: string; category: string; price: string } | null>(null);
+
+    useEffect(() => {
+        const pkgName = searchParams.get('package');
+        const pkgCategory = searchParams.get('category');
+        const pkgPrice = searchParams.get('price');
+
+        if (pkgName && pkgCategory && pkgPrice) {
+            setSelectedPackage({
+                name: pkgName,
+                category: pkgCategory,
+                price: pkgPrice
+            });
+            // Auto-select project type based on category
+            if (pkgCategory === 'ecommerce') setProjectType('ecommerce');
+            else if (pkgCategory === 'mobile') setProjectType('mobile');
+            // 'desktop' or others might default to 'custom' or stay unselected
+        }
+    }, [searchParams]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -71,6 +94,15 @@ export default function Apply() {
             // Collect project data
             const projectData = Object.fromEntries(formData);
             projectData.projectType = projectType;
+
+            // Add package info if selected
+            if (selectedPackage) {
+                Object.assign(projectData, {
+                    selectedPackageName: selectedPackage.name,
+                    selectedPackageCategory: selectedPackage.category,
+                    selectedPackagePrice: selectedPackage.price
+                });
+            }
 
             const response = await fetch('/api/apply', {
                 method: 'POST',
@@ -174,6 +206,29 @@ export default function Apply() {
                         padding: '4rem',
                         borderRadius: '40px'
                     }}>
+                        {/* Selected Package Confirmation */}
+                        {selectedPackage && (
+                            <div style={{
+                                background: 'rgba(194, 159, 82, 0.1)',
+                                border: '1px solid var(--gold)',
+                                borderRadius: '20px',
+                                padding: '1.5rem',
+                                marginBottom: '2rem',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center'
+                            }}>
+                                <div>
+                                    <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', fontWeight: '700' }}>Selected Package</span>
+                                    <h3 className="serif" style={{ fontSize: '1.5rem', color: 'var(--cream)', margin: '0.25rem 0' }}>{selectedPackage.name}</h3>
+                                    <span style={{ fontSize: '0.9rem', color: 'rgba(244, 241, 231, 0.6)' }}>{selectedPackage.category} Development</span>
+                                </div>
+                                <div className="gold-metallic" style={{ fontSize: '2rem', fontWeight: '700' }}>
+                                    {selectedPackage.price}
+                                </div>
+                            </div>
+                        )}
+
                         <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                             {/* Name & Business */}
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
@@ -325,6 +380,18 @@ export default function Apply() {
                 </div>
             )}
         </main>
+    );
+}
+
+export default function Apply() {
+    return (
+        <Suspense fallback={
+            <main className="section-navy" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="serif gold-metallic" style={{ fontSize: '1.5rem' }}>Loading Application...</div>
+            </main>
+        }>
+            <ApplyContent />
+        </Suspense>
     );
 }
 
