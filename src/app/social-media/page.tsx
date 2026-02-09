@@ -91,7 +91,7 @@ const packages = [
         name: 'Enterprise',
         price: '$2,500',
         period: '/month',
-        bestFor: 'Established brands seeking full-service management',
+        bestFor: 'Established brands seeking full service management',
         features: [
             'Everything in Growth, plus:',
             'Unlimited platforms',
@@ -257,7 +257,7 @@ export default function SocialMediaPage() {
                             Need Additional Services?
                         </h3>
                         <p style={{ color: 'rgba(244, 241, 231, 0.6)', marginBottom: '1rem' }}>
-                            For add-on costs like paid advertising budgets, additional platforms, or custom requirements, contact our support team.
+                            For add on costs like paid advertising budgets, additional platforms, or custom requirements, contact our support team.
                         </p>
                         <a href="/apply" style={{ color: 'var(--gold)', fontWeight: '600', textDecoration: 'none' }}>
                             Contact Support →
@@ -281,10 +281,10 @@ export default function SocialMediaPage() {
                         {[
                             { title: 'Platform Setup', desc: 'Complete profile creation and optimization across all platforms with consistent branding.' },
                             { title: 'Content Strategy', desc: 'Custom content calendars aligned with your brand voice and business goals.' },
-                            { title: 'Graphic Design', desc: 'Eye-catching visuals and branded templates for maximum engagement.' },
+                            { title: 'Graphic Design', desc: 'Eye catching visuals and branded templates for maximum engagement.' },
                             { title: 'Community Management', desc: 'Active engagement with your audience through comments, messages, and mentions.' },
                             { title: 'Analytics & Reporting', desc: 'Detailed insights on performance, growth, and ROI with actionable recommendations.' },
-                            { title: 'Strategy Optimization', desc: 'Continuous improvement based on data-driven insights and trends.' },
+                            { title: 'Strategy Optimization', desc: 'Continuous improvement based on data driven insights and trends.' },
                         ].map((item, i) => (
                             <div key={i} style={{
                                 padding: '2rem',

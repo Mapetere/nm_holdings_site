@@ -30,7 +30,7 @@ const exampleItems: ExampleItem[] = [
         title: 'Beauty & Wellness',
         industry: 'retail',
         question: 'Are you in the beauty, skincare, or wellness industry?',
-        description: 'Elegant e-commerce with subscription options, reviews, and personalized recommendations.',
+        description: 'Elegant e commerce with subscription options, reviews, and personalized recommendations.',
         image: '/portfolio/cosmetics-shop.png',
         features: ['Subscriptions', 'Customer Reviews', 'Wishlists']
     },
@@ -157,7 +157,7 @@ export default function IndustryExamples() {
                         fontSize: '1.1rem',
                         lineHeight: '1.8'
                     }}>
-                        Every business is unique. We engineer high-performance digital ecosystems
+                        Every business is unique. We engineer high performance digital ecosystems
                         tailored to your specific industry goals.
                     </p>
                 </div>

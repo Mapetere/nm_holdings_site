@@ -159,7 +159,7 @@ export default function Apply() {
                             <p style={{ fontSize: '0.9rem', color: 'rgba(244, 241, 231, 0.5)', lineHeight: '1.6' }}>
                                 1. We review your industry needs.<br />
                                 2. We prepare a tailored technical brief.<br />
-                                3. We scedule discussion meeting
+                                3. We schedule discussion meeting
                             </p>
                         </div>
                     </FadeInUp>

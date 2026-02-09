@@ -32,7 +32,7 @@ export default function CompliancePage() {
                     <ul style={{ paddingLeft: '2rem', marginBottom: '1.5rem' }}>
                         <li>Data protection and privacy standards</li>
                         <li>Secure coding practices (OWASP)</li>
-                        <li>Industry-specific regulatory requirements</li>
+                        <li>Industry specific regulatory requirements</li>
                         <li>Accessibility standards (WCAG)</li>
                     </ul>
                     <p>

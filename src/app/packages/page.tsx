@@ -248,7 +248,7 @@ const packages = {
             {
                 name: 'Premium',
                 price: '$22,000',
-                bestFor: 'Enterprise-grade desktop solutions',
+                bestFor: 'Enterprise grade desktop solutions',
                 features: [
                     'Everything in Standard, plus:',
                     'Multi-OS including Linux',
