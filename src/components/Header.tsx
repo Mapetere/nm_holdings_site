@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Header = () => {
+    const [activeSection, setActiveSection] = useState('');
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -14,6 +15,36 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Scroll Spy Logic
+    useEffect(() => {
+        const sections = ['vision', 'capabilities', 'partnership'];
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of section is visible
+
+        sections.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        if (window.location.pathname === '/') {
+            e.preventDefault();
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
 
     return (
         <header style={{
@@ -86,7 +117,7 @@ const Header = () => {
                                 transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                             }}>olutions</span>
                         </span>
-                        
+
                     </div>
                 </Link>
 
@@ -99,10 +130,10 @@ const Header = () => {
                     letterSpacing: '1px',
                     transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}>
-                    <Link href="/about" className="nav-link">About</Link>
-                    <Link href="/services" className="nav-link">Services</Link>
-                    <Link href="/packages" className="nav-link">Packages</Link>
-                    <Link href="/apply" className="nav-link" style={{ color: 'var(--gold)' }}>Partnership</Link>
+                    <Link href="/about" className="nav-link" style={{ color: activeSection === 'about' ? 'var(--gold)' : 'inherit' }}>About</Link>
+                    <Link href="/services" className="nav-link" style={{ color: activeSection === 'capabilities' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'capabilities')}>Services</Link>
+                    <Link href="/packages" className="nav-link" style={{ color: activeSection === 'packages' ? 'var(--gold)' : 'inherit' }}>Packages</Link>
+                    <Link href="/apply" className="nav-link" style={{ color: activeSection === 'partnership' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'partnership')}>Partnership</Link>
                 </nav>
             </div>
         </header>

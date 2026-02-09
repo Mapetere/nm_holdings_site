@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://nmsolutions.co.zw'), // Update this to your actual domain
@@ -48,6 +49,7 @@ export default function RootLayout({
                 />
             </head>
             <body>
+                <ScrollToTop />
                 {children}
             </body>
         </html>
