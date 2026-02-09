@@ -1,9 +1,14 @@
 'use client';
 import React from 'react';
 
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import BackToHome from '@/components/BackToHome';
+
 export default function PrivacyPolicy() {
     return (
         <main className="section-navy" style={{ minHeight: '100vh', padding: '8rem 0' }}>
+            <Header />
             <div className="container" style={{ maxWidth: '800px' }}>
                 <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '3rem', color: 'var(--gold)' }}>Privacy Policy</h1>
 
@@ -64,6 +69,8 @@ export default function PrivacyPolicy() {
                     </section>
                 </div>
             </div>
+            <BackToHome />
+            <Footer />
         </main>
     );
 }
