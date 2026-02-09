@@ -326,6 +326,7 @@ function PackagesContent() {
                     <div style={{
                         display: 'flex',
                         justifyContent: 'center',
+                        flexWrap: 'wrap',
                         gap: '1rem',
                         marginBottom: '3rem'
                     }}>
@@ -353,7 +354,7 @@ function PackagesContent() {
                                 <div style={{ width: '20px', height: '20px' }}>
                                     {React.createElement(packages[key].icon)}
                                 </div>
-                                {packages[key].title.split(' ')[0]}
+                                {packages[key].title.replace(' Development', '').replace(' App', '')}
                             </button>
                         ))}
                     </div>
