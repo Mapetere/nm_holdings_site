@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 
 export default function About() {
     return (
-        <main className="section-navy" style={{ minHeight: '100vh', padding: '0 0 8rem' }}>
+        <main className="section-navy" style={{ minHeight: '100vh', padding: '8rem 0 8rem' }}>
             <Header />
             <div className="container">
                 {/* Hero Section */}
@@ -65,13 +65,21 @@ export default function About() {
                     border: '1px solid rgba(194, 159, 82, 0.1)',
                     marginBottom: '4rem'
                 }}>
-                    <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--gold)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+                    <div style={{
+                        position: 'relative',
+                        borderRadius: '50%',
+                        overflow: 'hidden',
+                        border: '2px solid var(--gold)',
+                        boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                        width: '200px',
+                        height: '200px',
+                        margin: '0 auto'
+                    }}>
                         <Image
                             src="/lead-engineer.jpg"
                             alt="Nyasha Mapetere - Lead Engineer"
-                            width={400}
-                            height={500}
-                            style={{ width: '100%', height: 'auto', display: 'block' }}
+                            fill
+                            style={{ objectFit: 'cover' }}
                         />
                     </div>
                     <div>
