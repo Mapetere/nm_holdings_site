@@ -9,9 +9,9 @@ import FadeInUp from '@/components/FadeInUp';
 
 export default function OnboardingPage() {
     return (
-        <main className="section-navy" style={{ minHeight: '100vh', padding: '4rem 0' }}>
+        <main className="section-navy" style={{ minHeight: '100vh', padding: '10rem 0 8rem' }}>
             <Header />
-            <div className="container" style={{ marginTop: '6rem' }}>
+            <div className="container">
                 <FadeInUp>
                     <header style={{ textAlign: 'center', marginBottom: '4rem' }}>
                         <div style={{ marginBottom: '2rem' }}>

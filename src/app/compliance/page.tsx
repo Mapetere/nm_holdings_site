@@ -7,7 +7,7 @@ import FadeInUp from '@/components/FadeInUp';
 
 export default function CompliancePage() {
     return (
-        <main className="section-navy" style={{ minHeight: '100vh', padding: '8rem 0' }}>
+        <main className="section-navy" style={{ minHeight: '100vh', padding: '10rem 0 8rem' }}>
             <Header />
             <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
                 <FadeInUp>

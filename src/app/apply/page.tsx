@@ -126,7 +126,7 @@ export default function Apply() {
     }
 
     return (
-        <main className="section-navy" style={{ minHeight: '100vh', padding: '10rem 0 6rem' }}>
+        <main className="section-navy" style={{ minHeight: '100vh', padding: '10rem 0 8rem' }}>
             <Header />
             <div className="container" style={{
                 display: 'grid',
