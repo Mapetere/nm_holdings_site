@@ -75,24 +75,7 @@ export default function Process() {
         <main className="section-navy" style={{ minHeight: '100vh', padding: '10rem 0 8rem', position: 'relative' }}>
             <Header />
 
-            {/* Top Right Back to Home */}
-            <a href="/" style={{
-                position: 'absolute',
-                top: '7rem',
-                right: '2rem',
-                zIndex: 10,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                fontSize: '0.8rem',
-                textTransform: 'uppercase',
-                letterSpacing: '2px',
-                color: 'var(--gold)',
-                textDecoration: 'none',
-                fontWeight: '600'
-            }}>
-                Home <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            </a>
+
 
             <div className="container">
                 <FadeInUp>
