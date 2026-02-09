@@ -72,7 +72,7 @@ export default function About() {
                         <span style={{ textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', fontWeight: '700', fontSize: '0.8rem' }}>Founder & Lead Engineer</span>
                         <h2 className="serif" style={{ fontSize: '2.5rem', margin: '0.5rem 0 1.5rem' }}>Nyasha Mapetere</h2>
                         <p style={{ color: 'rgba(244, 241, 231, 0.7)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem' }}>
-                            With a passion for architecting complex digital systems and a commitment to aesthetic perfection, Nyasha leads the NM Solutions team in delivering elite-level software products.
+                            With a passion for architecting complex digital systems and a commitment to aesthetic precision, Nyasha leads the NM Solutions team in delivering elite-level software products.
                         </p>
                         <a href="/apply" className="btn-gold">Work With Us</a>
                     </div>

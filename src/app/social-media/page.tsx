@@ -171,8 +171,8 @@ export default function SocialMediaPage() {
                     }}>
                         Social Media Services
                     </div>
-                    <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>
-                        Grow Your <span className="gold-metallic">Audience</span>
+                    <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--cream)' }}>
+                        Let's Build <br /> Together
                     </h1>
                     <p style={{ maxWidth: '600px', margin: '0 auto 3rem', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.1rem' }}>
                         Complete social media platform creation, content strategy, and ongoing management

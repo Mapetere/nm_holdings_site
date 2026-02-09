@@ -48,7 +48,7 @@ export default function TermsOfService() {
                     <section style={{ marginBottom: '3rem' }}>
                         <h2 className="serif" style={{ color: 'var(--cream)', fontSize: '1.8rem', marginBottom: '1.5rem' }}>5. Limitations</h2>
                         <p>
-                            Our services are provided "as is." While we strive for perfection in every line of code, we are not liable for indirect or consequential damages arising from the use of our services or website.
+                            Our services are provided "as is." While we strive for excellence in every line of code, we are not liable for indirect or consequential damages arising from the use of our services or website.
                         </p>
                     </section>
                 </div>

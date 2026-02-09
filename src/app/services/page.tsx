@@ -173,9 +173,10 @@ export default function ServicesPage() {
                         lineHeight: '1.1',
                         marginBottom: '1.5rem',
                         maxWidth: '800px',
-                        margin: '0 auto 1.5rem'
+                        margin: '0 auto 1.5rem',
+                        color: 'var(--cream)'
                     }}>
-                        Building <span className="gold-metallic">Stunning</span> Digital Products
+                        Let's Build <br /> Together
                     </h1>
                     <p style={{
                         maxWidth: '650px',

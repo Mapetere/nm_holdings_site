@@ -208,7 +208,7 @@ export default function IndustryExamples() {
                                 className="netflix-card"
                                 style={{
                                     position: 'relative',
-                                    minWidth: '350px',
+                                    minWidth: '280px',
                                     flex: '0 0 auto',
                                     aspectRatio: '16/9',
                                     borderRadius: '8px',
@@ -296,23 +296,31 @@ export default function IndustryExamples() {
                 
                 .netflix-nav {
                     position: absolute;
-                    top: 0;
-                    bottom: 4rem;
-                    width: 50px;
+                    top: 50%;
+                    width: 44px;
+                    height: 44px;
                     z-index: 20;
-                    background: rgba(5, 8, 16, 0.6);
-                    border: none;
+                    background: rgba(244, 241, 231, 0.1);
+                    border: 1px solid rgba(244, 241, 231, 0.2);
+                    border-radius: 50%;
                     color: var(--cream);
                     cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     transition: all 0.3s ease;
-                    opacity: 0;
+                    opacity: 0.4;
+                    transform: translateY(-50%);
+                    backdrop-filter: blur(5px);
                 }
-                .netflix-nav:hover { background: rgba(5, 8, 16, 0.8); color: var(--gold); }
-                .netflix-nav.left { left: 0; border-radius: 0 8px 8px 0; }
-                .netflix-nav.right { right: 0; border-radius: 8px 0 0 8px; }
+                .netflix-nav:hover { 
+                    background: rgba(244, 241, 231, 0.2); 
+                    color: var(--gold);
+                    opacity: 1;
+                    border-color: var(--gold);
+                }
+                .netflix-nav.left { left: 1rem; }
+                .netflix-nav.right { right: 1rem; }
                 
                 div:hover > .netflix-nav { opacity: 1; }
                 
