@@ -11,7 +11,7 @@ const projectTypes = [
     { id: 'construction', label: 'Construction / Trades' },
     { id: 'dashboard', label: 'Business Admin Dashboard' },
     { id: 'mobile', label: 'Mobile Application' },
-    { id: 'custom', label: 'Custom Custom Engineering' },
+    { id: 'custom', label: 'Custom Engineering' },
 ];
 
 export default function Apply() {
@@ -36,7 +36,7 @@ export default function Apply() {
             const form = e.target as HTMLFormElement;
             const formData = new FormData(form);
 
-            const requiredFields = ['fullName', 'businessName', 'email', 'description', 'timeline', 'projectType'];
+            const requiredFields = ['fullName', 'businessName', 'email', 'description', 'projectType'];
             const newErrors: Record<string, boolean> = {};
 
             requiredFields.forEach(field => {
@@ -101,8 +101,8 @@ export default function Apply() {
                             style={{ height: '65px', width: 'auto' }}
                         />
                         <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                            <span className="serif" style={{ fontSize: '2.4rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1', color: 'var(--cream)' }}>
-                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
+                            <span className="serif" style={{ fontSize: '2.5rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1', color: 'var(--cream)' }}>
+                                NMS<span className="gold-metallic" style={{ fontSize: '1.8rem', fontWeight: '700' }}>olutions</span>
                             </span>
                             <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--gold)', opacity: 0.8 }}>
                                 Digital Engineering
@@ -145,8 +145,8 @@ export default function Apply() {
                             />
                         </a>
                         <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-                            <span className="serif" style={{ fontSize: '1.4rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1', color: 'var(--cream)' }}>
-                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
+                            <span className="serif" style={{ fontSize: '1.6rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1', color: 'var(--cream)' }}>
+                                NMS<span className="gold-metallic" style={{ fontSize: '1.3rem', fontWeight: '700' }}>olutions</span>
                             </span>
                             <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
                                 Digital Engineering
@@ -245,16 +245,7 @@ export default function Apply() {
                             <textarea required name="description" rows={4} placeholder="Tell us about your goals, features, and target audience..." style={errors.description ? { ...inputStyle, resize: 'none', borderColor: 'rgba(231, 76, 60, 0.5)' } : { ...inputStyle, resize: 'none' }} onChange={() => setErrors({ ...errors, description: false })} />
                         </div>
 
-                        {/* Timeline */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                            <label style={labelStyle}>Desired Timeline <span style={{ color: 'var(--gold)' }}>*</span></label>
-                            <select required name="timeline" style={errors.timeline ? { ...inputStyle, borderColor: 'rgba(231, 76, 60, 0.5)' } : { ...inputStyle, cursor: 'pointer' }} onChange={() => setErrors({ ...errors, timeline: false })}>
-                                <option value="">Select a timeline...</option>
-                                <option value="urgent">As soon as possible</option>
-                                <option value="month">Within 1-2 months</option>
-                                <option value="planning">Pre-planning stage</option>
-                            </select>
-                        </div>
+
 
                         {/* Consent */}
                         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginTop: '1rem' }}>

@@ -30,7 +30,7 @@ export default function Footer() {
                         />
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <span className="serif" style={{ fontSize: '1.2rem', letterSpacing: '1px', fontWeight: '500', lineHeight: '1', color: 'var(--cream)' }}>
-                                NM<span className="gold-metallic" style={{ fontWeight: '700' }}>SOLUTIONS</span>
+                                NMS<span className="gold-metallic" style={{ fontSize: '1.1rem', fontWeight: '700' }}>olutions</span>
                             </span>
                             <span style={{ fontSize: '0.5rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', opacity: 0.8 }}>
                                 Digital Engineering

@@ -181,10 +181,9 @@ button.btn-gold:disabled {
     transition: var(--transition);
 }
 
-/* Logo Enhancements */
-/* Logo Enhancements: Added for visibility on dark backgrounds */
+/* Logo Enhancements: Cleaned up for a more professional, direct look */
 .logo-enhance {
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+    filter: brightness(1.1);
     transition: var(--transition);
     animation: fadeInLogo 0.4s ease-out forwards;
 }
@@ -202,24 +201,13 @@ button.btn-gold:disabled {
 }
 
 .logo-enhance:hover {
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+    transform: scale(1.05);
 }
 
 .header-glow {
     position: relative;
-}
-
-.header-glow::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 140%;
-    height: 140%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: -1;
+    display: flex;
+    align-items: center;
 }
 
 .glass-card:hover .icon-shell {
