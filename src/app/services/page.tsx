@@ -523,7 +523,7 @@ export default function ServicesPage() {
             }}>
                 <div className="container" style={{ textAlign: 'center' }}>
                     <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.4, fontWeight: '500' }}>
-                        © {new Date().getFullYear()} NM SOLUTIONS — DIGITAL ENGINEERING PRECISION.
+                        © {new Date().getFullYear()} NM SOLUTIONS | DIGITAL ENGINEERING PRECISION.
                     </p>
                 </div>
             </footer>
