@@ -30,9 +30,9 @@ export default function TermsOfService() {
                     </section>
 
                     <section style={{ marginBottom: '3rem' }}>
-                        <h2 className="serif" style={{ color: 'var(--cream)', fontSize: '1.8rem', marginBottom: '1.5rem' }}>2. Founding Client Program</h2>
+                        <h2 className="serif" style={{ color: 'var(--cream)', fontSize: '1.8rem', marginBottom: '1.5rem' }}>2. Project Engagement</h2>
                         <p>
-                            Participation in our founding client program is by application only. Submission of an application does not guarantee acceptance. We reserve the right to select clients based on project alignment and capacity.
+                            We engage with clients on a per-project basis. Initiation of any digital engineering project requires a successful discovery phase and mutual agreement on technical specifications and milestones. We reserve the right to select projects that align with our engineering standards and current capacity.
                         </p>
                     </section>
 

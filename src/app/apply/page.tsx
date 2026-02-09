@@ -137,9 +137,7 @@ export default function Apply() {
             }}>
                 {/* Left Side: Content */}
                 <div style={{ position: 'sticky', top: '6rem' }}>
-
-
-                    <header>
+                    <FadeInUp>
                         <span style={{ textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--gold)', fontWeight: '700', fontSize: '0.75rem' }}>
                             Apply
                         </span>

@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 export async function POST(req: NextRequest) {
     try {
         const data = await req.json();
-        const { fullName, businessName, email, description, problem, timeline, whyFounding } = data;
+        const { fullName, businessName, email, description, problem, timeline, motivation } = data;
 
         // 1. Verify required fields
         if (!fullName || !businessName || !email || !description || !timeline) {
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
                 description,
                 problem,
                 timeline,
-                whyFounding
+                motivation
             });
             console.log('Application saved to MongoDB successfully');
         } catch (dbError) {
@@ -51,10 +51,10 @@ export async function POST(req: NextRequest) {
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: 'support@nmsolutions.co.zw',
-            subject: `New Founding Client Request: ${businessName}`,
+            subject: `New Project Inquiry: ${businessName}`,
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
-                    <h2 style="color: #c29f52; border-bottom: 2px solid #c29f52; padding-bottom: 10px;">New Founding Client Request</h2>
+                    <h2 style="color: #c29f52; border-bottom: 2px solid #c29f52; padding-bottom: 10px;">New Project Inquiry</h2>
                     
                     <p><strong>Full Name:</strong> ${fullName}</p>
                     <p><strong>Business / Brand:</strong> ${businessName}</p>
@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
                     <p><strong>Timeline:</strong> ${timeline}</p>
                     
                     <h3 style="color: #0e1628; margin-top: 20px;">Motivation</h3>
-                    <p>${whyFounding || 'Not specified'}</p>
+                    <p>${motivation || 'Not specified'}</p>
                     
                     <div style="margin-top: 30px; font-size: 12px; color: #888; border-top: 1px solid #eee; padding-top: 10px;">
                         This application was submitted via the NM Solutions website.

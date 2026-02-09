@@ -6,7 +6,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 export const metadata: Metadata = {
     metadataBase: new URL('https://nmsolutions.co.zw'), // Update this to your actual domain
     title: "NM Solutions | Professional Web Engineering & Software Solutions",
-    description: "We craft high-performance websites and custom software solutions. Currently seeking 7 Founding Clients for exclusive partnership benefits.",
+    description: "We craft high-performance websites and custom software solutions tailored to your brand's unique vision and engineering needs.",
     keywords: "web development, software solutions, e-commerce, web engineering, custom software, Zimbabwe",
     openGraph: {
         title: "NM Solutions | Professional Web Engineering",

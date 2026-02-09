@@ -74,7 +74,7 @@ const services = [
     },
     {
         icon: DesktopIcon,
-        title: 'E-Commerce',
+        title: 'E Commerce',
         description: 'Powerful online stores designed to grow your sales and brand.',
         link: '/packages?category=ecommerce',
     },
@@ -244,7 +244,7 @@ export default function ServicesPage() {
                             Product Development <span className="gold-metallic">Flow</span>
                         </h2>
                         <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(5, 8, 16, 0.6)', fontSize: '1.1rem' }}>
-                            A precision-engineered lifecycle designed to deliver elite-level digital products.
+                            A precision engineered lifecycle designed to deliver elite level digital products.
                         </p>
                     </div>
 

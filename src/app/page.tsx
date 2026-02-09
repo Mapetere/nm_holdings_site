@@ -168,7 +168,7 @@ export default function Home() {
             {/* Portfolio Showcase */}
             <PortfolioShowcase />
 
-            {/* The Founding 7 */}
+            {/* Strategic Engagement */}
             <section id="partnership" className="section-cream" style={{
                 padding: '8rem 0',
                 color: 'var(--navy)',
@@ -183,22 +183,22 @@ export default function Home() {
                     }}>
                         <div>
                             <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>
-                                Exclusive Founding Program
+                                Expert Consultation
                             </span>
                             <h2 className="serif" style={{ fontSize: '3.5rem', margin: '1rem 0 2rem', lineHeight: '1.2' }}>
-                                Start Clean. Start Fresh. <br />
-                                <span style={{ color: 'var(--gold)' }}>Lead the Industry.</span>
+                                Engineering Excellence. <br />
+                                <span style={{ color: 'var(--gold)' }}>Strategic Growth.</span>
                             </h2>
                             <p style={{ fontSize: '1.1rem', marginBottom: '2.5rem', opacity: 0.8, lineHeight: '1.8' }}>
-                                Launching this month, NM Solutions is opening its vault to all Small,Medium, Medium-Large and Large Enterprises. This is a head start for 2026 bringing elite infrastructure to visionary local businesses.
+                                NM Solutions is now opening its ecosystem for long-term strategic partnerships. We provide the elite digital infrastructure needed for modern enterprises to dominate their market.
                             </p>
 
                             <div style={{ display: 'grid', gap: '1.25rem' }}>
                                 {[
-                                    'Complimentary Comprehensive Tech Audit',
-                                    'Founding Partner Performance Incentives',
-                                    'Direct Line to Founding Engineers',
-                                    'Priority Roadmap Influence'
+                                    'Comprehensive Technical Infrastructure Audit',
+                                    'Custom Performance Driven Architecture',
+                                    'Dedicated Senior Engineering Support',
+                                    'Scalable Digital Solution Roadmap'
                                 ].map((item, i) => (
                                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                         <div style={{ width: '22px', height: '22px', background: 'var(--navy)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold)', fontSize: '0.7rem' }}>✓</div>
@@ -217,14 +217,14 @@ export default function Home() {
                             border: '1px solid var(--gold)',
                             boxShadow: '0 30px 60px rgba(0,0,0,0.5)'
                         }}>
-                            <div className="gold-metallic big-num">7</div>
-                            <h3 className="serif" style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>Bespoke Slots</h3>
+                            <div className="gold-metallic big-num" style={{ fontSize: '5rem', fontWeight: '800', marginBottom: '1rem' }}>2026</div>
+                            <h3 className="serif" style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>Digital Future</h3>
                             <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '2rem' }}>
-                                Dedicated to the pioneers who value <br />
+                                Build your landmark project with <br />
                                 speed, security, and superior design.
                             </p>
                             <a href="/apply" className="btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
-                                Capture Your Slot
+                                Start Your Project
                             </a>
                         </div>
                     </div>
@@ -236,9 +236,9 @@ export default function Home() {
                 <div className="container">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
                         {[
-                            { title: 'Full-Stack Engineering', Icon: BoltIcon },
+                            { title: 'Full Stack Engineering', Icon: BoltIcon },
                             { title: 'Brand Identity', Icon: PaletteIcon },
-                            { title: 'E-commerce Architecture', Icon: DiamondIcon },
+                            { title: 'E commerce Architecture', Icon: DiamondIcon },
                             { title: 'Cloud Infrastructure', Icon: CloudIcon }
                         ].map((serv, i) => (
                             <div key={i} style={{
