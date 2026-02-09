@@ -77,6 +77,8 @@ const FacebookIcon = () => (
 );
 
 
+import Footer from '@/components/Footer';
+
 export default function Home() {
     return (
         <main>
@@ -257,32 +259,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
-            {/* Footer */}
-            <footer className="section-navy" style={{
-                padding: '4rem 0',
-                borderTop: '1px solid rgba(194, 159, 82, 0.1)'
-            }}>
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
-                        <a href="tel:0774694160" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                            <div style={{ color: 'var(--gold)' }}><PhoneIcon /></div>
-                            0774694160
-                        </a>
-                        <a href="mailto:support@nmsolutions.co.zw" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                            <div style={{ color: 'var(--gold)' }}><MailIcon /></div>
-                            support@nmsolutions.co.zw
-                        </a>
-                        <a href="https://facebook.com/nmsolutions.zw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cream)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                            <div style={{ color: 'var(--gold)' }}><FacebookIcon /></div>
-                            nmsolutions.zw
-                        </a>
-                    </div>
-                    <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '4px', opacity: 0.4, fontWeight: '500' }}>
-                        © {new Date().getFullYear()} NM SOLUTIONS — DIGITAL ENGINEERING PRECISION.
-                    </p>
-                </div>
-            </footer>
+            <Footer />
         </main>
     );
 }
