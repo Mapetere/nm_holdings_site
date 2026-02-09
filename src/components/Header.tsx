@@ -145,7 +145,9 @@ const Header = () => {
                                 ) : activeSection === 'partnership' ? (
                                     <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem' }}>Partnership</span>
                                 ) : (
-                                    <span className="gold-metallic" style={{ fontSize: isScrolled ? '1rem' : '1.3rem' }}>Home</span>
+                                    <span style={{ fontSize: isScrolled ? '1rem' : '1.3rem', display: 'flex', flexDirection: 'column' }}>
+                                        <span className="serif" style={{ color: 'var(--cream)', lineHeight: '1' }}>NMS<span className="gold-metallic" style={{ fontWeight: '700' }}>olutions</span></span>
+                                    </span>
                                 )}
                             </span>
 
@@ -239,14 +241,21 @@ const Header = () => {
                             cursor: 'pointer',
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '8px',
-                            transition: 'color 0.3s ease'
+                            justifyContent: 'center',
+                            width: '40px',
+                            height: '40px',
+                            transition: 'all 0.3s ease'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--gold)'}
-                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--cream)'}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.color = 'var(--gold)';
+                            e.currentTarget.style.transform = 'rotate(90deg)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.color = 'var(--cream)';
+                            e.currentTarget.style.transform = 'rotate(0deg)';
+                        }}
                     >
-                        <span style={{ fontSize: '0.7rem', fontWeight: '700', letterSpacing: '1px' }}>CLOSE</span>
-                        <div style={{ position: 'relative', width: '20px', height: '20px' }}>
+                        <div style={{ position: 'relative', width: '24px', height: '24px' }}>
                             <div style={{ position: 'absolute', top: '50%', left: 0, width: '100%', height: '2px', background: 'currentColor', transform: 'rotate(45deg)' }} />
                             <div style={{ position: 'absolute', top: '50%', left: 0, width: '100%', height: '2px', background: 'currentColor', transform: 'rotate(-45deg)' }} />
                         </div>
@@ -266,9 +275,9 @@ const Header = () => {
                                 style={{
                                     color: 'var(--cream)',
                                     textDecoration: 'none',
-                                    fontSize: '2.5rem',
-                                    fontWeight: '500',
-                                    transition: 'all 0.4s ease',
+                                    fontSize: '1.8rem',
+                                    fontWeight: '600',
+                                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                                     transform: isDrawerOpen ? 'translateY(0)' : 'translateY(20px)',
                                     opacity: isDrawerOpen ? 1 : 0,
                                     transitionDelay: `${0.1 + idx * 0.05}s`,
