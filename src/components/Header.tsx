@@ -166,7 +166,7 @@ const Header = () => {
                         letterSpacing: '1px',
                         transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
                     }}>
-                        {!isScrolled && (
+                        {pathname === '/' && (
                             <>
                                 <Link href="/#vision" className="nav-link" style={{ color: activeSection === 'vision' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'vision')}>Vision</Link>
                                 <Link href="/#capabilities" className="nav-link" style={{ color: activeSection === 'capabilities' ? 'var(--gold)' : 'inherit' }} onClick={(e) => scrollToSection(e, 'capabilities')}>Capabilities</Link>
