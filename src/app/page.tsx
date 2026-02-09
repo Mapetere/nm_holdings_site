@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import PortfolioShowcase from '@/components/PortfolioShowcase';
+import HeroArt from '@/components/HeroArt';
 
 // --- Professional Icon Components ---
 const GlobeIcon = () => (
@@ -121,7 +123,10 @@ export default function Home() {
                 position: 'relative',
                 overflow: 'hidden'
             }}>
-                <div className="container" style={{ textAlign: 'center' }}>
+                {/* Interactive Decorative Art */}
+                <HeroArt />
+
+                <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
                     <div style={{
                         display: 'inline-block',
                         padding: '0.5rem 1.5rem',
@@ -186,6 +191,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* Portfolio Showcase */}
+            <PortfolioShowcase />
 
             {/* The Founding 7 */}
             <section id="partnership" className="section-cream" style={{

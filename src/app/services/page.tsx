@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import PortfolioShowcase from '@/components/PortfolioShowcase';
 
 // Icons
 const GlobeIcon = () => (
@@ -263,6 +264,9 @@ export default function ServicesPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Portfolio Examples */}
+            <PortfolioShowcase />
 
             {/* Development Process Flow - ApexFinish Inspired */}
             <section className="section-cream" style={{ padding: '6rem 0' }}>
