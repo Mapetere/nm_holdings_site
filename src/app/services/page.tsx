@@ -268,69 +268,76 @@ export default function ServicesPage() {
             {/* Portfolio Examples */}
             <PortfolioShowcase />
 
-            {/* Development Process Flow - ApexFinish Inspired */}
-            <section className="section-cream" style={{ padding: '6rem 0' }}>
+            {/* Development Process Flow - Enhanced Visual */}
+            <section id="flow" className="section-cream" style={{ padding: '8rem 0', background: '#f9f7f0' }}>
                 <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--navy)' }}>
-                            Product Development Flow
+                    <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
+                        <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Method</span>
+                        <h2 className="serif" style={{ fontSize: '3.5rem', marginBottom: '1rem', color: 'var(--navy)' }}>
+                            Product Development <span className="gold-metallic">Flow</span>
                         </h2>
-                        <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(5, 8, 16, 0.6)' }}>
-                            From initial research to final delivery, here is how we bring your project to life.
+                        <p style={{ maxWidth: '600px', margin: '0 auto', color: 'rgba(5, 8, 16, 0.6)', fontSize: '1.1rem' }}>
+                            A precision-engineered lifecycle designed to deliver elite-level digital products.
                         </p>
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
-                        {/* Connection Line */}
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                        gap: '2rem',
+                        position: 'relative'
+                    }}>
+                        {/* Connecting Line (Desktop) */}
                         <div style={{
                             position: 'absolute',
-                            top: '35px',
-                            left: '10%',
-                            right: '10%',
-                            height: '2px',
-                            background: 'linear-gradient(90deg, var(--gold) 0%, rgba(194, 159, 82, 0.3) 50%, var(--gold) 100%)',
+                            top: '40px',
+                            left: '50px',
+                            right: '50px',
+                            height: '1px',
+                            background: 'rgba(194, 159, 82, 0.3)',
                             zIndex: 0
-                        }} />
+                        }} className="hide-mobile" />
 
                         {processSteps.map((step, i) => (
                             <div key={i} style={{
-                                flex: 1,
                                 textAlign: 'center',
                                 position: 'relative',
                                 zIndex: 1
                             }}>
                                 <div style={{
-                                    width: '70px',
-                                    height: '70px',
-                                    margin: '0 auto 1.5rem',
+                                    width: '80px',
+                                    height: '80px',
+                                    margin: '0 auto 2rem',
                                     background: 'var(--navy)',
                                     borderRadius: '50%',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    border: '3px solid var(--gold)',
-                                    boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
-                                }}>
-                                    <span className="gold-metallic" style={{
+                                    border: '2px solid var(--gold)',
+                                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                                    transition: 'transform 0.3s ease'
+                                }} className="step-circle">
+                                    <span style={{
                                         fontSize: '1.5rem',
-                                        fontWeight: '700'
+                                        fontWeight: '700',
+                                        color: 'var(--gold)'
                                     }}>
                                         {step.step}
                                     </span>
                                 </div>
-                                <h4 style={{
-                                    fontSize: '1.1rem',
+                                <h4 className="serif" style={{
+                                    fontSize: '1.25rem',
                                     fontWeight: '600',
-                                    marginBottom: '0.5rem',
+                                    marginBottom: '1rem',
                                     color: 'var(--navy)'
                                 }}>
                                     {step.title}
                                 </h4>
+                                <div style={{ width: '30px', height: '2px', background: 'var(--gold)', margin: '0 auto 1.5rem', opacity: 0.5 }} />
                                 <p style={{
-                                    fontSize: '0.85rem',
-                                    color: 'rgba(5, 8, 16, 0.6)',
-                                    lineHeight: '1.6',
-                                    maxWidth: '160px',
+                                    fontSize: '0.9rem',
+                                    color: 'rgba(5, 8, 16, 0.7)',
+                                    lineHeight: '1.7',
                                     margin: '0 auto'
                                 }}>
                                     {step.description}
@@ -339,6 +346,17 @@ export default function ServicesPage() {
                         ))}
                     </div>
                 </div>
+                <style dangerouslySetInnerHTML={{
+                    __html: `
+                    @media (max-width: 991px) {
+                        .hide-mobile { display: none !important; }
+                    }
+                    .step-circle:hover {
+                        transform: translateY(-5px) scale(1.05);
+                        border-color: var(--gold);
+                        box-shadow: 0 15px 40px rgba(194, 159, 82, 0.2);
+                    }
+                `}} />
             </section>
 
             {/* About / Value Proposition Section */}
@@ -514,10 +532,10 @@ export default function ServicesPage() {
                         </a>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Footer */}
-            <footer className="section-navy" style={{
+            < footer className="section-navy" style={{
                 padding: '3rem 0',
                 borderTop: '1px solid rgba(194, 159, 82, 0.1)'
             }}>
@@ -526,7 +544,7 @@ export default function ServicesPage() {
                         © {new Date().getFullYear()} NM SOLUTIONS | DIGITAL ENGINEERING PRECISION.
                     </p>
                 </div>
-            </footer>
-        </main>
+            </footer >
+        </main >
     );
 }

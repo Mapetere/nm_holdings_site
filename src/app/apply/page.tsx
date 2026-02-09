@@ -157,9 +157,9 @@ export default function Apply() {
                     <span style={{ textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--gold)', fontWeight: '700', fontSize: '0.75rem' }}>
                         Project Discovery
                     </span>
-                    <h1 className="serif" style={{ fontSize: '4rem', lineHeight: '1.1', margin: '1rem 0 2rem' }}>
+                    <h1 className="serif" style={{ fontSize: '4rem', lineHeight: '1.1', margin: '1rem 0 2rem', color: 'var(--cream)' }}>
                         Let's Build <br />
-                        <span className="gold-metallic">Something Elite</span>
+                        Together
                     </h1>
                     <p style={{
                         fontSize: '1.2rem',
@@ -167,7 +167,7 @@ export default function Apply() {
                         color: 'rgba(244, 241, 231, 0.6)',
                         maxWidth: '450px'
                     }}>
-                        Ready to transform your vision into a high-performance digital ecosystem? Tell us about your project, and let's engineer the perfect solution for your brand.
+                        Ready to transform your vision into a high-performance digital ecosystem? Tell us about your project, and let's engineer the solution for your brand.
                     </p>
 
                     <div style={{ marginTop: '3rem', padding: '2rem', background: 'rgba(194, 159, 82, 0.05)', borderRadius: '24px', border: '1px solid rgba(194, 159, 82, 0.1)' }}>
