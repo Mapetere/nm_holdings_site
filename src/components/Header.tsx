@@ -62,7 +62,7 @@ const Header = () => {
         { name: 'Packages', href: '/packages' },
         { name: 'Tech Stack', href: '/tech-stack' },
         { name: 'Onboarding', href: '/onboarding' },
-        { name: 'Apply', href: '/apply' },
+        { name: 'Project Discovery', href: '/apply' },
         { name: 'Compliance', href: '/compliance' },
         { name: 'Social Media', href: '/social-media' }
     ];

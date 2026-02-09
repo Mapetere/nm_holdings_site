@@ -8,7 +8,7 @@ import BackToHome from '@/components/BackToHome';
 import FadeInUp from '@/components/FadeInUp';
 
 const projectTypes = [
-    { id: 'ecommerce', label: 'E-Commerce / Hardware Shop' },
+    { id: 'ecommerce', label: 'E Commerce / Hardware Shop' },
     { id: 'cosmetics', label: 'Beauty & Cosmetics Store' },
     { id: 'fashion', label: 'Fashion Boutique' },
     { id: 'grocery', label: 'Grocery / Fresh Produce' },
@@ -139,9 +139,9 @@ export default function Apply() {
                 <div style={{ position: 'sticky', top: '6rem' }}>
 
 
-                    <FadeInUp>
+                    <header>
                         <span style={{ textTransform: 'uppercase', letterSpacing: '3px', color: 'var(--gold)', fontWeight: '700', fontSize: '0.75rem' }}>
-                            Project Discovery
+                            Apply
                         </span>
                         <h1 className="serif" style={{ fontSize: '4rem', lineHeight: '1.1', margin: '1rem 0 2rem', color: 'var(--cream)' }}>
                             Let's Build <br />
