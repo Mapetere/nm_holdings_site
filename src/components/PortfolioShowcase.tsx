@@ -280,7 +280,7 @@ export default function IndustryExamples() {
                         maxWidth: '500px',
                         margin: '0 auto 1.5rem'
                     }}>
-                        We build custom solutions for any business. Tell us what you need and we'll create something perfect for you.
+                        We build custom solutions for any business. Tell us what you need and we'll create something for you.
                     </p>
                     <a href="/apply" className="btn-gold">
                         Let's Talk About Your Project

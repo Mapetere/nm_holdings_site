@@ -1,0 +1,83 @@
+'use client';
+import React from 'react';
+import Image from 'next/image';
+
+export default function About() {
+    return (
+        <main className="section-navy" style={{ minHeight: '100vh', padding: '8rem 0' }}>
+            <div className="container">
+                {/* Hero Section */}
+                <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
+                    <span style={{ textTransform: 'uppercase', letterSpacing: '4px', fontWeight: '700', fontSize: '0.75rem', color: 'var(--gold)' }}>Our Story</span>
+                    <h1 className="serif" style={{ fontSize: '4.5rem', margin: '1rem 0' }}>Engineering <span className="gold-metallic">Excellence</span></h1>
+                    <p style={{ maxWidth: '700px', margin: '0 auto', color: 'rgba(244, 241, 231, 0.6)', fontSize: '1.25rem', lineHeight: '1.8' }}>
+                        NM Solutions was founded on the principle that digital presence should be an asset, not just an expense. We combine elite-level code with visionary design.
+                    </p>
+                </div>
+
+                {/* Mission & Vision Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '4rem', marginBottom: '8rem' }}>
+                    <div className="glass-card" style={{ padding: '3rem' }}>
+                        <h2 className="serif" style={{ color: 'var(--gold)', fontSize: '2rem', marginBottom: '1.5rem' }}>Our Mission</h2>
+                        <p style={{ color: 'rgba(244, 241, 231, 0.7)', lineHeight: '1.8', fontSize: '1.1rem' }}>
+                            To empower brands with bespoke digital ecosystems that drive growth, enhance user experience, and set new industry standards for performance and reliability.
+                        </p>
+                    </div>
+                    <div className="glass-card" style={{ padding: '3rem' }}>
+                        <h2 className="serif" style={{ color: 'var(--gold)', fontSize: '2rem', marginBottom: '1.5rem' }}>Our Vision</h2>
+                        <p style={{ color: 'rgba(244, 241, 231, 0.7)', lineHeight: '1.8', fontSize: '1.1rem' }}>
+                            To be the premier digital engineering partner for visionary companies, known for our commitment to quality, innovation, and technological mastery.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Core Values Section */}
+                <div style={{ marginBottom: '8rem' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <h2 className="serif" style={{ fontSize: '3rem' }}>Our <span className="gold-metallic">Core Values</span></h2>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: 'Quality First', desc: 'We never settle for "good enough." Every line of code is written with precision.' },
+                            { title: 'Integrity', desc: 'Transparent communication and honest partnerships are the bedrock of our business.' },
+                            { title: 'Innovation', desc: 'We stay at the bleeding edge of technology to provide competitive advantages.' },
+                            { title: 'Client Centric', desc: 'Your business goals are our primary focus. We engineer for your success.' }
+                        ].map((value, i) => (
+                            <div key={i} style={{ textAlign: 'center', padding: '2rem' }}>
+                                <h3 className="serif" style={{ color: 'var(--cream)', fontSize: '1.5rem', marginBottom: '1rem' }}>{value.title}</h3>
+                                <p style={{ color: 'rgba(244, 241, 231, 0.5)', fontSize: '0.95rem', lineHeight: '1.6' }}>{value.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Founder Section */}
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1.5fr',
+                    gap: '4rem',
+                    alignItems: 'center',
+                    background: 'rgba(194, 159, 82, 0.05)',
+                    padding: '4rem',
+                    borderRadius: '32px',
+                    border: '1px solid rgba(194, 159, 82, 0.1)'
+                }}>
+                    <div style={{ position: 'relative', aspectRatio: '1', borderRadius: '20px', overflow: 'hidden', border: '2px solid var(--gold)' }}>
+                        {/* Placeholder for founder image */}
+                        <div style={{ width: '100%', height: '100%', background: 'linear-gradient(45deg, var(--navy), var(--gold))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <span className="serif" style={{ color: 'var(--gold)', fontSize: '4rem' }}>NM</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span style={{ textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', fontWeight: '700', fontSize: '0.8rem' }}>Founder & Lead Engineer</span>
+                        <h2 className="serif" style={{ fontSize: '2.5rem', margin: '0.5rem 0 1.5rem' }}>Nyasha Mapetere</h2>
+                        <p style={{ color: 'rgba(244, 241, 231, 0.7)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2rem' }}>
+                            With a passion for architecting complex digital systems and a commitment to aesthetic perfection, Nyasha leads the NM Solutions team in delivering elite-level software products.
+                        </p>
+                        <a href="/apply" className="btn-gold">Work With Us</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
+}
