@@ -270,9 +270,241 @@ const packages = {
     },
 };
 
+
+// Modal Styles
+const modalOverlayStyle = {
+    position: 'fixed' as const,
+    inset: 0,
+    background: 'rgba(5, 8, 16, 0.85)',
+    backdropFilter: 'blur(8px)',
+    zIndex: 2000,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '1rem',
+    opacity: 0,
+    visibility: 'hidden' as const,
+    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+};
+
+const modalContentStyle = {
+    background: 'var(--navy)',
+    borderRadius: '24px',
+    border: '1px solid rgba(194, 159, 82, 0.2)',
+    width: '100%',
+    maxWidth: '550px',
+    padding: '2.5rem',
+    position: 'relative' as const,
+    transform: 'translateY(20px)',
+    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+    maxHeight: '90vh',
+    overflowY: 'auto' as const
+};
+
+const labelStyle = {
+    fontSize: '0.75rem',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '2px',
+    fontWeight: '700',
+    color: 'rgba(244, 241, 231, 0.5)'
+};
+
+const inputStyle = {
+    padding: '1rem',
+    borderRadius: '12px',
+    background: 'rgba(244, 241, 231, 0.05)',
+    border: '1px solid rgba(244, 241, 231, 0.1)',
+    color: 'var(--cream)',
+    fontSize: '0.95rem',
+    fontFamily: 'inherit',
+    outline: 'none',
+    width: '100%'
+};
+
+function PackageInquiryModal({
+    isOpen,
+    onClose,
+    packageDetails
+}: {
+    isOpen: boolean;
+    onClose: () => void;
+    packageDetails: { name: string; category: string; price: string } | null
+}) {
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
+    const [formData, setFormData] = useState({
+        fullName: '',
+        businessName: '',
+        email: '',
+        description: '',
+        consent: false
+    });
+
+    // Reset state when modal opens
+    useEffect(() => {
+        if (isOpen) {
+            setSuccess(false);
+            setError('');
+            setFormData({ fullName: '', businessName: '', email: '', description: '', consent: false });
+        }
+    }, [isOpen]);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setError('');
+
+        if (!formData.consent) {
+            setError('Please accept the consent checkbox.');
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const projectTypeMap: Record<string, string> = {
+                'ecommerce': 'ecommerce',
+                'mobile': 'mobile',
+                'desktop': 'custom' // Defaulting desktop to custom as strict mapping might vary
+            };
+
+            const payload = {
+                ...formData,
+                projectType: projectTypeMap[packageDetails?.category || ''] || 'custom',
+                selectedPackageName: packageDetails?.name,
+                selectedPackageCategory: packageDetails?.category,
+                selectedPackagePrice: packageDetails?.price
+            };
+
+            const response = await fetch('/api/apply', {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (response.ok) {
+                setSuccess(true);
+            } else {
+                setError('Submission failed. Please try again.');
+            }
+        } catch (err) {
+            setError('Connection error. Please check your internet.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    if (!isOpen) return null;
+
+    return (
+        <div style={{
+            ...modalOverlayStyle,
+            opacity: isOpen ? 1 : 0,
+            visibility: isOpen ? 'visible' : 'hidden'
+        }} onClick={onClose}>
+            <div style={{
+                ...modalContentStyle,
+                transform: isOpen ? 'translateY(0)' : 'translateY(20px)'
+            }} onClick={e => e.stopPropagation()}>
+
+                {/* Close Button */}
+                <button
+                    onClick={onClose}
+                    style={{
+                        position: 'absolute',
+                        top: '1.5rem',
+                        right: '1.5rem',
+                        background: 'none',
+                        border: 'none',
+                        color: 'rgba(244, 241, 231, 0.5)',
+                        cursor: 'pointer'
+                    }}
+                >
+                    <XIcon />
+                </button>
+
+                {success ? (
+                    <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+                        <div style={{ color: '#4ade80', marginBottom: '1rem', width: '50px', height: '50px', margin: '0 auto 1rem' }}>
+                            <CheckIcon />
+                        </div>
+                        <h3 className="serif" style={{ fontSize: '2rem', marginBottom: '1rem' }}>Received!</h3>
+                        <p style={{ color: 'rgba(244, 241, 231, 0.7)', marginBottom: '2rem' }}>
+                            We've received your inquiry for the <span style={{ color: 'var(--gold)' }}>{packageDetails?.name}</span> package. A senior engineer will confirm your details shortly.
+                        </p>
+                        <button onClick={onClose} className="btn-gold" style={{ width: '100%', justifyContent: 'center' }}>Close</button>
+                    </div>
+                ) : (
+                    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                            <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--gold)', fontWeight: '700' }}>Inquire for</span>
+                            <h3 className="serif" style={{ fontSize: '1.8rem', color: 'var(--cream)', margin: '0.5rem 0' }}>{packageDetails?.name}</h3>
+                            <div className="gold-metallic" style={{ fontSize: '1.25rem', fontWeight: '700' }}>{packageDetails?.price}</div>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                <label style={labelStyle}>Name <span style={{ color: 'var(--gold)' }}>*</span></label>
+                                <input required placeholder="Your Name" style={inputStyle}
+                                    value={formData.fullName} onChange={e => setFormData({ ...formData, fullName: e.target.value })} />
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                <label style={labelStyle}>Business <span style={{ color: 'var(--gold)' }}>*</span></label>
+                                <input required placeholder="Brand Name" style={inputStyle}
+                                    value={formData.businessName} onChange={e => setFormData({ ...formData, businessName: e.target.value })} />
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                            <label style={labelStyle}>Email <span style={{ color: 'var(--gold)' }}>*</span></label>
+                            <input required type="email" placeholder="you@company.com" style={inputStyle}
+                                value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} />
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                            <label style={labelStyle}>Brief Vision (Optional)</label>
+                            <textarea rows={3} placeholder="Any specific requirements?" style={{ ...inputStyle, resize: 'none' }}
+                                value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} />
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                            <input
+                                type="checkbox"
+                                id="modalConsent"
+                                checked={formData.consent}
+                                onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                                style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: 'var(--gold)', marginTop: '2px' }}
+                            />
+                            <label htmlFor="modalConsent" style={{ fontSize: '0.8rem', color: 'rgba(244, 241, 231, 0.6)', cursor: 'pointer' }}>
+                                I agree to be contacted regarding this project inquiry. <span style={{ color: 'var(--gold)' }}>*</span>
+                            </label>
+                        </div>
+
+                        {error && <div style={{ color: '#ef4444', fontSize: '0.9rem', textAlign: 'center' }}>{error}</div>}
+
+                        <button type="submit" className="btn-gold" disabled={loading} style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.7 : 1 }}>
+                            {loading ? 'Sending...' : 'Send Inquiry'}
+                        </button>
+                    </form>
+                )}
+            </div>
+        </div>
+    );
+}
+
 function PackagesContent() {
     const searchParams = useSearchParams();
     const [activeCategory, setActiveCategory] = useState<PackageCategory>('ecommerce');
+
+    // Modal State
+    const [modalOpen, setModalOpen] = useState(false);
+    const [selectedPkg, setSelectedPkg] = useState<{ name: string; category: string; price: string } | null>(null);
+
+    const openModal = (pkg: { name: string; category: string; price: string }) => {
+        setSelectedPkg(pkg);
+        setModalOpen(true);
+    };
+
     const currentPackage = packages[activeCategory];
 
     // Read category from URL on mount
@@ -287,6 +519,8 @@ function PackagesContent() {
     return (
         <main>
             <Header />
+
+            <PackageInquiryModal isOpen={modalOpen} onClose={() => setModalOpen(false)} packageDetails={selectedPkg} />
 
             {/* Hero Section */}
             <section className="section-navy" style={{ padding: '10rem 0 4rem' }}>
@@ -412,8 +646,8 @@ function PackagesContent() {
                                     <div className="gold-metallic" style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '0.5rem' }}>
                                         {tier.price}
                                     </div>
-                                    <p style={{ fontSize: '0.85rem', color: 'rgba(244, 241, 231, 0.5)', marginBottom: '2rem' }}>
-                                        {tier.bestFor}
+                                    <p style={{ fontSize: '0.75rem', color: 'rgba(244, 241, 231, 0.4)', marginTop: '0.5rem', marginBottom: '2rem', fontStyle: 'italic' }}>
+                                        No credit card required
                                     </p>
                                     <div style={{ borderTop: '1px solid rgba(194, 159, 82, 0.2)', paddingTop: '1.5rem' }}>
                                         {tier.features.map((feature: { text: string; included: boolean } | string, j: number) => {
@@ -442,18 +676,23 @@ function PackagesContent() {
                                             );
                                         })}
                                     </div>
-                                    <Link
-                                        href={`/apply?package=${encodeURIComponent(tier.name)}&category=${activeCategory}&price=${encodeURIComponent(tier.price)}`}
+                                    <button
+                                        onClick={() => openModal({
+                                            name: tier.name,
+                                            category: activeCategory,
+                                            price: tier.price
+                                        })}
                                         className="btn-gold"
                                         style={{
                                             width: '100%',
                                             justifyContent: 'center',
                                             marginTop: '2rem',
-                                            textDecoration: 'none'
+                                            textDecoration: 'none',
+                                            cursor: 'pointer'
                                         }}
                                     >
                                         Get Started <ArrowIcon />
-                                    </Link>
+                                    </button>
                                 </div>
                             </FadeInUp>
                         ))}
