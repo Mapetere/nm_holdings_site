@@ -54,7 +54,7 @@ type PackageCategory = 'ecommerce' | 'mobile' | 'desktop';
 
 const packages = {
     ecommerce: {
-        title: 'E-commerce Development',
+        title: 'E commerce Development',
         subtitle: 'Online Stores & Sales Platforms',
         icon: GlobeIcon,
         tiers: [
@@ -66,7 +66,7 @@ const packages = {
                     { text: 'Up to 20 product listings', included: true },
                     { text: 'Simple product categories', included: true },
                     { text: 'Contact form for inquiries', included: true },
-                    { text: 'Mobile-responsive design', included: true },
+                    { text: 'Mobile responsive design', included: true },
                     { text: 'Basic SEO setup', included: true },
                     { text: 'Free domain registration (1 Yr)', included: true },
                     { text: 'Free SSL/TLS certificate', included: true },
@@ -91,7 +91,7 @@ const packages = {
                     { text: 'Up to 100 product listings', included: true },
                     { text: 'Product categories & search', included: true },
                     { text: 'Contact form for inquiries', included: true },
-                    { text: 'Mobile-responsive design', included: true },
+                    { text: 'Mobile responsive design', included: true },
                     { text: 'SEO optimization', included: true },
                     { text: 'Free domain registration (1 Yr)', included: true },
                     { text: 'Free SSL/TLS certificate', included: true },
@@ -115,7 +115,7 @@ const packages = {
                     { text: 'Unlimited product listings', included: true },
                     { text: 'Advanced categories & filtering', included: true },
                     { text: 'Contact form for inquiries', included: true },
-                    { text: 'Mobile-responsive design', included: true },
+                    { text: 'Mobile responsive design', included: true },
                     { text: 'Advanced SEO & analytics', included: true },
                     { text: 'Free domain registration (1 Yr)', included: true },
                     { text: 'Free SSL/TLS certificate', included: true },
@@ -171,7 +171,7 @@ const packages = {
             {
                 name: 'Standard',
                 price: '$900',
-                bestFor: 'Growing businesses needing cross-platform reach',
+                bestFor: 'Growing businesses ready for cross platform reach',
                 popular: true,
                 features: [
                     'Everything in Basic, plus:',
@@ -455,7 +455,7 @@ function PackagesContent() {
                             Need Custom Features?
                         </h3>
                         <p style={{ color: 'rgba(244, 241, 231, 0.6)', marginBottom: '1rem' }}>
-                            For add-on costs and custom requirements, contact our support team.
+                            For add on costs and custom requirements, contact our support team.
                         </p>
                         <a href="/apply" style={{ color: 'var(--gold)', fontWeight: '600', textDecoration: 'none' }}>
                             Contact Support →
