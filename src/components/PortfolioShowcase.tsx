@@ -1,6 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Industry = 'all' | 'retail' | 'services' | 'food' | 'tech';
 
@@ -91,16 +92,28 @@ const industries = [
 export default function IndustryExamples() {
     const [activeIndustry, setActiveIndustry] = useState<Industry | 'all'>('all');
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     const filteredItems = activeIndustry === 'all'
         ? exampleItems
         : exampleItems.filter(item => item.industry === activeIndustry);
 
+    const scroll = (direction: 'left' | 'right') => {
+        if (scrollRef.current) {
+            const { scrollLeft, clientWidth } = scrollRef.current;
+            const scrollAmount = clientWidth * 0.8;
+            scrollRef.current.scrollTo({
+                left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
-        <section id="examples" className="section-navy" style={{ padding: '6rem 0' }}>
-            <div className="container">
+        <section id="examples" className="section-navy" style={{ padding: '6rem 0', overflow: 'hidden' }}>
+            <div className="container" style={{ position: 'relative' }}>
                 {/* Section Header */}
-                <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <span style={{
                         textTransform: 'uppercase',
                         letterSpacing: '4px',
@@ -108,9 +121,9 @@ export default function IndustryExamples() {
                         fontSize: '0.75rem',
                         color: 'var(--gold)'
                     }}>
-                        Your Industry, Your Solution
+                        Bespoke Engineering
                     </span>
-                    <h2 className="serif" style={{ fontSize: '3rem', margin: '1rem 0' }}>
+                    <h2 className="serif" style={{ fontSize: '3.5rem', margin: '1rem 0' }}>
                         What Can We <span className="gold-metallic">Build For You?</span>
                     </h2>
                     <p style={{
@@ -121,7 +134,7 @@ export default function IndustryExamples() {
                         lineHeight: '1.8'
                     }}>
                         Every business is unique. Here are examples of what we can create —
-                        tell us about your industry and we'll engineer the perfect solution.
+                        tell us about your industry and we'll engineer the solution.
                     </p>
                 </div>
 
@@ -156,104 +169,140 @@ export default function IndustryExamples() {
                     ))}
                 </div>
 
-                {/* Netflix-style Scroll Container */}
-                <div style={{
-                    display: 'flex',
-                    gap: '1.5rem',
-                    overflowX: 'auto',
-                    padding: '1rem 0 3rem',
-                    scrollbarWidth: 'none',
-                    msOverflowStyle: 'none',
-                    scrollSnapType: 'x mandatory',
-                    WebkitOverflowScrolling: 'touch'
-                }} className="netflix-scroll">
+                {/* Carousel Navigation Arrows */}
+                <div style={{ display: filteredItems.length > 3 ? 'block' : 'none' }}>
+                    <button
+                        onClick={() => scroll('left')}
+                        className="carousel-btn left"
+                        aria-label="Previous"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
+                    </button>
+                    <button
+                        onClick={() => scroll('right')}
+                        className="carousel-btn right"
+                        aria-label="Next"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
+                    </button>
+                </div>
+
+                {/* Horizontal Scroll Area */}
+                <div
+                    ref={scrollRef}
+                    className="carousel-scroll"
+                    style={{
+                        display: 'flex',
+                        gap: '2rem',
+                        overflowX: 'auto',
+                        padding: '1rem 0 3rem',
+                        scrollSnapType: 'x mandatory',
+                        msOverflowStyle: 'none',
+                        scrollbarWidth: 'none'
+                    }}
+                >
                     {filteredItems.map((item, index) => (
                         <div
                             key={item.id}
                             onMouseEnter={() => setHoveredItem(item.id)}
                             onMouseLeave={() => setHoveredItem(null)}
-                            className="glass-card"
+                            className="glass-card example-card"
                             style={{
                                 padding: 0,
-                                minWidth: '350px',
+                                minWidth: '400px',
                                 flex: '0 0 auto',
                                 overflow: 'hidden',
-                                opacity: 0,
                                 scrollSnapAlign: 'start',
-                                animation: `fadeSlideIn 0.5s ease forwards ${index * 0.1}s`
+                                position: 'relative',
+                                border: hoveredItem === item.id ? '1px solid var(--gold)' : '1px solid rgba(194, 159, 82, 0.1)',
+                                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
                             }}
                         >
                             {/* Image Container */}
-                            <div style={{
-                                position: 'relative',
-                                aspectRatio: '4/3',
-                                overflow: 'hidden'
-                            }}>
+                            <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden' }}>
                                 <Image
                                     src={item.image}
                                     alt={item.title}
                                     fill
                                     style={{
                                         objectFit: 'cover',
-                                        transition: 'transform 0.5s ease',
-                                        transform: hoveredItem === item.id ? 'scale(1.05)' : 'scale(1)'
+                                        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                                        transform: hoveredItem === item.id ? 'scale(1.1)' : 'scale(1)',
+                                        filter: hoveredItem === item.id ? 'brightness(0.3)' : 'brightness(0.8)'
                                     }}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
-                                {/* Gradient Overlay */}
+
+                                {/* Hover revealed button */}
                                 <div style={{
                                     position: 'absolute',
                                     inset: 0,
-                                    background: 'linear-gradient(to top, rgba(5, 8, 16, 0.9) 0%, rgba(5, 8, 16, 0.1) 100%)',
-                                }} />
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '1.5rem',
+                                    opacity: hoveredItem === item.id ? 1 : 0,
+                                    transition: 'all 0.4s ease',
+                                    zIndex: 5,
+                                    padding: '2rem',
+                                    textAlign: 'center'
+                                }}>
+                                    <h4 className="serif gold-metallic" style={{
+                                        fontSize: '1.8rem',
+                                        transform: hoveredItem === item.id ? 'translateY(0)' : 'translateY(-20px)',
+                                        transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                                    }}>
+                                        {item.title}
+                                    </h4>
+                                    <Link
+                                        href={`/apply?project=${item.id}`}
+                                        className="btn-gold"
+                                        style={{
+                                            padding: '1rem 2rem',
+                                            fontSize: '0.9rem',
+                                            transform: hoveredItem === item.id ? 'translateY(0)' : 'translateY(20px)',
+                                            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                                        }}
+                                    >
+                                        I Want Something Like This
+                                    </Link>
+                                </div>
                             </div>
 
-                            {/* Content */}
-                            <div style={{ padding: '1.5rem' }}>
-                                {/* Question */}
-                                <p style={{
-                                    fontSize: '0.85rem',
+                            {/* Info Section (Visible when not hovered or subtly dimmed) */}
+                            <div style={{ padding: '2rem', transition: 'all 0.4s ease', opacity: hoveredItem === item.id ? 0.3 : 1 }}>
+                                <span style={{
+                                    fontSize: '0.75rem',
                                     color: 'var(--gold)',
-                                    marginBottom: '0.5rem',
-                                    fontWeight: '500',
-                                    fontStyle: 'italic'
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '2px',
+                                    fontWeight: '700',
+                                    display: 'block',
+                                    marginBottom: '0.5rem'
                                 }}>
                                     {item.question}
-                                </p>
-
-                                <h3 className="serif" style={{
-                                    fontSize: '1.4rem',
-                                    color: 'var(--cream)',
-                                    marginBottom: '0.75rem'
-                                }}>
+                                </span>
+                                <h3 className="serif" style={{ fontSize: '1.6rem', color: 'var(--cream)', marginBottom: '1rem' }}>
                                     {item.title}
                                 </h3>
                                 <p style={{
-                                    fontSize: '0.9rem',
+                                    fontSize: '0.95rem',
                                     color: 'rgba(244, 241, 231, 0.6)',
-                                    marginBottom: '1rem',
-                                    lineHeight: '1.6'
+                                    lineHeight: '1.7',
+                                    marginBottom: '1.5rem'
                                 }}>
                                     {item.description}
                                 </p>
-
-                                {/* Feature Tags */}
-                                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
-                                    {item.features.map(feature => (
-                                        <span
-                                            key={feature}
-                                            style={{
-                                                padding: '0.25rem 0.75rem',
-                                                background: 'rgba(194, 159, 82, 0.15)',
-                                                border: '1px solid rgba(194, 159, 82, 0.3)',
-                                                borderRadius: '20px',
-                                                fontSize: '0.7rem',
-                                                color: 'var(--gold)',
-                                                fontWeight: '500'
-                                            }}
-                                        >
-                                            {feature}
-                                        </span>
+                                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                                    {item.features.map(f => (
+                                        <span key={f} style={{
+                                            fontSize: '0.7rem',
+                                            color: 'var(--gold)',
+                                            background: 'rgba(194, 159, 82, 0.1)',
+                                            padding: '0.35rem 0.85rem',
+                                            borderRadius: '20px',
+                                            border: '1px solid rgba(194, 159, 82, 0.2)'
+                                        }}>{f}</span>
                                     ))}
                                 </div>
                             </div>
@@ -264,57 +313,65 @@ export default function IndustryExamples() {
                 {/* Bottom CTA */}
                 <div style={{
                     textAlign: 'center',
-                    marginTop: '4rem',
-                    padding: '3rem',
+                    marginTop: '5rem',
+                    padding: '4rem',
                     background: 'rgba(194, 159, 82, 0.05)',
                     border: '1px solid rgba(194, 159, 82, 0.15)',
-                    borderRadius: '24px'
+                    borderRadius: '32px'
                 }}>
-                    <h3 className="serif" style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>
+                    <h3 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
                         Don't See Your Industry?
                     </h3>
                     <p style={{
                         color: 'rgba(244, 241, 231, 0.6)',
-                        marginBottom: '1.5rem',
-                        fontSize: '1.05rem',
-                        maxWidth: '500px',
-                        margin: '0 auto 1.5rem'
+                        marginBottom: '2rem',
+                        fontSize: '1.1rem',
+                        maxWidth: '600px',
+                        margin: '0 auto 2rem'
                     }}>
                         We build custom solutions for any business. Tell us what you need and we'll create something for you.
                     </p>
-                    <a href="/apply" className="btn-gold">
+                    <Link href="/apply" className="btn-gold" style={{ padding: '1.2rem 3rem' }}>
                         Let's Talk About Your Project
-                    </a>
+                    </Link>
                 </div>
             </div>
 
-            {/* Scoped Styles */}
             <style dangerouslySetInnerHTML={{
                 __html: `
-                @keyframes fadeSlideIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
+                .carousel-scroll::-webkit-scrollbar { display: none; }
+                .carousel-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+                
+                .carousel-btn {
+                    position: absolute;
+                    top: 55%;
+                    z-index: 20;
+                    background: rgba(5, 8, 16, 0.8);
+                    border: 1px solid var(--gold);
+                    borderRadius: 50%;
+                    width: 60px;
+                    height: 60px;
+                    color: var(--gold);
+                    cursor: pointer;
+                    display: flex;
+                    alignItems: center;
+                    justifyContent: center;
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
                 }
-                .netflix-scroll::-webkit-scrollbar {
-                    display: none;
+                .carousel-btn:hover { background: var(--gold); color: var(--navy); }
+                .carousel-btn.left { left: -30px; }
+                .carousel-btn.right { right: -30px; }
+
+                @media (max-width: 1400px) {
+                    .carousel-btn.left { left: 10px; }
+                    .carousel-btn.right { right: 10px; }
                 }
-                .netflix-scroll {
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-                }
+
                 @media (max-width: 768px) {
-                    #examples h2 {
-                        font-size: 2rem !important;
-                    }
-                    #examples > div > div:nth-child(3) {
-                        grid-template-columns: 1fr !important;
-                    }
+                    .carousel-btn { display: none !important; }
+                    .example-card { min-width: 320px !important; }
+                    .container { padding: 0 1.5rem !important; }
                 }
             `}} />
         </section>
