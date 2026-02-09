@@ -47,23 +47,25 @@ export default function Footer() {
                     </p>
                 </div>
 
-                {/* Services Column */}
+                {/* Quick Links Column */}
                 <div>
-                    <h4 style={{ color: 'var(--gold)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem', fontWeight: '700' }}>Services</h4>
+                    <h4 style={{ color: 'var(--gold)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem', fontWeight: '700' }}>Quick Links</h4>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                        <li><Link href="/services" style={linkStyle}>Web Engineering</Link></li>
-                        <li><Link href="/social-media" style={linkStyle}>Strategic Presence</Link></li>
-                        <li><Link href="/packages" style={linkStyle}>Packages</Link></li>
+                        <li><Link href="/#vision" style={linkStyle}>Vision</Link></li>
+                        <li><Link href="/#capabilities" style={linkStyle}>Capabilities</Link></li>
+                        <li><Link href="/#examples" style={linkStyle}>Portfolio</Link></li>
+                        <li><Link href="/#partnership" style={linkStyle}>Partnership</Link></li>
                     </ul>
                 </div>
 
-                {/* Development Column */}
+                {/* Services & Packages Column */}
                 <div>
-                    <h4 style={{ color: 'var(--gold)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem', fontWeight: '700' }}>Development</h4>
+                    <h4 style={{ color: 'var(--gold)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem', fontWeight: '700' }}>Resources</h4>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                        <li><Link href="/services" style={linkStyle}>Services</Link></li>
+                        <li><Link href="/packages" style={linkStyle}>Packages</Link></li>
                         <li><Link href="/tech-stack" style={linkStyle}>Tech Stack</Link></li>
-                        <li><span style={{ ...linkStyle, cursor: 'default' }}>Vite & Next.js</span></li>
-                        <li><span style={{ ...linkStyle, cursor: 'default' }}>AWS Infrastructure</span></li>
+                        <li><Link href="/onboarding" style={linkStyle}>Onboarding</Link></li>
                     </ul>
                 </div>
 
@@ -71,10 +73,10 @@ export default function Footer() {
                 <div>
                     <h4 style={{ color: 'var(--gold)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '1.5rem', fontWeight: '700' }}>Company</h4>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                        <li><Link href="/about" style={linkStyle}>About Us</Link></li>
-                        <li><Link href="/apply" style={linkStyle}>Contact Us</Link></li>
-                        <li><Link href="/privacy" style={linkStyle}>Privacy Policy</Link></li>
-                        <li><Link href="/terms" style={linkStyle}>Terms of Service</Link></li>
+                        <li><Link href="/about" style={linkStyle}>About Us Us</Link></li>
+                        <li><Link href="/apply" style={linkStyle}>Apply / Contact</Link></li>
+                        <li><Link href="/social-media" style={linkStyle}>Social Media</Link></li>
+                        <li><Link href="/privacy" style={linkStyle}>Privacy & Terms</Link></li>
                     </ul>
                 </div>
             </div>
