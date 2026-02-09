@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function FadeInUp({
     children,
-    delay = 0.5, // The instruction "Change delay default value" was given, but no new value was specified.
+    delay = 0.2, // The instruction "Change delay default value" was given, but no new value was specified.
     duration = 0.8,
     y = 50
 }: {
