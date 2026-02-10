@@ -62,7 +62,6 @@ const Header = () => {
         { name: 'Product Development Flow', href: '/process' },
         { name: 'Packages', href: '/packages' },
         { name: 'Tech Stack', href: '/tech-stack' },
-        { name: 'Onboarding', href: '/onboarding' },
         { name: 'Project Discovery', href: '/apply' },
         { name: 'Contact Us', href: '/contact' },
         { name: 'Compliance', href: '/compliance' },

@@ -65,7 +65,6 @@ export default function Footer() {
                         <li><Link href="/services" style={linkStyle}>Services</Link></li>
                         <li><Link href="/packages" style={linkStyle}>Packages</Link></li>
                         <li><Link href="/tech-stack" style={linkStyle}>Tech Stack</Link></li>
-                        <li><Link href="/onboarding" style={linkStyle}>Onboarding</Link></li>
                     </ul>
                 </div>
 
