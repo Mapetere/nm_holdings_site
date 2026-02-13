@@ -17,7 +17,7 @@ const ClientApplicationSchema: Schema = new Schema({
     email: { type: String, required: true },
     description: { type: String, required: true },
     problem: { type: String },
-    timeline: { type: String, required: true },
+    timeline: { type: String },
     whyFounding: { type: String },
     createdAt: { type: Date, default: Date.now }
 });

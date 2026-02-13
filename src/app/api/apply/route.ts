@@ -17,8 +17,8 @@ export async function POST(req: NextRequest) {
         const data = await req.json();
         const { fullName, businessName, email, description, problem, timeline, motivation } = data;
 
-        // 1. Verify required fields
-        if (!fullName || !businessName || !email || !description || !timeline) {
+        // 1. Verify required fields (Note: timeline removed from required for package inquiries)
+        if (!fullName || !businessName || !email || !description) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
@@ -60,13 +60,22 @@ export async function POST(req: NextRequest) {
                     <p><strong>Business / Brand:</strong> ${businessName}</p>
                     <p><strong>Email Address:</strong> ${email}</p>
                     
-                    <h3 style="color: #0e1628; margin-top: 20px;">Business Focus</h3>
+                    ${data.selectedPackageName ? `
+                    <div style="margin: 20px 0; padding: 15px; background: #fdfaf3; border: 1px solid #c29f52; border-radius: 6px;">
+                        <h4 style="margin: 0 0 10px; color: #c29f52;">Selected Package</h4>
+                        <p style="margin: 0;"><strong>Package:</strong> ${data.selectedPackageName}</p>
+                        <p style="margin: 0;"><strong>Category:</strong> ${data.selectedPackageCategory || 'Not specified'}</p>
+                        <p style="margin: 0;"><strong>Price:</strong> ${data.selectedPackagePrice || 'Not specified'}</p>
+                    </div>
+                    ` : ''}
+
+                    <h3 style="color: #0e1628; margin-top: 20px;">Business Focus / Project Vision</h3>
                     <p>${description}</p>
                     
                     <h3 style="color: #0e1628; margin-top: 20px;">Current Challenges</h3>
                     <p>${problem || 'Not specified'}</p>
                     
-                    <p><strong>Timeline:</strong> ${timeline}</p>
+                    <p><strong>Timeline:</strong> ${timeline || 'Not specified'}</p>
                     
                     <h3 style="color: #0e1628; margin-top: 20px;">Motivation</h3>
                     <p>${motivation || 'Not specified'}</p>
